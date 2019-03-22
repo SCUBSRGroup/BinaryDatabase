@@ -8,7 +8,8 @@
 
 
 
-* [SoK-Security-Evaluation-of-Home-Based-IoT-Deployments-S&P](Paper/Fuzzing/papers/SoK-Security-Evaluation-of-Home-Based-IoT-Deployments.md)
+[SoK-Security-Evaluation-of-Home-Based-IoT-Deployments-S&P](Paper/Fuzzing/papers/SoK-Security-Evaluation-of-Home-Based-IoT-Deployments.md)
+
 ---
 ### 2018年
 
