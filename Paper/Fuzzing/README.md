@@ -5,9 +5,11 @@
 * [Fuzzing-Art-Science-and-Engineering](https://github.com/SCUBSRGroup/BinaryDatabase/blob/master/Paper/Fuzzing/papers/Fuzzing-Art-Science-and-Engineering.md)
 #### 研究性工作
 
+---
 ### 2018年
 #### 综述
 
+#### 研究性工作
 * [Angora-Efficient-Fuzzing-by-Principled-Search](https://github.com/SCUBSRGroup/BinaryDatabase/blob/master/Paper/Fuzzing/papers/Angora-Efficient-Fuzzing-by-Principled-Search.md)
 * [Automated-Detection-Exploitation-and-Elimination-of-Double-Fetch-Bugs-Using-Modern-CPU-Features](https://github.com/SCUBSRGroup/BinaryDatabase/blob/master/Paper/Fuzzing/papers/Automated-Detection-Exploitation-and-Elimination-of-Double-Fetch-Bugs-Using-Modern-CPU-Features.md)
 * [Check-It-Again-Detecting-Lacking-Recheck-Bugs-in-OS-Kernels](https://github.com/SCUBSRGroup/BinaryDatabase/blob/master/Paper/Fuzzing/papers/Check-It-Again-Detecting-Lacking-Recheck-Bugs-in-OS-Kernels.md)
