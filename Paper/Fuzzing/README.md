@@ -11,7 +11,7 @@
 #### 综述
 
 #### 研究性工作
-* [Automated-Detection-Exploitation-and-Elimination-of-Double-Fetch-Bugs-Using-Modern-CPU-Features-AsiaCCS](https://github.com/SCUBSRGroup/BinaryDatabase/blob/master/Paper/Fuzzing/papers/Automated-Detection-Exploitation-and-Elimination-of-Double-Fetch-Bugs-Using-Modern-CPU-Features.md)
+
 * [Check-It-Again-Detecting-Lacking-Recheck-Bugs-in-OS-Kernels-CCS](https://github.com/SCUBSRGroup/BinaryDatabase/blob/master/Paper/Fuzzing/papers/Check-It-Again-Detecting-Lacking-Recheck-Bugs-in-OS-Kernels.md)
 * [HEAPHOPPER-Bringing-Bounded-Model-Checking-to-Heap-Implementation-Security-NDSS](https://github.com/SCUBSRGroup/BinaryDatabase/blob/master/Paper/Fuzzing/papers/HEAPHOPPER-Bringing-Bounded-Model-Checking-to-Heap-Implementation-Security.md)
 * [Towards-Paving-the-Way-for-Large-Scale-Windows-Malware-Analysis-Generic-Binary-Unpacking-With-Orders-of-Magnitude-Performance-Boost-CCS](https://github.com/SCUBSRGroup/BinaryDatabase/blob/master/Paper/Fuzzing/papers/Towards-Paving-the-Way-for-Large-Scale-Windows-Malware-Analysis-Generic-Binary-Unpacking-With-Orders-of-Magnitude-Performance-Boost.md)
