@@ -1,14 +1,3 @@
----
-title: Fuzzing 学习资源汇总
-date: 2019-03-08 21:17:19
-tags:
-- Fuzzing
-- 学习资料
-categories:
-- 学习资料
-- Fuzzing
----
-
 **本文主要是收集和整理与fuzzing相关的资料，包括学习资料，论文、工具等，旨在能更方便的学习fuzzing，为后续做相关研究做铺垫。**
 
 # **fuzzing书籍**
