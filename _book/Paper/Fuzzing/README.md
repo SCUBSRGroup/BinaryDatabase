@@ -17,7 +17,7 @@
 #### 研究性工作
 
 * [Check-It-Again-Detecting-Lacking-Recheck-Bugs-in-OS-Kernels-CCS](Paper/Fuzzing/papers/Check-It-Again-Detecting-Lacking-Recheck-Bugs-in-OS-Kernels.md)
-* [HEAPHOPPER-Bringing-Bounded-Model-Checking-to-Heap-Implementation-Security-NDSS](papers/HEAPHOPPER-Bringing-Bounded-Model-Checking-to-Heap-Implementation-Security.md)
+* [Automated-Detection-Exploitation-and-Elimination-of-Double-Fetch-Bugs-Using-Modern-CPU-Features](Paper/Fuzzing/papers/Automated-Detection-Exploitation-and-Elimination-of-Double-Fetch-Bugs-Using-Modern-CPU-Features.md)
 * [Towards-Paving-the-Way-for-Large-Scale-Windows-Malware-Analysis-Generic-Binary-Unpacking-With-Orders-of-Magnitude-Performance-Boost-CCS](Paper/Fuzzing/papers/Towards-Paving-the-Way-for-Large-Scale-Windows-Malware-Analysis-Generic-Binary-Unpacking-With-Orders-of-Magnitude-Performance-Boost.md)
 * [Using-Logic-Programming-to-Recover-C-Classes-and-Methods-From-Compiled-Executables-CCS](Paper/Fuzzing/papers/Using-Logic-Programming-to-Recover-C-Classes-and-Methods-From-Compiled-Executables.md)
 * [Enforcing-Unique-Code-Target-Property-for-Control-Flow-Integrity-CCS](Paper/Fuzzing/papers/Enforcing-Unique-Code-Target-Property-for-Control-Flow-Integrity.md)
