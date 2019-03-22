@@ -1,1 +1,1 @@
----[Angora-Efficient-Fuzzing-by-Principled-Search](https://github.com/SCUBSRGroup/BinaryDatabase/blob/master/Paper/Fuzzing/Angora-Efficient-Fuzzing-by-Principled-Search.md)
+[Angora-Efficient-Fuzzing-by-Principled-Search](https://github.com/SCUBSRGroup/BinaryDatabase/blob/master/Paper/Fuzzing/Angora-Efficient-Fuzzing-by-Principled-Search.md)
