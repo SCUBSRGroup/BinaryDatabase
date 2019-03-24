@@ -422,6 +422,148 @@ Executables
                                 <section class="normal markdown-section">
                                 
                                 <p><strong>&#x672C;&#x6587;&#x4E3B;&#x8981;&#x662F;&#x6536;&#x96C6;&#x548C;&#x6574;&#x7406;&#x4E0E;fuzzing&#x76F8;&#x5173;&#x7684;&#x8D44;&#x6599;&#xFF0C;&#x5305;&#x62EC;&#x5B66;&#x4E60;&#x8D44;&#x6599;&#xFF0C;&#x8BBA;&#x6587;&#x3001;&#x5DE5;&#x5177;&#x7B49;&#xFF0C;&#x65E8;&#x5728;&#x80FD;&#x66F4;&#x65B9;&#x4FBF;&#x7684;&#x5B66;&#x4E60;fuzzing&#xFF0C;&#x4E3A;&#x540E;&#x7EED;&#x505A;&#x76F8;&#x5173;&#x7814;&#x7A76;&#x505A;&#x94FA;&#x57AB;&#x3002;</strong></p>
+<h1 id="&#x76EE;-&#x5F55;">&#x76EE; &#x5F55;</h1>
+<hr>
+<ul>
+<li><a href="#fuzzing%E4%B9%A6%E7%B1%8D"><strong>fuzzing&#x4E66;&#x7C4D;</strong></a></li>
+<li><a href="#fuzzing-%E5%AD%A6%E4%B9%A0%E8%A7%86%E9%A2%91">fuzzing &#x5B66;&#x4E60;&#x89C6;&#x9891;</a></li>
+<li><a href="#%E6%95%99%E7%A8%8B%E5%92%8C%E5%8D%9A%E5%AE%A2">&#x6559;&#x7A0B;&#x548C;&#x535A;&#x5BA2;</a></li>
+<li><a href="#fuzzer%E5%B7%A5%E5%85%B7">Fuzzer&#x5DE5;&#x5177;</a><ul>
+<li><a href="#cloud-fuzzers">Cloud Fuzzers</a><ul>
+<li><a href="#rest-ler-2019">REST-ler-2019</a></li>
+<li><a href="#cloudfuzzer-2017">Cloudfuzzer-2017</a></li>
+</ul>
+</li>
+<li><a href="#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F-fuzzers"><strong>&#x6587;&#x4EF6;&#x7CFB;&#x7EDF; Fuzzers</strong></a><ul>
+<li><a href="#redqueen-2019">REDQUEEN-2019</a></li>
+<li><a href="#profuzzer-2019">ProFuzzer-2019</a></li>
+<li><a href="#untracer-afl-2019">UnTracer-AFL-2019</a></li>
+<li><a href="#superion-2019">Superion-2019</a></li>
+<li><a href="#slf-2019">SLF-2019</a></li>
+<li><a href="#eclipser-2019">Eclipser-2019</a></li>
+<li><a href="#hawkeye-2018">Hawkeye-2018</a></li>
+<li><a href="#collafl-2018">CollAFL-2018</a></li>
+<li><a href="#perffuzz-2018">PerfFuzz-2018</a></li>
+<li><a href="#t-fuzz-2018">T-Fuzz-2018</a></li>
+<li><a href="#fairfuzz-2018">FairFuzz-2018</a></li>
+<li><a href="#angora-2018">Angora-2018</a></li>
+<li><a href="#qsym-2018">QSYM-2018</a></li>
+<li><a href="#grammarinator-2018">Grammarinator-2018</a></li>
+<li><a href="#vuzzer-2017">Vuzzer-2017</a></li>
+<li><a href="#quickfuzz-2017">QuickFuzz-2017</a></li>
+<li><a href="#aflgo-2017">AFLGo-2017</a></li>
+<li><a href="#skyfire-2017">Skyfire-2017</a></li>
+<li><a href="#hodor-2016">Hodor-2016</a></li>
+<li><a href="#win-afl-2016">Win AFL-2016</a></li>
+<li><a href="#aflfast-2016">AFLFast-2016</a></li>
+<li><a href="#shellphish-fuzzer-2016">Shellphish Fuzzer-2016</a></li>
+<li><a href="#sanitizers-2016google">sanitizers-2016&#xFF08;google&#xFF09;</a></li>
+<li><a href="#hodor-fuzzer-2016">Hodor Fuzzer-2016</a></li>
+<li><a href="#driller-2016">Driller-2016</a></li>
+<li><a href="#mowf-2016">MoWF-2016</a></li>
+<li><a href="#mozpeach-2015">MozPeach-2015</a></li>
+<li><a href="#afl-2015">AFL-2015</a></li>
+<li><a href="#honggfuzz-2015google">honggfuzz-2015(google)</a></li>
+<li><a href="#symfuzz-2015">SymFuzz-2015</a></li>
+<li><a href="#choronzon-2015">Choronzon-2015</a></li>
+<li><a href="#ansvif-2015">ansvif-2015</a></li>
+<li><a href="#binspector-2014">binspector-2014</a></li>
+<li><a href="#cert-basic-fuzzing-framework-bff-for-linux-2014">CERT Basic Fuzzing Framework (BFF) For Linux-2014</a></li>
+<li><a href="#cert-failure-observation-engine-foefor-windows-2014">CERT Failure Observation Engine (FOE)For windows-2014</a></li>
+<li><a href="#pathgrind-2013">Pathgrind-2013</a></li>
+<li><a href="#rmadair-2012">rmadair-2012</a></li>
+<li><a href="#radamsa-2012">radamsa-2012</a></li>
+<li><a href="#kemufuzzer-2010">KEMUfuzzer-2010</a></li>
+<li><a href="#zzuf-2007">zzuf-2007</a></li>
+<li><a href="#peach-fuzzer-2004">Peach Fuzzer-2004</a></li>
+</ul>
+</li>
+<li><a href="#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-fuzzers"><strong>&#x673A;&#x5668;&#x5B66;&#x4E60; Fuzzers</strong></a><ul>
+<li><a href="#v-fuzz-2019">V-Fuzz-2019</a></li>
+<li><a href="#neuzz-2019">NEUZZ-2019</a></li>
+<li><a href="#deephunter-2018">DeepHunter-2018</a></li>
+<li><a href="#tensorfuzz-2018">Tensorfuzz-2018</a></li>
+<li><a href="#ramfuzz-2017">RamFuzz-2017</a></li>
+<li><a href="#neural-fuzzer-2016">Neural Fuzzer-2016</a></li>
+<li><a href="#pulsar-2015-%E5%8D%8F%E8%AE%AE">Pulsar-2015-&#x534F;&#x8BAE;</a></li>
+</ul>
+</li>
+<li><a href="#kernel-fuzzers"><strong>Kernel Fuzzers</strong></a><ul>
+<li><a href="#janus-2019">JANUS-2019</a></li>
+<li><a href="#razzer-2019">RAZZER-2019</a></li>
+<li><a href="#periscope-2019">PeriScope-2019</a></li>
+<li><a href="#syzkaller-2017google">syzkaller-2017(google)</a></li>
+<li><a href="#kafl-2017">kAFL-2017</a></li>
+<li><a href="#triforceafl-2016">TriforceAFL-2016</a></li>
+<li><a href="#kernelfuzzer-2016">KernelFuzzer-2016</a></li>
+</ul>
+</li>
+<li><a href="#%E6%B5%8F%E8%A7%88%E5%99%A8-fuzzers"><strong>&#x6D4F;&#x89C8;&#x5668; Fuzzers</strong></a><ul>
+<li><a href="#ifuzzer-2016">IFuzzer-2016]</a></li>
+<li><a href="#kitty-2016">Kitty-2016</a></li>
+<li><a href="#wadi-fuzzer-2015">Wadi-fuzzer-2015</a></li>
+<li><a href="#nightmare-2014">Nightmare-2014</a></li>
+<li><a href="#gramfuzz-2013">gramfuzz-2013</a></li>
+<li><a href="#nodefuzz-2012">NodeFuzz-2012</a></li>
+<li><a href="#grinder-2011">Grinder-2011</a></li>
+</ul>
+</li>
+<li><a href="#activex-fuzzers"><strong>ActiveX Fuzzers</strong></a><ul>
+<li><a href="#dranzer-2008">dranzer-2008</a></li>
+</ul>
+</li>
+<li><a href="#library-fuzeers"><strong>Library Fuzeers</strong></a><ul>
+<li><a href="#libfuzzer">libFuzzer</a></li>
+</ul>
+</li>
+<li><a href="#%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AEfuzzers"><strong>&#x7F51;&#x7EDC;&#x534F;&#x8BAE;Fuzzers</strong></a><ul>
+<li><a href="#sulley-2007">Sulley-2007</a></li>
+<li><a href="#sulley_l2-2008">Sulley_l2-2008</a></li>
+<li><a href="#boofuzz-2012">boofuzz-2012</a></li>
+<li><a href="#backfuzz-2012">backfuzz-2012</a></li>
+<li><a href="#spike-2010">Spike-2010</a></li>
+<li><a href="#%E7%9B%B8%E5%85%B3%E8%B5%84%E6%96%99"><strong>&#x76F8;&#x5173;&#x8D44;&#x6599;&#xFF1A;</strong></a></li>
+<li><a href="#dizzy-2018">Dizzy-2018</a></li>
+</ul>
+</li>
+<li><a href="#%E5%88%86%E5%B8%83%E5%BC%8F-fuzzers"><strong>&#x5206;&#x5E03;&#x5F0F; Fuzzers</strong></a><ul>
+<li><a href="#clusterfuzz-2019google">ClusterFuzz-2019(google)</a></li>
+<li><a href="#fuzzinator-2018">fuzzinator-2018</a></li>
+<li><a href="#%E7%9B%B8%E5%85%B3%E8%B5%84%E6%96%99-1"><strong>&#x76F8;&#x5173;&#x8D44;&#x6599;&#xFF1A;</strong></a></li>
+<li><a href="#oss-fuzz-2017google">OSS-fuzz-2017&#xFF08;google&#xFF09;</a></li>
+<li><a href="#fuzzflow-2016">FuzzFlow-2016</a></li>
+<li><a href="#brundlefuzz-2016">BrundleFuzz-2016</a></li>
+</ul>
+</li>
+<li><a href="#%E8%AF%84%E4%BC%B0-fuzzers"><strong>&#x8BC4;&#x4F30; Fuzzers</strong></a><ul>
+<li><a href="#evaluating-fuzz-testing">Evaluating Fuzz Testing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#%E6%B1%A1%E7%82%B9%E5%88%86%E6%9E%90%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7-">**&#x6C61;&#x70B9;&#x5206;&#x6790;&#x76F8;&#x5173;&#x5DE5;&#x5177; **</a><ul>
+<li><a href="#panda"><a href="https://github\.com/moyix/panda" target="_blank">PANDA</a></a></li>
+<li><a href="#qira"><a href="http://qira\.me/" rel="nofollow" target="_blank">QIRA</a></a></li>
+<li><a href="#kfetch-toolkit"><a href="https://github\.com/j00ru/kfetch-toolkit" target="_blank">kfetch\-toolkit</a></a></li>
+</ul>
+</li>
+<li><a href="#%E7%AC%A6%E5%8F%B7%E6%89%A7%E8%A1%8C%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7"><strong>&#x7B26;&#x53F7;&#x6267;&#x884C;&#x76F8;&#x5173;&#x5DE5;&#x5177;</strong></a><ul>
+<li><a href="#z3"><a href="https://github\.com/Z3Prover/z3" target="_blank">Z3</a></a></li>
+<li><a href="#smt-lib"><a href="http://smtlib\.cs\.uiowa\.edu/" rel="nofollow" target="_blank">SMT-LIB</a></a></li>
+</ul>
+</li>
+<li><a href="#%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7"><strong>&#x8F85;&#x52A9;&#x5DE5;&#x5177;</strong></a><ul>
+<li><a href="#%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7">&#x8C03;&#x8BD5;&#x5DE5;&#x5177;</a></li>
+<li><a href="#%E5%8F%8D%E7%BC%96%E8%AF%91"><strong>&#x53CD;&#x7F16;&#x8BD1;</strong></a></li>
+<li><a href="#%E5%85%B6%E5%AE%83"><strong>&#x5176;&#x5B83;</strong></a></li>
+<li><a href="#%E6%BC%8F%E6%B4%9E%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F">&#x6F0F;&#x6D1E;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;</a><ul>
+<li><a href="#%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95%E6%A0%B7%E6%9C%AC%E6%96%87%E4%BB%B6">&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x6837;&#x672C;&#x6587;&#x4EF6;</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
 <h1 id="fuzzing&#x4E66;&#x7C4D;"><strong>fuzzing&#x4E66;&#x7C4D;</strong></h1>
 <blockquote>
 <p><a href="https://www.amazon.com/Fuzzing-Brute-Force-Vulnerability-Discovery/dp/0321446119" target="_blank">&#x300A;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;-&#x5F3A;&#x5236;&#x6027;&#x5B89;&#x5168;&#x6F0F;&#x6D1E;&#x53D1;&#x6398;&#x300B;</a>&#x4F5C;&#x8005;&#xFF1A; Michael Sutton, Adam Greene, Pedram Amini&#x3002;</p>
@@ -1416,7 +1558,7 @@ Wadi&#x662F;&#x4E00;&#x4E2A;Fuzzing&#x6A21;&#x5757;&#xFF0C;&#x7528;&#x4E8E;NodeF
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Fuzzing 学习资源汇总","level":"1.2","depth":1,"next":{"title":"Paper","level":"1.3","depth":1,"path":"Paper/README.md","ref":"Paper/README.md","articles":[{"title":"Fuzzing 摘要","level":"1.3.1","depth":2,"path":"Paper/Fuzzing/README.md","ref":"Paper/Fuzzing/README.md","articles":[{"title":"Check-It-Again-Detecting-Lacking-Recheck-Bugs-in-OS-Kernels（CCS）","level":"1.3.1.1","depth":3,"path":"Paper/Fuzzing/papers/Check-It-Again-Detecting-Lacking-Recheck-Bugs-in-OS-Kernels.md","ref":"Paper/Fuzzing/papers/Check-It-Again-Detecting-Lacking-Recheck-Bugs-in-OS-Kernels.md","articles":[]},{"title":"VUzzer-Application-aware-Evolutionary-Fuzzing（NDSS）","level":"1.3.1.2","depth":3,"path":"Paper/Fuzzing/papers/VUzzer-Application-aware-Evolutionary-Fuzzing.md","ref":"Paper/Fuzzing/papers/VUzzer-Application-aware-Evolutionary-Fuzzing.md","articles":[]},{"title":"Angora: Efficient Fuzzing by Principled Search","level":"1.3.1.3","depth":3,"path":"Paper/Fuzzing/papers/Angora-Efficient-Fuzzing-by-Principled-Search.md","ref":"Paper/Fuzzing/papers/Angora-Efficient-Fuzzing-by-Principled-Search.md","articles":[]},{"title":"Automated Detection Exploitation and Elimination of Double-Fetch Bugs Using\nModern CPU Features","level":"1.3.1.4","depth":3,"path":"Paper/Fuzzing/papers/Automated-Detection-Exploitation-and-Elimination-of-Double-Fetch-Bugs-Using-Modern-CPU-Features.md","ref":"Paper/Fuzzing/papers/Automated-Detection-Exploitation-and-Elimination-of-Double-Fetch-Bugs-Using-Modern-CPU-Features.md","articles":[]},{"title":"Digtool: A Virtualization-Based Framework for Detecting Kernel Vulnerabilities","level":"1.3.1.5","depth":3,"path":"Paper/Fuzzing/papers/Digtool-A-Virtualization-Based-Framework-for-Detecting-Kernel-Vulnerabilities.md","ref":"Paper/Fuzzing/papers/Digtool-A-Virtualization-Based-Framework-for-Detecting-Kernel-Vulnerabilities.md","articles":[]},{"title":"Enforcing Unique Code Target Property for Control-Flow Integrity","level":"1.3.1.6","depth":3,"path":"Paper/Fuzzing/papers/Enforcing-Unique-Code-Target-Property-for-Control-Flow-Integrity.md","ref":"Paper/Fuzzing/papers/Enforcing-Unique-Code-Target-Property-for-Control-Flow-Integrity.md","articles":[]},{"title":"Fuzzing: Art, Science, and Engineering","level":"1.3.1.7","depth":3,"path":"Paper/Fuzzing/papers/Fuzzing-Art-Science-and-Engineering.md","ref":"Paper/Fuzzing/papers/Fuzzing-Art-Science-and-Engineering.md","articles":[]},{"title":"NAR-Miner Discovering Negative Association Rules from Code","level":"1.3.1.8","depth":3,"path":"Paper/Fuzzing/papers/NAR-Miner-Discovering-Negative-Association-Rules-from-Code.md","ref":"Paper/Fuzzing/papers/NAR-Miner-Discovering-Negative-Association-Rules-from-Code.md","articles":[]},{"title":"SoK: Security Evaluation of Home-Based IoT Deployments","level":"1.3.1.9","depth":3,"path":"Paper/Fuzzing/papers/SoK-Security-Evaluation-of-Home-Based-IoT-Deployments.md","ref":"Paper/Fuzzing/papers/SoK-Security-Evaluation-of-Home-Based-IoT-Deployments.md","articles":[]},{"title":"Towards Paving the Way for Large-Scale Windows Malware Analysis: Generic\nBinary Unpacking With Orders-of-Magnitude Performance Boost","level":"1.3.1.10","depth":3,"path":"Paper/Fuzzing/papers/Towards-Paving-the-Way-for-Large-Scale-Windows-Malware-Analysis-Generic-Binary-Unpacking-With-Orders-of-Magnitude-Performance-Boost.md","ref":"Paper/Fuzzing/papers/Towards-Paving-the-Way-for-Large-Scale-Windows-Malware-Analysis-Generic-Binary-Unpacking-With-Orders-of-Magnitude-Performance-Boost.md","articles":[]},{"title":" Using Logic Programming to Recover C++ Classes and Methods From Compiled\nExecutables","level":"1.3.1.11","depth":3,"path":"Paper/Fuzzing/papers/Using-Logic-Programming-to-Recover-C-Classes-and-Methods-From-Compiled-Executables.md","ref":"Paper/Fuzzing/papers/Using-Logic-Programming-to-Recover-C-Classes-and-Methods-From-Compiled-Executables.md","articles":[]}]},{"title":"AutomatedExploit 摘要","level":"1.3.2","depth":2,"path":"Paper/AutomatedExploit/README.md","ref":"Paper/AutomatedExploit/README.md","articles":[{"title":"HEAPHOPPER-Bringing-Bounded-Model-Checking-to-Heap-Implementation-Security","level":"1.3.2.1","depth":3,"path":"Paper/AutomatedExploit/papers/HEAPHOPPER-Bringing-Bounded-Model-Checking-to-Heap-Implementation-Security.md","ref":"Paper/AutomatedExploit/papers/HEAPHOPPER-Bringing-Bounded-Model-Checking-to-Heap-Implementation-Security.md","articles":[]}]},{"title":"ReverseEngineering 摘要","level":"1.3.3","depth":2,"path":"Paper/ReverseEngineering/README.md","ref":"Paper/ReverseEngineering/README.md","articles":[{"title":"Lord of the X86 Rings: A Portable User Mode Privilege Separation Architecture on X86","level":"1.3.3.1","depth":3,"path":"Paper/ReverseEngineering/papers/Lord-of-the-X86-Rings-A-Portable-User-Mode-Privilege-Separation-Architecture-on-X86.md","ref":"Paper/ReverseEngineering/papers/Lord-of-the-X86-Rings-A-Portable-User-Mode-Privilege-Separation-Architecture-on-X86.md","articles":[]},{"title":"Superset Disassembly: Statically Rewriting X86 Binaries Without Heuristics Disassembly","level":"1.3.3.2","depth":3,"path":"Paper/ReverseEngineering/papers/Superset-Disassembly-Statically-Rewriting-X86-Binaries-Without-Heuristics-Disassembly.md","ref":"Paper/ReverseEngineering/papers/Superset-Disassembly-Statically-Rewriting-X86-Binaries-Without-Heuristics-Disassembly.md","articles":[]}]}]},"previous":{"title":"简介","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Fuzzing-学习资源汇总.md","mtime":"2019-03-23T01:25:15.549Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-23T03:40:35.532Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Fuzzing 学习资源汇总","level":"1.2","depth":1,"next":{"title":"Paper","level":"1.3","depth":1,"path":"Paper/README.md","ref":"Paper/README.md","articles":[{"title":"Fuzzing 摘要","level":"1.3.1","depth":2,"path":"Paper/Fuzzing/README.md","ref":"Paper/Fuzzing/README.md","articles":[{"title":"Check-It-Again-Detecting-Lacking-Recheck-Bugs-in-OS-Kernels（CCS）","level":"1.3.1.1","depth":3,"path":"Paper/Fuzzing/papers/Check-It-Again-Detecting-Lacking-Recheck-Bugs-in-OS-Kernels.md","ref":"Paper/Fuzzing/papers/Check-It-Again-Detecting-Lacking-Recheck-Bugs-in-OS-Kernels.md","articles":[]},{"title":"VUzzer-Application-aware-Evolutionary-Fuzzing（NDSS）","level":"1.3.1.2","depth":3,"path":"Paper/Fuzzing/papers/VUzzer-Application-aware-Evolutionary-Fuzzing.md","ref":"Paper/Fuzzing/papers/VUzzer-Application-aware-Evolutionary-Fuzzing.md","articles":[]},{"title":"Angora: Efficient Fuzzing by Principled Search","level":"1.3.1.3","depth":3,"path":"Paper/Fuzzing/papers/Angora-Efficient-Fuzzing-by-Principled-Search.md","ref":"Paper/Fuzzing/papers/Angora-Efficient-Fuzzing-by-Principled-Search.md","articles":[]},{"title":"Automated Detection Exploitation and Elimination of Double-Fetch Bugs Using\nModern CPU Features","level":"1.3.1.4","depth":3,"path":"Paper/Fuzzing/papers/Automated-Detection-Exploitation-and-Elimination-of-Double-Fetch-Bugs-Using-Modern-CPU-Features.md","ref":"Paper/Fuzzing/papers/Automated-Detection-Exploitation-and-Elimination-of-Double-Fetch-Bugs-Using-Modern-CPU-Features.md","articles":[]},{"title":"Digtool: A Virtualization-Based Framework for Detecting Kernel Vulnerabilities","level":"1.3.1.5","depth":3,"path":"Paper/Fuzzing/papers/Digtool-A-Virtualization-Based-Framework-for-Detecting-Kernel-Vulnerabilities.md","ref":"Paper/Fuzzing/papers/Digtool-A-Virtualization-Based-Framework-for-Detecting-Kernel-Vulnerabilities.md","articles":[]},{"title":"Enforcing Unique Code Target Property for Control-Flow Integrity","level":"1.3.1.6","depth":3,"path":"Paper/Fuzzing/papers/Enforcing-Unique-Code-Target-Property-for-Control-Flow-Integrity.md","ref":"Paper/Fuzzing/papers/Enforcing-Unique-Code-Target-Property-for-Control-Flow-Integrity.md","articles":[]},{"title":"Fuzzing: Art, Science, and Engineering","level":"1.3.1.7","depth":3,"path":"Paper/Fuzzing/papers/Fuzzing-Art-Science-and-Engineering.md","ref":"Paper/Fuzzing/papers/Fuzzing-Art-Science-and-Engineering.md","articles":[]},{"title":"NAR-Miner Discovering Negative Association Rules from Code","level":"1.3.1.8","depth":3,"path":"Paper/Fuzzing/papers/NAR-Miner-Discovering-Negative-Association-Rules-from-Code.md","ref":"Paper/Fuzzing/papers/NAR-Miner-Discovering-Negative-Association-Rules-from-Code.md","articles":[]},{"title":"SoK: Security Evaluation of Home-Based IoT Deployments","level":"1.3.1.9","depth":3,"path":"Paper/Fuzzing/papers/SoK-Security-Evaluation-of-Home-Based-IoT-Deployments.md","ref":"Paper/Fuzzing/papers/SoK-Security-Evaluation-of-Home-Based-IoT-Deployments.md","articles":[]},{"title":"Towards Paving the Way for Large-Scale Windows Malware Analysis: Generic\nBinary Unpacking With Orders-of-Magnitude Performance Boost","level":"1.3.1.10","depth":3,"path":"Paper/Fuzzing/papers/Towards-Paving-the-Way-for-Large-Scale-Windows-Malware-Analysis-Generic-Binary-Unpacking-With-Orders-of-Magnitude-Performance-Boost.md","ref":"Paper/Fuzzing/papers/Towards-Paving-the-Way-for-Large-Scale-Windows-Malware-Analysis-Generic-Binary-Unpacking-With-Orders-of-Magnitude-Performance-Boost.md","articles":[]},{"title":" Using Logic Programming to Recover C++ Classes and Methods From Compiled\nExecutables","level":"1.3.1.11","depth":3,"path":"Paper/Fuzzing/papers/Using-Logic-Programming-to-Recover-C-Classes-and-Methods-From-Compiled-Executables.md","ref":"Paper/Fuzzing/papers/Using-Logic-Programming-to-Recover-C-Classes-and-Methods-From-Compiled-Executables.md","articles":[]}]},{"title":"AutomatedExploit 摘要","level":"1.3.2","depth":2,"path":"Paper/AutomatedExploit/README.md","ref":"Paper/AutomatedExploit/README.md","articles":[{"title":"HEAPHOPPER-Bringing-Bounded-Model-Checking-to-Heap-Implementation-Security","level":"1.3.2.1","depth":3,"path":"Paper/AutomatedExploit/papers/HEAPHOPPER-Bringing-Bounded-Model-Checking-to-Heap-Implementation-Security.md","ref":"Paper/AutomatedExploit/papers/HEAPHOPPER-Bringing-Bounded-Model-Checking-to-Heap-Implementation-Security.md","articles":[]}]},{"title":"ReverseEngineering 摘要","level":"1.3.3","depth":2,"path":"Paper/ReverseEngineering/README.md","ref":"Paper/ReverseEngineering/README.md","articles":[{"title":"Lord of the X86 Rings: A Portable User Mode Privilege Separation Architecture on X86","level":"1.3.3.1","depth":3,"path":"Paper/ReverseEngineering/papers/Lord-of-the-X86-Rings-A-Portable-User-Mode-Privilege-Separation-Architecture-on-X86.md","ref":"Paper/ReverseEngineering/papers/Lord-of-the-X86-Rings-A-Portable-User-Mode-Privilege-Separation-Architecture-on-X86.md","articles":[]},{"title":"Superset Disassembly: Statically Rewriting X86 Binaries Without Heuristics Disassembly","level":"1.3.3.2","depth":3,"path":"Paper/ReverseEngineering/papers/Superset-Disassembly-Statically-Rewriting-X86-Binaries-Without-Heuristics-Disassembly.md","ref":"Paper/ReverseEngineering/papers/Superset-Disassembly-Statically-Rewriting-X86-Binaries-Without-Heuristics-Disassembly.md","articles":[]}]}]},"previous":{"title":"简介","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Fuzzing-学习资源汇总.md","mtime":"2019-03-23T04:02:01.925Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-23T04:02:16.574Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
