@@ -1,3 +1,5 @@
+# Superset-Disassembly-Statically-Rewriting-X86-Binaries-Without-Heuristics-Disassembly
+
 # Abstract
 
 静态代码重写是系统安全应用的一项核心技术，它的使用场景包括性能分析，优化和软件错误定位等。之前的许多静态二进制程序重写方法，例如CCFIR, PITTSFIELD, Google’s Native Client, BinCFI, UROBOROS等，在保证重写正确时，提出了有关二进制程序的许多假定，例如完全正确的反汇编，编译器要求，调试符号等等，给实际应用在Commercial off-the-shelf（COTS）二进制程序上制造了困难。作者提供了`multiverse`，一个新的二进制程序重写器，它不基于上述的任何假定并能够重写intel x86 COTS程序。在COTS二进制程序重写中，存在着两大挑战： （1）如何反汇编二进制代码并包含所有合法指令 （2）如何重新汇编重写后的指令并保留原程序的语义。**`multiverse`使用了两种技术分别解决这两大挑战：（1）superset disassembly：通过对所有offset起始的地址进行反汇编获得合法代码的superset。 （2）instruction rewriter：通过替换控制流转移指令，中转到一个映射表，能够将原程序中所有的指令重定位到任意其他位置。**

@@ -1,18 +1,4 @@
----
-title: >-
-  Using Logic Programming to Recover C++ Classes and Methods From Compiled
-  Executables
-date: 2019-02-14 17:36:20
-tags:
-- 静态符号执行、
-- 逆向
-- 二进制分析工具
-- ACM CCS'18
-- 2018年
-categories:
-- 论文
-- 软件分析
----
+# Using Logic Programming to Recover C++ Classes and Methods From Compiled  Executables
 
 # Abstract
 

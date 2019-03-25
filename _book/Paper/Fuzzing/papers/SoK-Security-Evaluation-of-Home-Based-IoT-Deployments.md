@@ -1,15 +1,4 @@
----
-title: 'SoK: Security Evaluation of Home-Based IoT Deployments'
-date: 2019-02-15 10:37:32
-tags:
-- IOT
-- 综述
-- S&P'19
-- 2019年
-categories:
-- 论文
-- IOT
----
+# SoK: Security Evaluation of Home-Based IoT Deployments
 
 # Abstract
 

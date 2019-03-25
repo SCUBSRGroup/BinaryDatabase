@@ -1,15 +1,4 @@
----
-title: NAR-Miner Discovering Negative Association Rules from Code
-date: 2019-01-28 17:18:28
-tags:
-- 数据挖掘
-- 漏洞检测
-- 源代码
-- 2018年
-categories:
-- 论文
-- 数据挖掘
----
+# NAR-Miner Discovering Negative Association Rules from Code
 
 # Abstract
 

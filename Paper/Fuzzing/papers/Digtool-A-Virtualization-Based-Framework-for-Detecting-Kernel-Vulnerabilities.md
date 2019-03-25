@@ -1,15 +1,4 @@
----
-title: 'Digtool: A Virtualization-Based Framework for Detecting Kernel Vulnerabilities'
-date: 2019-02-15 15:53:36
-tags:
-- 内核
-- fuzzing
-- USENIX'17
-- 2017年
-categories:
-- 论文
-- fuzzing
----
+# Digtool: A Virtualization-Based Framework for Detecting Kernel Vulnerabilities
 
 # Abstract
 
