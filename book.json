@@ -1,4 +1,5 @@
 
 {
-	"plugins":["toggle-chapters"]
+	"plugins":["toggle-chapters"],
+	"plugins":["splitter"]
 }
