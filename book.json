@@ -1,5 +1,7 @@
 
 {
 	"plugins":["toggle-chapters",
-		"splitter"]
+		"splitter",
+		"intopic-toc"]
+
 }
