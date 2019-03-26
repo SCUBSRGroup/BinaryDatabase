@@ -10,16 +10,19 @@ Collate and collect binary related materials, including papers, tools, etc
 
 
 *  ###  Fuzzing
-
-
 > 历年与fuzzing相关的论文阅读笔记
 
-
 * ###  AutomatedExploit
-
 > 历年与自动化漏洞利用相关的论文阅读笔记
 
-
 * ### ReverseEngineering
-
 > 历年与逆向工程相关的论文阅读笔记
+
+* ### MaliciousSampleDetecion
+> 历年与恶意样本检测相关的论文阅读笔记
+
+* ### TaintAnalysis
+> 历年与污点分析相关的论文阅读笔记
+
+* ### SymbolicExecution
+> 历年与污点分析相关的论文阅读笔记
