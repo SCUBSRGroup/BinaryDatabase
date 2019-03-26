@@ -13,9 +13,7 @@
         * [Enforcing Unique Code Target Property for Control-Flow Integrity](Paper/Fuzzing/papers/Enforcing-Unique-Code-Target-Property-for-Control-Flow-Integrity.md)
         * [Fuzzing: Art, Science, and Engineering](Paper/Fuzzing/papers/Fuzzing-Art-Science-and-Engineering.md)
         * [NAR-Miner Discovering Negative Association Rules from Code](Paper/Fuzzing/papers/NAR-Miner-Discovering-Negative-Association-Rules-from-Code.md)
-        * NAR-Miner-Discovering-Negative-Association-Rules-from-Code
         * [SoK: Security Evaluation of Home-Based IoT Deployments](Paper/Fuzzing/papers/SoK-Security-Evaluation-of-Home-Based-IoT-Deployments.md)
-        * SoK-Security-Evaluation-of-Home-Based-IoT-Deployments
         * [Towards Paving the Way for Large-Scale Windows Malware Analysis: Generic Binary Unpacking With Orders-of-Magnitude Performance Boost](Paper/Fuzzing/papers/Towards-Paving-the-Way-for-Large-Scale-Windows-Malware-Analysis-Generic-Binary-Unpacking-With-Orders-of-Magnitude-Performance-Boost.md)
         * [Using Logic Programming to Recover C++ Classes and Methods From Compiled  Executables](Paper/Fuzzing/papers/Using-Logic-Programming-to-Recover-C-Classes-and-Methods-From-Compiled-Executables.md)
         * [VUzzer: Application-aware Evolutionary Fuzzing](Paper/Fuzzing/papers/VUzzer-Application-aware-Evolutionary-Fuzzing.md)
