@@ -15,18 +15,18 @@
 | *源码地址*           |                                                              |
 | *发表时间*           | 2019年                                                       |
 
-# 方法论
+# 1.方法论
 
-## 抽象模型
+## 1.1抽象模型
 
 ![](SoK-Security-Evaluation-of-Home-Based-IoT-Deployments/1.jpg)
 
 - V: A(apps)、C(cloud)、D(devices)
 - E: communication
 
-## 安全特性
+## 1.2安全特性
 
-### 攻击面
+### 1.2.1攻击面
 
 - Device
   - Vulnerable services
@@ -44,34 +44,34 @@
   - Weak authentications
   - Encryption
 
-### 缓解措施
+### 1.2.2缓解措施
 
 - patching
 - framework: 重构
 
-### 利益相关
+### 1.2.3利益相关
 
 - vendors
 - end-user
 
 其实还可以细分，芯片厂商，物联网平台，经销商，第三方的开发者等，来定义谁来负责解决谁的问题。
 
-## 分类的方法
+## 1.3分类的方法
 
 - Merit: 创新性、有效性
 - Scope: 集中在讨论安全性（攻击性和防御性）
 - Impact: 影响力
 - Disruption: 揭示了一个新的领域
 
-## 威胁模型
+## 1.4威胁模型
 
 只考虑Internet protocol network attacker，不考虑low-energy based devices，作者认为攻击所需要的资源在大多数家庭都没有。同时如果能hacking hub devices，就默认exploit了所有的low-energy based devices。（这里就限制了讨论的范围）
 
-# 相关的研究
+# 2.相关的研究
 
 ![](SoK-Security-Evaluation-of-Home-Based-IoT-Deployments/2.jpg)
 
-## Device
+## 2.1Device
 
 1. Attack Vectors 设备上暴露的引脚可以让攻击者轻而易举的获得权限，不安全的配置会加剧漏洞的产生， 而缺少或弱的身份认证是最容易出现的问题，这些都导致设备上的安全问题被频繁曝出。
    - August Smart Lock，硬编码的密钥、debug接口
@@ -87,7 +87,7 @@
    - SmartAuth提供一种可以导出认证规则的方式，但只能vendor来做。
    - Sonos device允许用户使用网络隔离的方式来缓解漏洞。
 
-## Mobile Application
+## 2.2Mobile Application
 
 1. Attack Vectors over-privileges、programming error、hard-coded sensitive information
    - August Smart Lock，作者用敏感信息dump密钥
@@ -98,7 +98,7 @@
    - 基于角色的访问控制
 3. Stakeholders mobile的安全依赖user和vendor，user往往有权限控制的权利，同时user应该遵守从app store上下载app。vendor应该解决programming error并且安全存储数据。
 
-## Cloud Endpoint
+## 2.3Cloud Endpoint
 
 1. Attack Vectors
    - August Smart Lock，cloud端实现的不安全的API导致越权
@@ -110,7 +110,7 @@
    - 细粒度的访问控制
 3. Stakeholders 由于云平台一般只有厂商管理，所以cloud上的基础设施和API实现的安全应该由他们来负责。
 
-## Communication
+## 2.4Communication
 
 classes of protocols * Internet protocol * low-energy protocol
 
@@ -150,7 +150,7 @@ Application layer protocols，DNS、HTTP、UPnP、NTP
    - 互联网服务提供商（ISP）可以看到基于IP的协议的数据包，但它们不是负任何缓解。 对于ISP来说，他们必须提供其相应的义务（这个我理解是比如说Mira DDoS，ISP虽然不能阻止设备发出去的恶意流量，但是他可以ban掉设备访问C&C域名）。
    - 对于LE协议，供应商可以缓解禁用易受攻击的设备的配对。
 
-# 评估
+# 3.评估
 
 作者对45款比较流行的不同的设备进行了各方面的评估。这些设备主要包括
 

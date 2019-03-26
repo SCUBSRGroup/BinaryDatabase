@@ -1,17 +1,16 @@
 **本文主要是收集和整理与fuzzing相关的资料，包括学习资料，论文、工具等，旨在能更方便的学习fuzzing，为后续做相关研究做铺垫。**
 
-# 目 录
+# 目    录
 
 ---
-
-* [<strong>fuzzing书籍</strong>](#fuzzing%E4%B9%A6%E7%B1%8D)
-* [fuzzing 学习视频](#fuzzing-%E5%AD%A6%E4%B9%A0%E8%A7%86%E9%A2%91)
-* [教程和博客](#%E6%95%99%E7%A8%8B%E5%92%8C%E5%8D%9A%E5%AE%A2)
-* [Fuzzer工具](#fuzzer%E5%B7%A5%E5%85%B7)
-  * [Cloud Fuzzers](#cloud-fuzzers)
+* [Fuzzing Book](#fuzzing-book)
+* [Fuzzing vidoe](#fuzzing-vidoe)
+* [Course and Blog](#course-and-blog)
+* [Fuzzer Tools](#fuzzer-tools)
+  * [<strong>Cloud Fuzzers</strong>](#cloud-fuzzers)
     * [REST\-ler\-2019](#rest-ler-2019)
     * [Cloudfuzzer\-2017](#cloudfuzzer-2017)
-  * [<strong>文件系统 Fuzzers</strong>](#%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F-fuzzers)
+  * [<strong>File Fuzzers</strong>](#file-fuzzers)
     * [REDQUEEN\-2019](#redqueen-2019)
     * [ProFuzzer\-2019](#profuzzer-2019)
     * [UnTracer\-AFL\-2019](#untracer-afl-2019)
@@ -53,7 +52,7 @@
     * [KEMUfuzzer\-2010](#kemufuzzer-2010)
     * [zzuf\-2007](#zzuf-2007)
     * [Peach Fuzzer\-2004](#peach-fuzzer-2004)
-  * [<strong>机器学习 Fuzzers</strong>](#%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0-fuzzers)
+  * [<strong>Machine learning Fuzzers</strong>](#machine-learning-fuzzers)
     * [V\-Fuzz\-2019](#v-fuzz-2019)
     * [NEUZZ\-2019](#neuzz-2019)
     * [DeepHunter\-2018](#deephunter-2018)
@@ -69,8 +68,8 @@
     * [kAFL\-2017](#kafl-2017)
     * [TriforceAFL\-2016](#triforceafl-2016)
     * [KernelFuzzer\-2016](#kernelfuzzer-2016)
-  * [<strong>浏览器 Fuzzers</strong>](#%E6%B5%8F%E8%A7%88%E5%99%A8-fuzzers)
-    * [IFuzzer\-2016]](#ifuzzer-2016)
+  * [<strong>Browser Fuzzers</strong>](#browser-fuzzers)
+    * [IFuzzer\-2016](#ifuzzer-2016)
     * [Kitty\-2016](#kitty-2016)
     * [Wadi\-fuzzer\-2015](#wadi-fuzzer-2015)
     * [Nightmare\-2014](#nightmare-2014)
@@ -81,7 +80,7 @@
     * [dranzer\-2008](#dranzer-2008)
   * [<strong>Library Fuzeers</strong>](#library-fuzeers)
     * [libFuzzer](#libfuzzer)
-  * [<strong>网络协议Fuzzers</strong>](#%E7%BD%91%E7%BB%9C%E5%8D%8F%E8%AE%AEfuzzers)
+  * [<strong>Protocol Fuzzers</strong>](#protocol-fuzzers)
     * [Sulley\-2007](#sulley-2007)
     * [Sulley\_l2\-2008](#sulley_l2-2008)
     * [boofuzz\-2012](#boofuzz-2012)
@@ -89,32 +88,25 @@
     * [Spike\-2010](#spike-2010)
     * [<strong>相关资料：</strong>](#%E7%9B%B8%E5%85%B3%E8%B5%84%E6%96%99)
     * [Dizzy\-2018](#dizzy-2018)
-  * [<strong>分布式 Fuzzers</strong>](#%E5%88%86%E5%B8%83%E5%BC%8F-fuzzers)
+  * [<strong>Distributed Fuzzers</strong>](#distributed-fuzzers)
     * [ClusterFuzz\-2019(google)](#clusterfuzz-2019google)
     * [fuzzinator\-2018](#fuzzinator-2018)
     * [<strong>相关资料：</strong>](#%E7%9B%B8%E5%85%B3%E8%B5%84%E6%96%99-1)
     * [OSS\-fuzz\-2017（google）](#oss-fuzz-2017google)
     * [FuzzFlow\-2016](#fuzzflow-2016)
     * [BrundleFuzz\-2016](#brundlefuzz-2016)
-  * [<strong>评估 Fuzzers</strong>](#%E8%AF%84%E4%BC%B0-fuzzers)
+  * [<strong>Evaluate Fuzzers</strong>](#evaluate-fuzzers)
     * [Evaluating Fuzz Testing](#evaluating-fuzz-testing)
-* [\*\*污点分析相关工具 \*\*](#%E6%B1%A1%E7%82%B9%E5%88%86%E6%9E%90%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7-)
-    * [<a href="https://github\.com/moyix/panda">PANDA</a>](#panda)
-    * [<a href="http://qira\.me/" rel="nofollow">QIRA</a>](#qira)
-    * [<a href="https://github\.com/j00ru/kfetch\-toolkit">kfetch\-toolkit</a>](#kfetch-toolkit)
-* [<strong>符号执行相关工具</strong>](#%E7%AC%A6%E5%8F%B7%E6%89%A7%E8%A1%8C%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7)
-    * [<a href="https://github\.com/Z3Prover/z3">Z3</a>](#z3)
-    * [<a href="http://smtlib\.cs\.uiowa\.edu/" rel="nofollow">SMT\-LIB</a>](#smt-lib)
-* [<strong>辅助工具</strong>](#%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7)
-  * [调试工具](#%E8%B0%83%E8%AF%95%E5%B7%A5%E5%85%B7)
-  * [<strong>反编译</strong>](#%E5%8F%8D%E7%BC%96%E8%AF%91)
-  * [<strong>其它</strong>](#%E5%85%B6%E5%AE%83)
-  * [漏洞应用程序](#%E6%BC%8F%E6%B4%9E%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F)
-    * [模糊测试样本文件](#%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95%E6%A0%B7%E6%9C%AC%E6%96%87%E4%BB%B6)
+* [<strong>Auxiliary Tools</strong>](#auxiliary-tools)
+    * [Debuger](#debuger)
+    * [<strong>Disassembler</strong>](#disassembler)
+    * [<strong>Other</strong>](#other)
+    * [Vulnerability application](#vulnerability-application)
+    * [Fuzzing Samples](#fuzzing-samples)
 
 ---
 
-# **fuzzing书籍**
+# Fuzzing Book
 
 > [《模糊测试-强制性安全漏洞发掘》](https://www.amazon.com/Fuzzing-Brute-Force-Vulnerability-Discovery/dp/0321446119)作者： Michael Sutton, Adam Greene, Pedram Amini。
 >
@@ -132,7 +124,7 @@
 >
 > [《IDA Pro – IDA Pro Book：全球最受欢迎的反编译器非官方指南》](https://www.amazon.com/IDA-Pro-Book-2nd-ebook/dp/B005EI84TM)
 
-# fuzzing 学习视频
+# Fuzzing vidoe
 
 > [纽约大学Poly（查看更多视频）](https://vimeo.com/5236104) – 由Dan Guido免费提供。
 >
@@ -149,7 +141,7 @@
 >
 > [DerbyCon 2016：Fuzzing基础知识……或如何破解软件](http://www.securitytube.net/video/16939)
 
-# 教程和博客
+# Course and Blog
 
 文章和博客解释了fuzzing的方法，技术和最佳实践。
 
@@ -187,15 +179,15 @@
 
 ---
 
-# Fuzzer工具
+# Fuzzer Tools
 
 1. 采用到的技术与时间的表格（待整理）
 
 有助于fuzzing应用的工具
 
-## Cloud Fuzzers
+## **Cloud Fuzzers**
 
-在云环境中帮助fuzzing测试的Fuzzers。
+* 在云环境中帮助fuzzing测试的工具。
 
 ### REST-ler-2019
 
@@ -218,9 +210,9 @@
 
 ---
 
-## **文件系统 Fuzzers**
+## **File Fuzzers**
 
-可帮助fuzzing文件格式的Fuzzers，如PDF，MP3，SWF等
+* 针对文件系统的fuzzing工具
 
 ### REDQUEEN-2019
 
@@ -641,7 +633,9 @@
 
 ---
 
-## **机器学习 Fuzzers**
+##  **Machine learning Fuzzers**
+
+* 采用机器学习进行fuzzing的工具
 
 ### V-Fuzz-2019
 
@@ -807,9 +801,11 @@
 > 3. [视频文档讲解](https://www.youtube.com/watch?v=M8ThCIfVXow)
 > 4. [源代码](https://github.com/mwrlabs/KernelFuzzer)
 
-## **浏览器 Fuzzers**
+## **Browser Fuzzers**
 
-### IFuzzer-2016]
+* 针对浏览器的fuzzing工具
+
+### IFuzzer-2016
 
 > 该论文主要是针对脚本引擎的fuzz，只是文中使用了js engine作为目标。核心思想就是：收集大量的测试代码，使用antlr4编写好的语法解析器解析出`非终结符片段`，把输入解析成AST后，在AST上进行变异。变异的方式主要是利用收集的“片段”去替换解析树中相同非终结符，由于采用了遗传算法，通过对每个个体的评估，筛选优秀的个体进行“杂交”产生新的个体进入下一轮fuzz，“杂交”的方法是交换两个个体中相同的非终结符节点，产生两棵新的输。
 >
@@ -892,6 +888,8 @@
 
 ## **ActiveX Fuzzers**
 
++ 针对控件的fuzzing工具
+
 ### dranzer-2008
 
 >ActiveX和COM漏洞最近受到了很多关注。ActiveX允许Web浏览器使用Windows机器上安装的软件组件。脚本技术可以允许攻击者控制机器的内存内容。通过结合脚本和ActiveX，攻击者可以利用COM对象中的缺陷，这可能允许执行任意代码，信息泄露或其他安全违规。Dranzer是一个可以检测COM对象中的缺陷的工具。。拥有第二个版本[dranzer2.0](https://sourceforge.net/projects/enhanceddranzer/files/dranzer/)
@@ -903,6 +901,8 @@
 ---
 
 ## **Library Fuzeers**
+
+* 针对调用库的fuzzing工具
 
 ### libFuzzer
 
@@ -922,7 +922,7 @@
 
 ---
 
-## **网络协议Fuzzers**
+## **Protocol Fuzzers**
 
 可帮助fuzzing使用基于网络协议（如HTTP, SSH, SMTP等）的应用程序Fuzzers。
 
@@ -984,7 +984,9 @@
 
 ----
 
-## **分布式 Fuzzers**
+## **Distributed Fuzzers**
+
+* 分布式的fuzzing工具
 
 ### ClusterFuzz-2019(google)
 
@@ -1056,7 +1058,7 @@
 
 ---
 
-## **评估 Fuzzers**
+## **Evaluate Fuzzers**
 
 ### Evaluating Fuzz Testing
 
@@ -1068,43 +1070,11 @@
 >
 > 2.[演讲视频](<https://www.youtube.com/watch?v=ID8XtoMn43I>)
 
-# **污点分析相关工具 **
-
-用户输入如何影响执行
-
-### [PANDA](https://github.com/moyix/panda)
-
-> 构建于顶级QEMU系统的新一代动态分析平台
-
-### [QIRA](http://qira.me/)
-
-> QEMU交互式运行时分析器
-
-### [kfetch-toolkit](https://github.com/j00ru/kfetch-toolkit)
-
-> 执行高级记录引用的工具
-
----
-
-# **符号执行相关工具**
-
-### [Z3](https://github.com/Z3Prover/z3)
-
-> 属于SMT Solver，用于判定First Order Logic公式的可满足性。
->
->  **相关资料：**
->
-> 1. Z3 – 指南](https://rise4fun.com/z3/tutorial/guide) – Z3入门指南：指南
-
-### [SMT-LIB](http://smtlib.cs.uiowa.edu/)
-
-> 旨在促进SMT研究与开发的国际计划。
-
-# **辅助工具**
+# **Auxiliary Tools**
 
 针对exploit开发人员和逆向工程师的工具。
 
-### 调试工具
+### Debuger
 
 > [Windbg](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/debugger-download-tools) – windows平台下强大的用户态和内核态调试工具。
 >
@@ -1124,7 +1094,7 @@
 >
 > [Radare2](http://www.radare.org/r/) – 用于逆向工程和二进制文件分析的框架。
 
-### **反编译**
+### **Disassembler**
 
 > [IDA Pro](https://www.hex-rays.com/products/ida/index.shtml)- 最好的反编译软件
 >
@@ -1132,13 +1102,13 @@
 >
 > [Capstone](https://github.com/aquynh/capstone) – Capstone是一个轻量级的多平台，多架构反编译框架。
 
-### **其它**
+### **Other**
 
 > [ltrace](http://ltrace.org/) – 用来跟踪进程调用库函数的情况。
 >
 > [strace](https://sourceforge.net/projects/strace/) – 跟踪系统调用和信号。
 
-## 漏洞应用程序
+### Vulnerability application
 
 > Exploit-DB -[ https://www.exploit-db.com](https://www.exploit-db.com/)（通过搜索相关的应用漏洞，并自行下载漏洞应用及EXP重现漏洞）
 >
@@ -1146,7 +1116,7 @@
 >
 > [Fuzzgoat](https://github.com/fuzzstati0n/fuzzgoat) - 用于测试fuzzers的漏洞C程序。
 
-### 模糊测试样本文件
+### Fuzzing Samples
 
 > <https://files.fuzzing-project.org/>
 >

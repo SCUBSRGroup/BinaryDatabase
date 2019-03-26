@@ -15,7 +15,7 @@
 | *源码地址*           |                                                              |
 | *发表时间*           | 2018年                                                       |
 
-# 简介
+#  1.简介
 
 CFI的健壮性在于它的跳转规则集合：过于严格的规则可能破坏了程序的正常运行，而松散的规则则让攻击者有了可乘之机。一些针对CFI的攻击也体现了普通的静态分析相比于理想CFI的不同：静态分析只是对于每个ICT给出了所有可能的跳转集合；而理想的CFI应是进一步结合当时的context来判断可能的跳转。近年的CFi开始结合了运行时的context来缩小集合范围，但是在一些情况下返回的集合大小仍然过大：如访问一个数组元素，在不知道index的情况下，返回的集合就是数组中的全部元素了。
 
@@ -31,7 +31,7 @@ CFI的健壮性在于它的跳转规则集合：过于严格的规则可能破�
 
 也就是说，最终设计的系统包括**一个编译器**和**一个执行监视器**。监视器在每次ICT指令之后进行CFI检查，并且为了保证安全，监视器会与内核交互来在ICT指令之后立即block被监视的程序。其原型是用来针对jmp和call指令的，ret指令的CFI交给了之前的解决方案shadow stack来解决。
 
-# Problem
+# 2.Problem
 
 样例代码：
 
@@ -66,7 +66,7 @@ void handleReq(int uid, char * input) {
 
 这里给出了作者对于constrained data 的精确定义：***它在IDT的跳转目标中有重要作用，但是其既不是一个直接代表函数地址的控制变量，也不是一个会被解引用出函数指针的一个指针。直到IDT真正发生时，它的值甚至才可能从实际的执行路径当中推断出来。而一旦它的值确定，之后的分析就可以在对任何执行路径上都对IDT给出唯一的推断结果。***任何具有如上特性的变量都可以成为constrained data，如示例代码中的uid。
 
-# System Design
+# 3.System Design
 
 在本系统的设计当中，作者将µCFI拆做两部分：静态编译器和动态监视器。在给出源代码的情况下，编译器首先进行静态分析找到constrained data。之后，其将每个基本块编上唯一ID并与constrained data一起记录。
 
@@ -74,7 +74,7 @@ void handleReq(int uid, char * input) {
 
 ![](Enforcing-Unique-Code-Target-Property-for-Control-Flow-Integrity/μCFI overview.png)
 
-## constrained data的判断
+## 3.1constrained data的判断
 
 算法分为两部分： **1. 收集所有和间接跳转目标计算的有关的指令 2. 检查这些指令当中的非常量值，这些值也就成为了constrained data **
 
@@ -117,7 +117,7 @@ for instr ∈ IS:
 
 那么经过如上的算法分析后，对之前的样例代码，有如下结果： – sensitive type: – void (char*)* – [3 x void (char*)*] – sensitive instruction: – FP arr[3] = {&A, &B, &C}; – FP fpt = &D; – FP fun = NULL; – fun = arr[0]; – fun = arr[uid]; – (*fun)(buf); – constraining data: – uid
 
-## 对Arbitrary Data的收集
+## 3.2对Arbitrary Data的收集
 
 作者们设计了一套新方法来高效传递执行当中的信息到监视器的方法，来解决朴素PT缺乏non-control信息的缺陷。
 
@@ -127,7 +127,7 @@ for instr ∈ IS:
 
 然后编译器就可以在需要audit的constrained data前插入write_data()这个函数来记录当前data的值，就可以对之后的间接跳转合法性进行检查了。
 
-## 高效的控制流构建
+## 3.3高效的控制流构建
 
 µCFI之后就可以在LLVM的IR层上构建动态分析的控制流。然而这还面临两方面的额挑战： 1. 从高度压缩的PT trace当中重建完整的执行路径解析耗时 2. 实际生成的二进制文件指令由于编译器优化可能和LLVM IR层的执行流有很大区别。
 
@@ -189,27 +189,27 @@ switch(BBID) {
 
 但是如果按上述代码这样进行的话需要承担每次ICT进行检查的过高执行overhead，因此µCFI的监视只是随着执行平行地进行CFI的判断，并且在执行敏感地系统调用的时候才会挂起被监视的进程。作者们选择的敏感系统调用包括: **mmap, mremap, remap_file_pages, mprotect, execve, execveat, sendmsg, sendmmsg, sendto, and write。**
 
-# Implementation
+# 4.Implementation
 
 编译器构建在LLVM 3.6之上。 LLVM进行constrained data的识别和编码，以及BBID编码。作者将监视器实现为一个root用户进程，这使其适用于保护非root进程。 它使用两个线程，一个用于PT跟踪解析，另一个用于点分析和CFI验证。作者使用来自[Griffin](https://github.com/TJAndHisStudents/Griffin-Trace)的PT驱动程序的修改版本进行跟踪管理，其中作者将跟踪写入每个线程的伪代码文件，并为作者的用户空间μCFI监视器设置适当的权限以读取它。
 
 接下来，作者将介绍μCFI系统的几个实现细节，包括减少PT的trace量，与shadow stack整合以及针对lazy type的分析。
 
-## 减少trace
+## 4.1减少trace
 
 PT允许对trace的函数进行定制，因此作者利用编译器将所有的间接调用转化为了对一个特定函数iCall的直接调用，通过传参进去再跳转来实现间接跳转功能；同理还对所有需要调查的ret指令替换为oneRet函数，其中填充ret指令。那么这样做就可以将PT的trace限定在这两个函数中，从而减少了对特定程序进行trace所需要cover的代码量
 
-## 整合Shadow Stack
+## 4.2整合Shadow Stack
 
 Shadow Stack技术可以在栈上保存当前函数返回地址处的一个固定（或随机）偏移处保存一个返回地址的副本（也就是在栈上保存了两个返回地址值），然后在返回时比较二者是否仍然一致并且（或）将副本的值复制到该函数的返回地址保存处。
 
 那么µCFI就将其整合进自己的系统中，在原有的基础上对LLVM X86的后端和ELF构建函数进行了修改。对后端的修改使得在编译时能在函数开头和末尾添加两条汇编指令，用来保存和恢复返回地址值； 而对构建函数的修改使得在binary loader调用该执行文件时先执行构建函数(ELF constructor functions)，进行shadow stack和两个栈之间的保护页的构建后再将控制权交给原来的程序
 
-## Lazy-type的分析技术
+## 4.3Lazy-type的分析技术
 
 为了构建变量表PTS，通常需要对复合类型进行扁平化，即将其中的复合类型迭代的代入直至其中不再包含复合类型。但是由于LLVM IR的高度优化特性，这一方法需要的对对象分配的准确定义信息可能不是很容易获得。那么作者在尽可能获得的基础上，设计了Lazy-type：在运行时对对象进行分配的时候，首先置其所含的变量类型为空，那么当这个对象被一个指针所引用时，作者就可以根据其偏移来确定成员的类型了
 
-# Evaluation
+# 5.Evaluation
 
 环境设置 64-bit Ubuntu 16.04 system 8-core Intel i7-7740X CPU (4.30GHz frequency) 32 GB RAM 作者分两步编译每个程序。 首先使用[wllvm](https://github.com/travitch/%20whole-program-llvm.) 生成base binary和LLVM IR表示。其次，作者使用μCFI编译器来检测IR并生成受保护的可执行文件。两种编译都采用默认的优化级别和选项，例如，针对SPEC的O2和针对nginx和vsftpd的O1。 作者使用提供的训练数据集来评估SPEC基准。 对于nginx和vsftpd，作者在评估环境中设置服务器，并从同一本地网络中的另一台机器请求不同大小的文件。 作者执行每个文件1000次，以避免意外偏差。 为了测量开销，作者将监视器与受保护的执行文件一起启动，并计算所有进程退出的时间，包括受保护的执行文件，监视器及其子进程。 
 
@@ -219,22 +219,22 @@ Shadow Stack技术可以在栈上保存当前函数返回地址处的一个固�
 
 表3和表4总结了作者的评估结果。 μCFI成功地为测试程序实现了UCT属性，因为它只允许一个有效目标用于所有间接控制流传输（Q1）。 μCFI平均为评估的SPEC基准测试引入7.88％的运行时开销，nginx的运行时开销为4.05％，vsftpd（Q2）的开销不到1％。 这意味着μCFI可以通过强大的安全保障有效地保护这些程序。 所有攻击，包括现实中的攻击，COOP概念证明攻击和synthesized攻击，都会在运行时被阻止（Q3）。 使用μCFI和shadow stack编译的程序运行良好。 组合保护为SPEC基准测试带来了额外的2.07％开销，对nginx和vsftpd（Q4）的额外开销可忽略不计。
 
-## Enforcing UCT Property
+## 5.1Enforcing UCT Property
 
 在table 3 中可以看到，µCFI对于SPEC中的所有对象中的ICT均只给出了唯一确定的跳转对象(Allowed Target)，而这应归功于constrained data的作用
 
-## Preventing Attack
+## 5.2Preventing Attack
 
 作者还应用μCFI来保护PittyPat [21]中引入的易受COOP攻击的程序[55]。 COOP是一种通过构造C++的对象来利用其虚函数表的图灵完备攻击方法，COOP对粗粒度CFI构成了巨大挑战。 μCFI通过保护所有constrained data来防止COOP攻击，从而允许它准确地跟踪内存中的函数指针。当程序被输入恶意输入时，μCFI成功区分合法和伪造对象以检测攻击。
 
-## Overhead Measurement
+## 5.3Overhead Measurement
 
 Performance Overhead Optimization Possibility  PT的PTWrite指令可以直接打印用户数据到PT的TIP包中，μCFI可以利用其来记录BBID和constrained data，进一步提升效率。 Memory Overhead Code Overhead
 
-## Shadow Stack Integration
+## 5.4Shadow Stack Integration
 
 作者测量μCFI与parallel shadow stack（PSS）保护的兼容性。 作者使用μCFI编译器和PSS编译每个程序，并测量执行的正确性和性能开销。 所有测试程序（包括SPEC基准测试，nginx和vsftpd）都可以很好地与良性输入一起使用，证明了μCFI的强大兼容性。 集成PSS的开销显示在表3中的+stack列中。平均而言，PSS引入2.07％的开销来评估SPEC基准测试，且在对nginx和vsftpd的开销中可忽略不计。 通过展示μCFI与影子堆栈的兼容性，作者澄清了具有各种安全保证的任何替代解决方案如基于随机化的SafeStack [36]和基于硬件的Intel CET技术[33]，可以与μCFI集成以提供未来继续实现更好UCT属性的两个方向。
 
-# Discussion
+# 6.Discussion
 
 在关于未来的工作中，作者提到两点： 1. 验证signal或exception中的CFI，这些与OS有关，在Intel PT中以FUP包形式记载 2. 验证动态加载的代码中的CFI

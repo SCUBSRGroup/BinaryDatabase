@@ -2,6 +2,16 @@
 {
 	"plugins":["toggle-chapters",
 		"splitter",
-		"intopic-toc"]
+		"intopic-toc"],
+  "pluginsConfig": {
+    "intopic-toc": {
+      "selector": ".markdown-section h1",
+      "visible": true,
+      "label": {
+        "de": "In diesem Artikel",
+        "en": "In this article"
+      }
+    }
+  }
 
 }
