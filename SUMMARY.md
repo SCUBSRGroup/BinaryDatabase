@@ -23,6 +23,7 @@
         * [Using Logic Programming to Recover C++ Classes and Methods From Compiled  Executables](Paper/Fuzzing/papers/Using-Logic-Programming-to-Recover-C-Classes-and-Methods-From-Compiled-Executables.md)
         * [VUzzer: Application-aware Evolutionary Fuzzing](Paper/Fuzzing/papers/VUzzer-Application-aware-Evolutionary-Fuzzing.md)
     * [<> MaliciousSampleDetecion](Paper/MaliciousSampleDetecion/README.md)
+        - [Capturing the symptoms of malicious code in electronic documents by file's entropy signal combined with Machine learning](Paper/MaliciousSampleDetection/)
     * [<> ReverseEngineering](Paper/ReverseEngineering/README.md)
         * [Lord-of-the-X86-Rings-A-Portable-User-Mode-Privilege-Separation-Architecture-on-X86](Paper/ReverseEngineering/papers/Lord-of-the-X86-Rings-A-Portable-User-Mode-Privilege-Separation-Architecture-on-X86.md)
         * [Superset-Disassembly-Statically-Rewriting-X86-Binaries-Without-Heuristics-Disassembly](Paper/ReverseEngineering/papers/Superset-Disassembly-Statically-Rewriting-X86-Binaries-Without-Heuristics-Disassembly.md)
