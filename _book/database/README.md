@@ -25,6 +25,6 @@
   >
   > 时间：2019.03.27
   >
-  > 下载链接：
+  > 下载链接：[https://drive.google.com/file/d/1WQalJ39wzZ9g6LpxZTdSVQkIHpXDfHNv/view?usp=sharing](https://drive.google.com/file/d/1WQalJ39wzZ9g6LpxZTdSVQkIHpXDfHNv/view?usp=sharing)
   >
   > 摘要：该数据集是通过收集整理自己形成的，目前包含总共样本10381个，其中恶意样本5344个，正常样本5037个。包含Office(rtf,doc,ppt,xls, docx, pptx, xlsx）和PDF几个类别等几个类别。各个样本的统计分布如下图所示![数据集中样本分布情况](E:\网站博客\实验室\BinaryDatabase\database\figures\MaliciousDocument.png)：
