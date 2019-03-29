@@ -7,6 +7,7 @@
 * [恶意样本检测-学习资源汇总](恶意样本检测-学习资源汇总.md)
 * [逆向工程-学习资源汇总](逆向工程-学习资源汇总.md)
 * [工作面试复习资料汇总](工作面试复习资料汇总.md)
+* [信息安全相关会议期刊汇总](信息安全相关会议期刊汇总.md)
 * [Paper](Paper/README.md)
     * [<> AutomatedExploit](Paper/AutomatedExploit/README.md)
         * [HEAPHOPPER Bringing Bounded Model Checking to Heap Implementation Security](Paper/AutomatedExploit/papers/HEAPHOPPER-Bringing-Bounded-Model-Checking-to-Heap-Implementation-Security.md)
@@ -23,12 +24,11 @@
         * [Using Logic Programming to Recover C++ Classes and Methods From Compiled  Executables](Paper/Fuzzing/papers/Using-Logic-Programming-to-Recover-C-Classes-and-Methods-From-Compiled-Executables.md)
         * [VUzzer: Application-aware Evolutionary Fuzzing](Paper/Fuzzing/papers/VUzzer-Application-aware-Evolutionary-Fuzzing.md)
     * [<> MaliciousSampleDetecion](Paper/MaliciousSampleDetecion/README.md)
-        - [Capturing the symptoms of malicious code in electronic documents by file's entropy signal combined with Machine learning](Paper/MaliciousSampleDetection/)
+        * [Capturing the symptoms of malicious code in electronic documents by file's entropy signal combined with Machine learning](Paper/MaliciousSampleDetection/)
     * [<> ReverseEngineering](Paper/ReverseEngineering/README.md)
         * [Lord-of-the-X86-Rings-A-Portable-User-Mode-Privilege-Separation-Architecture-on-X86](Paper/ReverseEngineering/papers/Lord-of-the-X86-Rings-A-Portable-User-Mode-Privilege-Separation-Architecture-on-X86.md)
         * [Superset-Disassembly-Statically-Rewriting-X86-Binaries-Without-Heuristics-Disassembly](Paper/ReverseEngineering/papers/Superset-Disassembly-Statically-Rewriting-X86-Binaries-Without-Heuristics-Disassembly.md)
     * [<> SymbolicExecution](Paper/SymbolicExecution/README.md)
     * [<> TaintAnalysis](Paper/TaintAnalysis/README.md)
-
 * [database](database/README.md)
 

@@ -87,6 +87,7 @@ Collate and collect binary related materials, including papers, tools, etc
 ├── 逆向工程-学习资源汇总.md    // 逆向工程学习相关资料的汇总和索引
 ├── 污点分析-学习资源汇总.md    // 污点分析学习相关资料的汇总和索引
 ├── 工作面试复习资料汇总.md    // 工作面试复习相关资料的汇总和索引
+├── 信息安全相关会议期刊汇总.md    // 信息安全相关会议期刊汇总
 ├── .gitignore                // git 的忽略文件
 ├── book.json                 // 整个gitbook的配置文件，插件配置
 ├── package-lock.json         // gitbook build 自动生成，不用管
