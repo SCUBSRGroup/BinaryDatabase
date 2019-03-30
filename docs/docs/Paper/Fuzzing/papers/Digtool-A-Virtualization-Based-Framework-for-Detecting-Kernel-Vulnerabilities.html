@@ -1,0 +1,800 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Digtool: A Virtualization-Based Framework for Detecting Kernel Vulnerabilities · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-intopic-toc/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="Enforcing-Unique-Code-Target-Property-for-Control-Flow-Integrity.html" />
+    
+    
+    <link rel="prev" href="Check-It-Again-Detecting-Lacking-Recheck-Bugs-in-OS-Kernels.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../../Fuzzing-学习资源汇总.html">
+            
+                <a href="../../../Fuzzing-学习资源汇总.html">
+            
+                    
+                    Fuzzing-学习资源汇总
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../../污点分析-学习资源汇总.html">
+            
+                <a href="../../../污点分析-学习资源汇总.html">
+            
+                    
+                    污点分析-学习资源汇总
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../../符号执行-学习资源汇总.html">
+            
+                <a href="../../../符号执行-学习资源汇总.html">
+            
+                    
+                    符号执行-学习资源汇总
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../../恶意样本检测-学习资源汇总.html">
+            
+                <a href="../../../恶意样本检测-学习资源汇总.html">
+            
+                    
+                    恶意样本检测-学习资源汇总
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../../../逆向工程-学习资源汇总.html">
+            
+                <a href="../../../逆向工程-学习资源汇总.html">
+            
+                    
+                    逆向工程-学习资源汇总
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../../../工作面试复习资料汇总.html">
+            
+                <a href="../../../工作面试复习资料汇总.html">
+            
+                    
+                    工作面试复习资料汇总
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../../../信息安全相关会议期刊汇总.html">
+            
+                <a href="../../../信息安全相关会议期刊汇总.html">
+            
+                    
+                    信息安全相关会议期刊汇总
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Paper
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../../AutomatedExploit/">
+            
+                <a href="../../AutomatedExploit/">
+            
+                    
+                    <> AutomatedExploit
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1.1" data-path="../../AutomatedExploit/papers/HEAPHOPPER-Bringing-Bounded-Model-Checking-to-Heap-Implementation-Security.html">
+            
+                <a href="../../AutomatedExploit/papers/HEAPHOPPER-Bringing-Bounded-Model-Checking-to-Heap-Implementation-Security.html">
+            
+                    
+                    HEAPHOPPER Bringing Bounded Model Checking to Heap Implementation Security
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    <> Fuzzing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.2.1" data-path="Angora-Efficient-Fuzzing-by-Principled-Search.html">
+            
+                <a href="Angora-Efficient-Fuzzing-by-Principled-Search.html">
+            
+                    
+                    Angora: Efficient Fuzzing by Principled Search
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.2" data-path="Automated-Detection-Exploitation-and-Elimination-of-Double-Fetch-Bugs-Using-Modern-CPU-Features.html">
+            
+                <a href="Automated-Detection-Exploitation-and-Elimination-of-Double-Fetch-Bugs-Using-Modern-CPU-Features.html">
+            
+                    
+                    Automated Detection Exploitation and Elimination of Double-Fetch Bugs Using  Modern CPU Features
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.3" data-path="Check-It-Again-Detecting-Lacking-Recheck-Bugs-in-OS-Kernels.html">
+            
+                <a href="Check-It-Again-Detecting-Lacking-Recheck-Bugs-in-OS-Kernels.html">
+            
+                    
+                    Check It Again: Detecting Lacking-Recheck Bugs in OS Kernels
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.9.2.4" data-path="Digtool-A-Virtualization-Based-Framework-for-Detecting-Kernel-Vulnerabilities.html">
+            
+                <a href="Digtool-A-Virtualization-Based-Framework-for-Detecting-Kernel-Vulnerabilities.html">
+            
+                    
+                    Digtool: A Virtualization-Based Framework for Detecting Kernel Vulnerabilities
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.5" data-path="Enforcing-Unique-Code-Target-Property-for-Control-Flow-Integrity.html">
+            
+                <a href="Enforcing-Unique-Code-Target-Property-for-Control-Flow-Integrity.html">
+            
+                    
+                    Enforcing Unique Code Target Property for Control-Flow Integrity
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.6" data-path="Fuzzing-Art-Science-and-Engineering.html">
+            
+                <a href="Fuzzing-Art-Science-and-Engineering.html">
+            
+                    
+                    Fuzzing: Art, Science, and Engineering
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.7" data-path="NAR-Miner-Discovering-Negative-Association-Rules-from-Code.html">
+            
+                <a href="NAR-Miner-Discovering-Negative-Association-Rules-from-Code.html">
+            
+                    
+                    NAR-Miner Discovering Negative Association Rules from Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.8" data-path="SoK-Security-Evaluation-of-Home-Based-IoT-Deployments.html">
+            
+                <a href="SoK-Security-Evaluation-of-Home-Based-IoT-Deployments.html">
+            
+                    
+                    SoK: Security Evaluation of Home-Based IoT Deployments
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.9" data-path="Towards-Paving-the-Way-for-Large-Scale-Windows-Malware-Analysis-Generic-Binary-Unpacking-With-Orders-of-Magnitude-Performance-Boost.html">
+            
+                <a href="Towards-Paving-the-Way-for-Large-Scale-Windows-Malware-Analysis-Generic-Binary-Unpacking-With-Orders-of-Magnitude-Performance-Boost.html">
+            
+                    
+                    Towards Paving the Way for Large-Scale Windows Malware Analysis: Generic Binary Unpacking With Orders-of-Magnitude Performance Boost
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.10" data-path="Using-Logic-Programming-to-Recover-C-Classes-and-Methods-From-Compiled-Executables.html">
+            
+                <a href="Using-Logic-Programming-to-Recover-C-Classes-and-Methods-From-Compiled-Executables.html">
+            
+                    
+                    Using Logic Programming to Recover C++ Classes and Methods From Compiled  Executables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.11" data-path="VUzzer-Application-aware-Evolutionary-Fuzzing.html">
+            
+                <a href="VUzzer-Application-aware-Evolutionary-Fuzzing.html">
+            
+                    
+                    VUzzer: Application-aware Evolutionary Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../../MaliciousSampleDetecion/">
+            
+                <a href="../../MaliciousSampleDetecion/">
+            
+                    
+                    <> MaliciousSampleDetecion
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.3.1" data-path="../../MaliciousSampleDetection">
+            
+                <span>
+            
+                    
+                    Capturing the symptoms of malicious code in electronic documents by file's entropy signal combined with Machine learning
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../../ReverseEngineering/">
+            
+                <a href="../../ReverseEngineering/">
+            
+                    
+                    <> ReverseEngineering
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.4.1" data-path="../../ReverseEngineering/papers/Lord-of-the-X86-Rings-A-Portable-User-Mode-Privilege-Separation-Architecture-on-X86.html">
+            
+                <a href="../../ReverseEngineering/papers/Lord-of-the-X86-Rings-A-Portable-User-Mode-Privilege-Separation-Architecture-on-X86.html">
+            
+                    
+                    Lord-of-the-X86-Rings-A-Portable-User-Mode-Privilege-Separation-Architecture-on-X86
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4.2" data-path="../../ReverseEngineering/papers/Superset-Disassembly-Statically-Rewriting-X86-Binaries-Without-Heuristics-Disassembly.html">
+            
+                <a href="../../ReverseEngineering/papers/Superset-Disassembly-Statically-Rewriting-X86-Binaries-Without-Heuristics-Disassembly.html">
+            
+                    
+                    Superset-Disassembly-Statically-Rewriting-X86-Binaries-Without-Heuristics-Disassembly
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../../SymbolicExecution/">
+            
+                <a href="../../SymbolicExecution/">
+            
+                    
+                    <> SymbolicExecution
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="../../TaintAnalysis/">
+            
+                <a href="../../TaintAnalysis/">
+            
+                    
+                    <> TaintAnalysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../../../database/">
+            
+                <a href="../../../database/">
+            
+                    
+                    database
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../.." >Digtool: A Virtualization-Based Framework for Detecting Kernel Vulnerabilities</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="digtool-a-virtualization-based-framework-for-detecting-kernel-vulnerabilities">Digtool: A Virtualization-Based Framework for Detecting Kernel Vulnerabilities</h1>
+<h1 id="abstract">Abstract</h1>
+<p>&#x53D1;&#x73B0;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#xFF08;OS&#xFF09;&#x5185;&#x6838;&#x4E2D;&#x7684;&#x6F0F;&#x6D1E;&#x5E76;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x4FEE;&#x8865;&#x5BF9;&#x4E8E;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x5B89;&#x5168;&#x81F3;&#x5173;&#x91CD;&#x8981;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x7F3A;&#x4E4F;&#x6709;&#x6548;&#x7684;&#x5185;&#x6838;&#x6F0F;&#x6D1E;&#x68C0;&#x6D4B;&#x5DE5;&#x5177;&#xFF0C;&#x5C24;&#x5176;&#x662F;&#x5BF9;&#x4E8E;Microsoft Windows&#x7B49;&#x5C01;&#x95ED;&#x6E90;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x3002;&#x5728;&#x672C;&#x6587;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x4ECB;&#x7ECD;&#x4E86;Digtool&#xFF0C;&#x4E00;&#x4E2A;&#x6709;&#x6548;&#x7684;&#xFF0C;&#x4EC5;&#x4E8C;&#x8FDB;&#x5236;&#x4EE3;&#x7801;&#x7684;&#x5185;&#x6838;&#x6F0F;&#x6D1E;&#x68C0;&#x6D4B;&#x6846;&#x67B6;&#x3002; Digtool&#x6784;&#x5EFA;&#x4E8E;&#x6211;&#x4EEC;&#x8BBE;&#x8BA1;&#x7684;&#x865A;&#x62DF;&#x5316;&#x76D1;&#x89C6;&#x5668;&#x4E4B;&#x4E0A;&#xFF0C;&#x6210;&#x529F;&#x6355;&#x83B7;&#x5185;&#x6838;&#x6267;&#x884C;&#x7684;&#x5404;&#x79CD;&#x52A8;&#x6001;&#x884C;&#x4E3A;&#xFF0C;&#x4F8B;&#x5982;&#x5185;&#x6838;&#x5BF9;&#x8C61;&#x5206;&#x914D;&#xFF0C;&#x5185;&#x6838;&#x5185;&#x5B58;&#x8BBF;&#x95EE;&#xFF0C;&#x7EBF;&#x7A0B;&#x8C03;&#x5EA6;&#x548C;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x3002;&#x901A;&#x8FC7;&#x8FD9;&#x4E9B;&#x884C;&#x4E3A;&#xFF0C;Digtool&#x5DF2;&#x7ECF;&#x786E;&#x5B9A;&#x4E86;45&#x4E2A;&#x96F6;&#x65E5;&#x6F0F;&#x6D1E;&#xFF0C;&#x4F8B;&#x5982;&#x6700;&#x8FD1;&#x7248;&#x672C;&#x7684;Microsoft Windows&#x7684;&#x5185;&#x6838;&#x4EE3;&#x7801;&#x548C;&#x8BBE;&#x5907;&#x9A71;&#x52A8;&#x7A0B;&#x5E8F;&#x4E2D;&#x7684;out--bounds&#x8BBF;&#x95EE;&#xFF0C;free-after-free&#x548C;check-time-of-use-of-use &#xFF0C;&#x5305;&#x62EC;Windows 7&#x548C;Windows 10&#x3002;</p>
+<table>
+<thead>
+<tr>
+<th>relevant information</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>&#x4F5C;&#x8005;</em></td>
+<td>Jianfeng Pan, Guanglu Yan, Xiaocao Fan</td>
+</tr>
+<tr>
+<td><em>&#x5355;&#x4F4D;</em></td>
+<td>IceSword Lab, 360 Internet Security Center</td>
+</tr>
+<tr>
+<td><em>&#x51FA;&#x5904;</em></td>
+<td>USENIX&apos;17</td>
+</tr>
+<tr>
+<td><em>&#x539F;&#x6587;&#x5730;&#x5740;</em></td>
+<td><a href="https://github.com/wtwofire/database/blob/master/papers/fuzzing/2017-Digtool%EF%BC%9AA%20Virtualization-Based%20Framework%20for%20Detecting%20Kernel%20Vulnerabilities.pdf" target="_blank">https://github.com/wtwofire/database/blob/master/papers/fuzzing/2017-Digtool%EF%BC%9AA%20Virtualization-Based%20Framework%20for%20Detecting%20Kernel%20Vulnerabilities.pdf</a></td>
+</tr>
+<tr>
+<td><em>&#x6E90;&#x7801;&#x5730;&#x5740;</em></td>
+<td>&#x65E0;&#xFF0C;&#x76F8;&#x5173;&#x6750;&#x6599;&#xFF1A;<a href="https://www.usenix.org/sites/default/files/conference/protected-files/usenixsecurity17_slides_guanglu_yan.pdf" target="_blank">Slide</a>,<a href="https://www.youtube.com/watch?v=EOhIxpcyAiw" target="_blank">Video</a></td>
+</tr>
+<tr>
+<td><em>&#x53D1;&#x8868;&#x65F6;&#x95F4;</em></td>
+<td>2017&#x5E74;</td>
+</tr>
+</tbody>
+</table>
+<h1 id="&#x4E00;&#x3001;&#x80CC;&#x666F;">&#x4E00;&#x3001;&#x80CC;&#x666F;</h1>
+<p>&#x76EE;&#x524D;&#xFF0C;&#x81EA;&#x52A8;&#x5316;&#x68C0;&#x6D4B;&#x7CFB;&#x7EDF;&#x5185;&#x6838;&#x6F0F;&#x6D1E;&#x7684;&#x5DE5;&#x5177;&#x6BD4;&#x8F83;&#x5C11;&#xFF0C;&#x800C;&#x4E14;&#xFF0C;&#x5F88;&#x591A;&#x7684;&#x5DE5;&#x5177;&#x90FD;&#x662F;&#x53EA;&#x80FD;&#x68C0;&#x6D4B;&#x5F00;&#x6E90;&#x7684;&#x7CFB;&#x7EDF;&#x5185;&#x6838;&#xFF08;&#x4F8B;&#x5982;&#xFF1A;Linux&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#xFF09;&#xFF0C;&#x5BF9;&#x4E8E;&#x4E0D;&#x5F00;&#x6E90;&#x7684;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#xFF08;&#x4F8B;&#x5982;&#xFF1A;Microsoft Windows&#xFF09;&#x5219;&#x65E0;&#x80FD;&#x4E3A;&#x529B;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5F88;&#x6709;&#x5FC5;&#x8981;&#x5F00;&#x53D1;&#x4E00;&#x6B3E;&#x4E13;&#x7528;&#x7684;&#x7CFB;&#x7EDF;&#x5185;&#x6838;&#x6F0F;&#x6D1E;&#x68C0;&#x6D4B;&#x5DE5;&#x5177;&#xFF0C;&#x5728;&#x4E8C;&#x8FDB;&#x5236;&#x5C42;&#x9762;&#x68C0;&#x6D4B;&#x7CFB;&#x7EDF;&#x5185;&#x6838;&#x6F5C;&#x5728;&#x7684;&#x6F0F;&#x6D1E;&#x3002;&#x6F0F;&#x6D1E;&#x68C0;&#x6D4B;&#x5DE5;&#x5177;&#x901A;&#x5E38;&#x5206;&#x4E3A;&#x4E24;&#x4E2A;&#x65B9;&#x9762;&#xFF1A;&#x8DEF;&#x5F84;&#x63A2;&#x6D4B;&#x548C;&#x6F0F;&#x6D1E;&#x8BC6;&#x522B;&#xFF0C;&#x8DEF;&#x5F84;&#x63A2;&#x6D4B;&#x901A;&#x5E38;&#x4F7F;&#x7528;fuzzer&#x5DE5;&#x5177;&#xFF0C;&#x67E5;&#x627E;&#x5C3D;&#x53EF;&#x80FD;&#x591A;&#x7684;&#x5206;&#x652F;&#x8DEF;&#x5F84;&#xFF1B;&#x6F0F;&#x6D1E;&#x8BC6;&#x522B;&#x5219;&#x7528;&#x4E8E;&#x68C0;&#x6D4B;&#x8FD9;&#x4E9B;&#x8DEF;&#x5F84;&#x4E0A;&#x53EF;&#x80FD;&#x5B58;&#x5728;&#x7684;&#x6F0F;&#x6D1E;&#x3002;&#x800C;&#x5728;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x4E2D;&#xFF0C;&#x4F5C;&#x8005;&#x7ED3;&#x5408;&#x4E86;&#x8FD9;&#x4E24;&#x4E2A;&#x65B9;&#x9762;&#x7684;&#x6280;&#x672F;&#xFF0C;&#x5177;&#x4F53;&#x68C0;&#x6D4B;&#x4E86;&#x5185;&#x6838;&#x4E2D;&#x7684;&#x4EE5;&#x4E0B;&#x56DB;&#x79CD;&#x6F0F;&#x6D1E;&#x7C7B;&#x578B;&#xFF1A;</p>
+<h2 id="1-unprobe"><strong>1. UNPROBE</strong></h2>
+<p>&#x5728;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x4E2D;&#xFF0C;&#x4F5C;&#x8005;&#x628A;&#x672A;&#x7ECF;&#x68C0;&#x67E5;&#x7684;&#x3001;&#x4ECE;&#x7528;&#x6237;&#x5C42;&#x4F20;&#x4E0B;&#x6765;&#x7684;&#x8F93;&#x5165;&#x7F13;&#x51B2;&#x533A;&#x6307;&#x9488;&#x6240;&#x9020;&#x6210;&#x7684;&#x6F0F;&#x6D1E;&#x53EB;&#x505A;UNPROBE&#x3002;&#x5F88;&#x591A;&#x5185;&#x6838;&#x6A21;&#x5757;&#x90FD;&#x53EF;&#x80FD;&#x4F1A;&#x5FFD;&#x7565;&#x5BF9;&#x7528;&#x6237;&#x5C42;&#x7684;&#x6307;&#x9488;&#x8FDB;&#x884C;&#x68C0;&#x67E5;&#xFF0C;&#x7279;&#x522B;&#x662F;&#x4E00;&#x4E9B;&#x88AB;&#x5D4C;&#x5957;&#x7684;&#x6307;&#x9488;&#xFF0C;&#x800C;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x662F;&#x975E;&#x5E38;&#x5371;&#x9669;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x975E;&#x6CD5;&#x5185;&#x5B58;&#x5F15;&#x7528;&#x3001;&#x4EFB;&#x610F;&#x7684;&#x5185;&#x5B58;&#x8BFB;&#x6216;&#x8005;&#x5199;&#x7B49;&#x4E25;&#x91CD;&#x540E;&#x679C;&#x3002;</p>
+<h2 id="2-tocttou-time-of-check-to-time-of-use"><strong>2. TOCTTOU (Time-Of-Check-To-Time-Of-Use)</strong></h2>
+<p>TOCTTOU&#x6F0F;&#x6D1E;&#x6765;&#x6E90;&#x4E8E;&#x5BF9;&#x540C;&#x4E00;&#x4E2A;&#x7528;&#x6237;&#x5C42;&#x7684;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x591A;&#x6B21;&#x7684;&#x8BBF;&#x95EE;&#x3002;&#x5728;&#x6709;&#x4E9B;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x5904;&#x7406;&#x4F8B;&#x7A0B;&#x4E2D;&#xFF0C;&#x5F53;&#x5B83;&#x8981;&#x8BBF;&#x95EE;&#x67D0;&#x4E00;&#x4E2A;&#x7528;&#x6237;&#x5C42;&#x6570;&#x636E;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5B83;&#x9996;&#x5148;&#x4F1A;&#x68C0;&#x67E5;&#x8FD9;&#x4E2A;&#x6570;&#x636E;&#x662F;&#x5426;&#x5408;&#x6CD5;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x4F7F;&#x7528;&#x5B83;&#xFF0C;&#x8FD9;&#x5C31;&#x4F1A;&#x4EA7;&#x751F;&#x4E24;&#x6B21;&#x5BF9;&#x8BE5;&#x6570;&#x636E;&#x7684;&#x8BBF;&#x95EE;&#xFF0C;&#x800C;&#x5728;&#x8FD9;&#x4E24;&#x6B21;&#x8BBF;&#x95EE;&#x4E4B;&#x95F4;&#x5C31;&#x4F1A;&#x5B58;&#x5728;&#x4E00;&#x4E2A;&#x653B;&#x51FB;&#x7A97;&#x53E3;&#xFF0C;&#x4E00;&#x65E6;&#x8FD9;&#x4E2A;&#x653B;&#x51FB;&#x7A97;&#x53E3;&#x88AB;&#x653B;&#x51FB;&#x8005;&#x5229;&#x7528;&#xFF0C;&#x5C31;&#x6709;&#x53EF;&#x80FD;&#x5BFC;&#x81F4;&#x975E;&#x6CD5;&#x5185;&#x5B58;&#x5F15;&#x7528;&#x3001;&#x4EFB;&#x610F;&#x7684;&#x5185;&#x5B58;&#x8BFB;&#x6216;&#x8005;&#x5199;&#x7B49;&#x4E25;&#x91CD;&#x540E;&#x679C;&#x3002;</p>
+<h2 id="3-uaf-use-after-free"><strong>3. UAF (Use-After-Free)</strong></h2>
+<p>UAF&#x6F0F;&#x6D1E;&#x662F;&#x7531;&#x4E8E;&#x4F7F;&#x7528;&#x4E86;&#x88AB;&#x91CA;&#x653E;&#x7684;&#x5185;&#x5B58;&#x5BFC;&#x81F4;&#x7684;&#x3002;&#x5F88;&#x591A;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8FD9;&#x79CD;&#x6F0F;&#x6D1E;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x672C;&#x5730;&#x63D0;&#x6743;&#x3002;&#x5728;Linux&#x4E0A;&#xFF0C;&#x50CF;AddressSanitizer&#x8FD9;&#x6837;&#x7684;&#x5DE5;&#x5177;&#x5DF2;&#x7ECF;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x68C0;&#x6D4B;&#x8FD9;&#x7C7B;&#x6F0F;&#x6D1E;&#xFF1B;&#x5728;Windows&#x4E0A;&#xFF0C;&#x5FAE;&#x8F6F;&#x81EA;&#x5DF1;&#x5F00;&#x53D1;&#x7684;DriverVerifier&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x68C0;&#x6D4B;&#x8FD9;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x6F0F;&#x6D1E;&#xFF0C;&#x4F46;&#x662F;&#x9650;&#x5236;&#x6761;&#x4EF6;&#x6BD4;&#x8F83;&#x591A;&#x3002;</p>
+<h2 id="4-oob-out-of-bound-access"><strong>4. OOB (Out-Of-Bound access)</strong></h2>
+<p>OOB&#x6F0F;&#x6D1E;&#x662F;&#x7531;&#x4E8E;&#x8BBF;&#x95EE;&#x4E86;&#x76EE;&#x6807;&#x5185;&#x5B58;&#x5757;&#x4E4B;&#x5916;&#x7684;&#x5185;&#x5B58;&#x5BFC;&#x81F4;&#x7684;&#x3002;&#x8BE5;&#x6F0F;&#x6D1E;&#x5BFC;&#x81F4;&#x7684;&#x540E;&#x679C;&#x8DDF;UAF&#x6F0F;&#x6D1E;&#x5BFC;&#x81F4;&#x7684;&#x540E;&#x679C;&#x4E00;&#x6837;&#xFF0C;&#x90FD;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x672C;&#x5730;&#x63D0;&#x6743;&#xFF0C;&#x5E76;&#x4E14;&#x7528;&#x4E8E;&#x68C0;&#x6D4B;&#x8FD9;&#x4E24;&#x79CD;&#x6F0F;&#x6D1E;&#x7684;&#x5DE5;&#x5177;&#x4E5F;&#x57FA;&#x672C;&#x4E00;&#x6837;&#x3002;</p>
+<h1 id="&#x4E8C;&#x3001;&#x63D0;&#x51FA;&#x7684;&#x65B9;&#x6CD5;&#x4EE5;&#x53CA;&#x89E3;&#x51B3;&#x7684;&#x95EE;&#x9898;">&#x4E8C;&#x3001;&#x63D0;&#x51FA;&#x7684;&#x65B9;&#x6CD5;&#x4EE5;&#x53CA;&#x89E3;&#x51B3;&#x7684;&#x95EE;&#x9898;</h1>
+<p>&#x50CF;Windows&#x8FD9;&#x6837;&#x7684;&#x95ED;&#x6E90;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#xFF0C;&#x8981;&#x68C0;&#x6D4B;&#x7CFB;&#x7EDF;&#x4E2D;&#x5B58;&#x5728;&#x7684;&#x6F0F;&#x6D1E;&#xFF0C;&#x5C31;&#x4E0D;&#x80FD;&#x518D;&#x4F7F;&#x7528;&#x57FA;&#x4E8E;&#x6E90;&#x7801;&#x7684;&#x68C0;&#x6D4B;&#x5DE5;&#x5177;&#xFF0C;&#x5FC5;&#x987B;&#x4F7F;&#x7528;&#x57FA;&#x4E8E;&#x4E8C;&#x8FDB;&#x5236;&#x4EE3;&#x7801;&#x7684;&#x68C0;&#x6D4B;&#x5DE5;&#x5177;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x4E3A;&#x4E86;&#x68C0;&#x6D4B;Windows&#x5185;&#x6838;&#x4E2D;&#x51FA;&#x73B0;&#x7684;&#x4EE5;&#x4E0A;&#x56DB;&#x79CD;&#x6F0F;&#x6D1E;&#x7C7B;&#x578B;&#xFF0C;&#x4F5C;&#x8005;&#x63D0;&#x51FA;&#x4E86;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E;&#x4E8C;&#x8FDB;&#x5236;&#x4EE3;&#x7801;&#x7684;&#x68C0;&#x6D4B;&#x6846;&#x67B6;&#xFF1A;DigTool&#x3002;&#x8BE5;&#x6846;&#x67B6;&#x5EFA;&#x7ACB;&#x5728;&#x4F5C;&#x8005;&#x81EA;&#x5DF1;&#x8BBE;&#x8BA1;&#x7684;&#x4E00;&#x4E2A;&#x865A;&#x62DF;&#x5316;&#x76D1;&#x89C6;&#x5668;&#xFF08;Hypervisor&#xFF09;&#x4E4B;&#x4E0A;&#xFF0C;&#x7528;&#x6765;&#x6355;&#x83B7;&#x5185;&#x6838;&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#x7684;&#x5404;&#x79CD;&#x52A8;&#x6001;&#x884C;&#x4E3A;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;&#x5185;&#x6838;&#x5BF9;&#x8C61;&#x7684;&#x5206;&#x914D;&#x3001;&#x5185;&#x6838;&#x4E2D;&#x7684;&#x5185;&#x5B58;&#x8BBF;&#x95EE;&#x3001;&#x7EBF;&#x7A0B;&#x8C03;&#x5EA6;&#x548C;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x7B49;&#xFF0C;&#x5E76;&#x57FA;&#x4E8E;&#x8FD9;&#x4E9B;&#x884C;&#x4E3A;&#xFF0C;&#x53D1;&#x6398;&#x7CFB;&#x7EDF;&#x4E2D;&#x5B58;&#x5728;&#x7684;&#x6F0F;&#x6D1E;&#x3002;</p>
+<h1 id="&#x4E09;&#x3001;&#x6280;&#x672F;&#x65B9;&#x6CD5;">&#x4E09;&#x3001;&#x6280;&#x672F;&#x65B9;&#x6CD5;</h1>
+<p><img src="Digtool-A-Virtualization-Based-Framework-for-Detecting-Kernel-Vulnerabilities/1.jpg" alt=""></p>
+<p>DigTool&#x7684;&#x603B;&#x4F53;&#x67B6;&#x6784;&#x5982;&#x56FE;1&#x6240;&#x793A;&#xFF0C;&#x5B83;&#x7684;&#x5404;&#x4E2A;&#x6A21;&#x5757;&#x5206;&#x5E03;&#x5728;&#x7CFB;&#x7EDF;&#x7684;&#x4E0D;&#x540C;&#x7684;&#x5C42;&#x6B21;&#x5F53;&#x4E2D;&#xFF0C;&#x5B83;&#x4EEC;&#x5206;&#x522B;&#x5305;&#x62EC;&#xFF1A;Hypervisor&#x4E2D;&#x3001;&#x5BA2;&#x6237;&#x673A;&#x7684;&#x5185;&#x6838;&#x4E2D;&#x4EE5;&#x53CA;&#x5BA2;&#x6237;&#x673A;&#x7684;&#x7528;&#x6237;&#x7A7A;&#x95F4;&#x3002;&#x901A;&#x8FC7;&#x7BAD;&#x5934;&#x53EF;&#x4EE5;&#x77E5;&#x9053;&#x5B83;&#x4EEC;&#x4E4B;&#x95F4;&#x7684;&#x5404;&#x4E2A;&#x6A21;&#x5757;&#x7684;&#x76F8;&#x4E92;&#x4F5C;&#x7528;&#x5173;&#x7CFB;&#xFF1A;&#x7EC6;&#x7BAD;&#x5934;&#x6240;&#x8FDE;&#x63A5;&#x7684;&#x4E24;&#x4E2A;&#x6A21;&#x5757;&#x8868;&#x660E;&#x5B83;&#x4EEC;&#x4E4B;&#x95F4;&#x6709;&#x76F4;&#x63A5;&#x7684;&#x8C03;&#x7528;&#x5173;&#x7CFB;&#x6216;&#x8005;&#x662F;&#x76F4;&#x63A5;&#x7684;&#x4F20;&#x8F93;&#x4FE1;&#x606F;&#x901A;&#x9053;&#xFF0C;&#x7C97;&#x7BAD;&#x5934;&#x8868;&#x660E;&#x4E24;&#x4E2A;&#x6A21;&#x5757;&#x4E4B;&#x95F4;&#x901A;&#x8FC7;&#x67D0;&#x79CD;&#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#x673A;&#x5236;&#x8FDB;&#x884C;&#x95F4;&#x63A5;&#x7684;&#x76F8;&#x4E92;&#x4F5C;&#x7528;&#x3002;</p>
+<h2 id="1-hypervisor-&#x7EC4;&#x4EF6;&#xFF1A;"><strong>(1). Hypervisor &#x7EC4;&#x4EF6;&#xFF1A;</strong></h2>
+<p>DigTool&#x4E0D;&#x4F9D;&#x8D56;&#x4E8E;Xen&#x3001;KVM&#x7B49;&#x5F53;&#x524D;&#x5B58;&#x5728;&#x7684;Hypervisor&#xFF0C;&#x800C;&#x662F;&#x81EA;&#x5DF1;&#x5F00;&#x53D1;&#x4E00;&#x4E2A;Hypervisor&#xFF0C;&#x5B83;&#x5305;&#x542B;&#x4E09;&#x4E2A;&#x91CD;&#x8981;&#x7684;&#x7EC4;&#x6210;&#x90E8;&#x5206;&#xFF1A;VMM&#xFF08;Virtual Machine Monitor&#xFF09;infrastructure&#x3001;Interface detection &#x548C; memory detection&#x3002;</p>
+<ul>
+<li>&#x865A;&#x62DF;&#x673A;&#x76D1;&#x63A7;&#x6A21;&#x5757;&#xFF08;VMM infrastructure&#xFF09;&#xFF1A; &#x9996;&#x5148;&#xFF0C;&#x5B83;&#x8D1F;&#x8D23;&#x68C0;&#x6D4B;&#x673A;&#x5668;&#x4E0A;&#x7684;&#x786C;&#x4EF6;&#x73AF;&#x5883;&#x548C;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x7248;&#x672C;&#x7B49;&#xFF0C;&#x4EE5;&#x786E;&#x4FDD;DigTool&#x80FD;&#x6B63;&#x786E;&#x7684;&#x8FD0;&#x884C;&#xFF1B;&#x7136;&#x540E;&#xFF0C;&#x5B83;&#x518D;&#x521D;&#x59CB;&#x5316;Hypervisor&#xFF0C;&#x5E76;&#x628A;&#x4E00;&#x4E2A;&#x539F;&#x59CB;&#x7684;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x52A0;&#x8F7D;&#x5230;&#x4E00;&#x4E2A;VM&#x865A;&#x62DF;&#x673A;&#x5F53;&#x4E2D;&#x8FD0;&#x884C;&#x3002;</li>
+<li>&#x63A5;&#x53E3;&#x68C0;&#x6D4B;&#xFF08;Interface detection&#xFF09;&#xFF1A; &#x5B83;&#x8D1F;&#x8D23;&#x76D1;&#x63A7;&#x7528;&#x6237;&#x5C42;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5728;&#x8C03;&#x7528;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x7684;&#x65F6;&#x5019;&#x4F20;&#x9012;&#x5230;&#x5185;&#x6838;&#x4E2D;&#x7684;&#x53C2;&#x6570;&#x3002;&#x5728;&#x5185;&#x6838;&#x4E2D;&#xFF0C;&#x5B83;&#x8DDF;&#x8E2A;&#x8FD9;&#x4E9B;&#x53C2;&#x6570;&#x88AB;&#x4F7F;&#x7528;&#x548C;&#x88AB;&#x68C0;&#x67E5;&#x6240;&#x53D1;&#x751F;&#x7684;&#x4F4D;&#x7F6E;&#xFF0C;&#x4EE5;&#x53D1;&#x6398;&#x6F5C;&#x5728;&#x7684;&#x6F0F;&#x6D1E;&#x3002;&#x4E3A;&#x4E86;&#x63D0;&#x9AD8;&#x6027;&#x80FD;&#xFF0C;DigTool&#x5E76;&#x4E0D;&#x662F;&#x76D1;&#x63A7;&#x6240;&#x6709;&#x7684;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#xFF0C;&#x5B83;&#x53EA;&#x76D1;&#x63A7;&#x81EA;&#x5DF1;&#x611F;&#x5174;&#x8DA3;&#x7684;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#xFF08;&#x901A;&#x8FC7;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x914D;&#x7F6E;&#xFF09;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5B83;&#x9650;&#x5236;&#x4E86;&#x88AB;&#x76D1;&#x63A7;&#x7684;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x7684;&#x8303;&#x56F4;&#xFF0C;&#x4EE5;&#x68C0;&#x67E5;&#x7279;&#x5B9A;&#x7684;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x6240;&#x4EA7;&#x751F;&#x7684;&#x6F0F;&#x6D1E;&#x3002;</li>
+<li>&#x5185;&#x5B58;&#x68C0;&#x6D4B;&#xFF08;Memory detection&#xFF09;&#xFF1A; &#x8BE5;&#x6A21;&#x5757;&#x901A;&#x8FC7;&#x4F7F;&#x7528;SPT&#xFF08;Shadow Page Table&#xFF09;&#x6280;&#x672F;&#xFF0C;&#x76D1;&#x63A7;&#x5BA2;&#x6237;&#x673A;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x5185;&#x6838;&#x4E2D;&#x7684;&#x975E;&#x6CD5;&#x5185;&#x5B58;&#x8BBF;&#x95EE;&#x3002;&#x4E3A;&#x4E86;&#x68C0;&#x6D4B;&#x7279;&#x5B9A;&#x7684;&#x5185;&#x6838;&#x6A21;&#x5757;&#xFF08;&#x4F8B;&#x5982;Win32k&#x7B49;&#xFF09;&#xFF0C;&#x8BE5;&#x6A21;&#x5757;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8C03;&#x7528;&#x76F8;&#x5E94;&#x7684;&#x670D;&#x52A1;&#x63A5;&#x53E3;&#xFF08;Hypervisor&#x63D0;&#x4F9B;&#x7ED9;&#x5BA2;&#x6237;&#x673A;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x5185;&#x6838;&#x7684;&#x63A5;&#x53E3;&#xFF09;&#x6765;&#x9650;&#x5236;&#x88AB;&#x76D1;&#x63A7;&#x7684;&#x5185;&#x6838;&#x6A21;&#x5757;&#x548C;&#x5730;&#x5740;&#x8303;&#x56F4;&#x3002;</li>
+</ul>
+<h2 id="2-kernel-space-&#x7EC4;&#x4EF6;&#xFF1A;"><strong>(2). Kernel-Space &#x7EC4;&#x4EF6;&#xFF1A;</strong></h2>
+<p>DigTool&#x5728;&#x5BA2;&#x6237;&#x673A;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x5185;&#x6838;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x6A21;&#x5757;&#x88AB;&#x7EDF;&#x79F0;&#x4E3A;&#xFF1A;Middleware&#xFF0C;&#x5B83;&#x5C5E;&#x4E8E;&#x4E00;&#x4E2A;&#x4E2D;&#x95F4;&#x6865;&#x6881;&#xFF08;&#x6216;&#x8005;&#x8BF4;&#x662F;&#x4E00;&#x4E2A;&#x4E2D;&#x95F4;&#x4EF6;&#xFF09;&#xFF0C;&#x7528;&#x4E8E;&#x8FDE;&#x63A5;Hypervisor&#x548C;&#x5BA2;&#x6237;&#x673A;&#x7528;&#x6237;&#x7A7A;&#x95F4;&#x7A0B;&#x5E8F;&#xFF0C;&#x5177;&#x6709;&#x627F;&#x4E0A;&#x542F;&#x4E0B;&#x7684;&#x4F5C;&#x7528;&#x3002;</p>
+<ul>
+<li>&#x4F8B;&#x5982;&#x56FE;1&#x4E2D;&#xFF0C;&#x5728;Loader&#x52A0;&#x8F7D;Fuzzer&#x4E4B;&#x524D;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x7528;&#x6237;&#x7A7A;&#x95F4;&#x4E2D;&#x7684;configuration&#x6587;&#x4EF6;&#x914D;&#x7F6E;&#x88AB;&#x68C0;&#x6D4B;&#x7684;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x7684;&#x8303;&#x56F4;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;Middleware&#x628A;&#x76F8;&#x5E94;&#x7684;&#x4FE1;&#x606F;&#x4F20;&#x9001;&#x5230;Hypervisor&#xFF0C;&#x8FD9;&#x5C31;&#x4F7F;&#x5F97;Hypervisor&#x53EF;&#x4EE5;&#x5728;Fuzzer&#x8FDB;&#x7A0B;&#x7A7A;&#x95F4;&#x4E2D;&#x68C0;&#x6D4B;&#x76F8;&#x5E94;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x4E2D;&#x7684;&#x6F0F;&#x6D1E;&#x4E86;&#x3002;</li>
+<li>&#x5BF9;&#x4E8E;&#x63A5;&#x53E3;&#x68C0;&#x6D4B;&#xFF0C;Middleware&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#xFF08;Work thread&#xFF09;&#x628A;&#x6240;&#x6709;&#x7684;&#x76F8;&#x5173;&#x4FE1;&#x606F;&#xFF08;&#x5305;&#x62EC;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x53F7;&#x3001;&#x4E8B;&#x4EF6;&#x7C7B;&#x578B;&#x3001;&#x4E8B;&#x4EF6;&#x53D1;&#x751F;&#x7684;&#x65F6;&#x95F4;&#x3001;&#x6307;&#x4EE4;&#x5730;&#x5740;&#x4EE5;&#x53CA;&#x8BBF;&#x95EE;&#x7684;&#x5185;&#x5B58;&#xFF09;&#x90FD;&#x8BB0;&#x5F55;&#x5230;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x4E2D;&#x3002;&#x4EE5;&#x4FBF;&#x4E8E;&#x65E5;&#x5FD7;&#x5206;&#x6790;&#x6A21;&#x5757;&#xFF08;Log analyzer&#xFF09;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x5206;&#x6790;&#x5E76;&#x67E5;&#x627E;&#x51FA;&#x76F8;&#x5E94;&#x7684;&#x6F0F;&#x6D1E;&#x3002;</li>
+<li>&#x5BF9;&#x4E8E;&#x5185;&#x5B58;&#x68C0;&#x6D4B;&#xFF0C;Middleware&#x901A;&#x8FC7;Hook&#x7279;&#x5B9A;&#x7684;&#x5185;&#x5B58;&#x64CD;&#x4F5C;&#x51FD;&#x6570;&#xFF0C;&#x8F85;&#x52A9;&#x5185;&#x5B58;&#x68C0;&#x6D4B;&#x6A21;&#x5757;&#x77EB;&#x6B63;&#x88AB;&#x68C0;&#x6D4B;&#x7684;&#x5185;&#x5B58;&#x8303;&#x56F4;&#xFF08;&#x56E0;&#x4E3A;DigTool&#x53EA;&#x68C0;&#x6D4B;&#x90E8;&#x5206;&#x76F8;&#x5173;&#x7684;&#x5185;&#x5B58;&#x8303;&#x56F4;&#xFF09;&#xFF0C;&#x5E76;&#x4E14;&#x901A;&#x8FC7;&#x8C03;&#x7528;Hypervisor&#x63D0;&#x4F9B;&#x7684;&#x63A5;&#x53E3;&#x6765;&#x9650;&#x5236;&#x88AB;&#x76D1;&#x63A7;&#x7684;&#x5185;&#x5B58;&#x533A;&#x57DF;&#xFF0C;&#x4EE5;&#x63D0;&#x9AD8;&#x6027;&#x80FD;&#x3002;&#x53E6;&#x5916;&#xFF0C;&#x5982;&#x679C;&#x5728;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x4E2D;&#x53D1;&#x73B0;&#x4E00;&#x4E2A;&#x6F5C;&#x5728;&#x7684;&#x6F0F;&#x6D1E;&#xFF0C;Middleware&#x8FD8;&#x4F1A;&#x4E2D;&#x65AD;&#x5BA2;&#x6237;&#x673A;&#xFF0C;&#x4F7F;&#x4E4B;&#x8FDB;&#x5165;&#x5355;&#x6B65;&#x8C03;&#x8BD5;&#x6A21;&#x5F0F;&#xFF0C;&#x7B49;&#x5F85;&#x5916;&#x90E8;&#x8C03;&#x8BD5;&#x5DE5;&#x5177;&#xFF08;&#x4F8B;&#x5982; WinDbg&#xFF09;&#x8FDE;&#x63A5;&#xFF0C;&#x5E76;&#x83B7;&#x53D6;&#x6709;&#x7528;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x73AF;&#x5883;&#xFF0C;&#x8F85;&#x52A9;&#x6F0F;&#x6D1E;&#x5206;&#x6790;&#x3002;</li>
+</ul>
+<h2 id="3-user-space-&#x7EC4;&#x4EF6;&#xFF1A;"><strong>(3). User-Space &#x7EC4;&#x4EF6;&#xFF1A;</strong></h2>
+<p>&#x4E3A;&#x4E86;&#x63D0;&#x9AD8;&#x7CFB;&#x7EDF;&#x7684;&#x7A33;&#x5B9A;&#x6027;&#x548C;&#x5065;&#x58EE;&#x6027;&#xFF0C;&#x4F5C;&#x8005;&#x628A;DigTool&#x7684;&#x4E00;&#x90E8;&#x5206;&#x4F5C;&#x7528;&#x529F;&#x80FD;&#x6A21;&#x5757;&#x653E;&#x5230;&#x7528;&#x6237;&#x7A7A;&#x95F4;&#x4E2D;&#xFF0C;&#x8FD9;&#x4E9B;&#x6A21;&#x5757;&#x5305;&#x62EC;&#xFF1A;Loader&#x6A21;&#x5757;&#x3001;Fuzzer&#x6A21;&#x5757;&#x548C;Log Analyzer&#x6A21;&#x5757;&#x3002;</p>
+<ul>
+<li>Loader&#x6A21;&#x5757;&#xFF0C;&#x5B83;&#x8D1F;&#x8D23;&#x88C5;&#x8F7D;&#x4E00;&#x4E2A;&#x7279;&#x5B9A;&#x7684;&#x8FDB;&#x7A0B;&#xFF0C;&#x7ED9;DigTool&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x68C0;&#x6D4B;&#x6F0F;&#x6D1E;&#x7684;&#x8FDB;&#x7A0B;&#x73AF;&#x5883;&#x3002;&#x8BE5;&#x6A21;&#x5757;&#x8FD8;&#x9700;&#x8981;&#x914D;&#x7F6E;configuration&#x6587;&#x4EF6;&#xFF0C;&#x9650;&#x5236;&#x88AB;&#x68C0;&#x6D4B;&#x7684;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x7684;&#x8303;&#x56F4;&#x7B49;&#xFF08;&#x8981;&#x68C0;&#x6D4B;&#x54EA;&#x4E9B;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x5C31;&#x628A;&#x8FD9;&#x4E9B;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x6DFB;&#x52A0;&#x5230;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#xFF09;&#x3002;</li>
+<li>Fuzzer&#x6A21;&#x5757;&#xFF0C;&#x8BE5;&#x6A21;&#x5757;&#x7531;Loader&#x6A21;&#x5757;&#x88C5;&#x8F7D;&#xFF0C;&#x901A;&#x8FC7;Fuzzer&#x6A21;&#x5757;&#x8C03;&#x7528;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#xFF0C;&#x5E76;&#x901A;&#x8FC7;&#x8C03;&#x6574;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x63A2;&#x7D22;&#x5C3D;&#x53EF;&#x80FD;&#x591A;&#x7684;&#x8DEF;&#x5F84;&#xFF0C;&#x4F7F;&#x5F97;&#x6F0F;&#x6D1E;&#x68C0;&#x6D4B;&#x6A21;&#x5757;&#x53EF;&#x4EE5;&#x53D1;&#x6398;&#x5C3D;&#x53EF;&#x80FD;&#x591A;&#x7684;&#x6F0F;&#x6D1E;&#x3002;</li>
+<li>Log Analyzer&#x6A21;&#x5757;&#xFF0C;&#x8BE5;&#x6A21;&#x5757;&#x8D1F;&#x8D23;&#x5206;&#x6790;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#xFF0C;&#x5206;&#x6790;&#x4EE3;&#x7801;&#x4E2D;&#x53EF;&#x80FD;&#x5B58;&#x5728;&#x7684;&#x6F0F;&#x6D1E;&#x3002;</li>
+</ul>
+<h1 id="&#x56DB;&#x3001;&#x5B9E;&#x9A8C;&#x8BC4;&#x4F30;">&#x56DB;&#x3001;&#x5B9E;&#x9A8C;&#x8BC4;&#x4F30;</h1>
+<h2 id="1-&#x6709;&#x6548;&#x6027;&#x8BC4;&#x4F30;"><strong>(1). &#x6709;&#x6548;&#x6027;&#x8BC4;&#x4F30;</strong></h2>
+<p>&#x4F5C;&#x8005;&#x901A;&#x8FC7;&#x6D4B;&#x8BD5;&#x4E0D;&#x540C;&#x7684;&#x8F6F;&#x4EF6;&#x4EA7;&#x54C1;&#x6765;&#x8BC4;&#x4F30;DigTool&#x7684;&#x6709;&#x6548;&#x6027;&#xFF0C;&#x8FD9;&#x4E9B;&#x4EA7;&#x54C1;&#x5305;&#x62EC;Windows&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x548C;&#x4E00;&#x4E9B;&#x53CD;&#x75C5;&#x6BD2;&#x8F6F;&#x4EF6;&#xFF0C;&#x5E76;&#x4E14;&#x8FD9;&#x4E9B;&#x4EA7;&#x54C1;&#x90FD;&#x662F;&#x5F53;&#x65F6;&#x6700;&#x65B0;&#x7684;&#x7248;&#x672C;&#x3002;&#x5B9E;&#x9A8C;&#x73AF;&#x5883;&#x5305;&#x62EC;Windows 7&#x548C;Windows 10&#x3002;&#x4E3A;&#x4E86;&#x5B89;&#x5168;&#x8D77;&#x89C1;&#xFF0C;&#x5728;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x4E2D;&#xFF0C;&#x4F5C;&#x8005;&#x4F7F;&#x7528;&#x7684;&#x4F8B;&#x5B50;&#x662F;&#x5F53;&#x65F6;&#x53D1;&#x73B0;&#x7684;0Day&#x6F0F;&#x6D1E;&#xFF0C;&#x5E76;&#x4E14;&#x662F;&#x5DF2;&#x7ECF;&#x88AB;&#x76F8;&#x5E94;&#x7684;&#x5382;&#x5546;&#x4FEE;&#x590D;&#x7684;&#x6F0F;&#x6D1E;&#x3002;</p>
+<h4 id="detecting-vulnerability-via-interface&#xFF1A;"><strong>Detecting Vulnerability via Interface&#xFF1A;</strong></h4>
+<p>&#x5982;&#x8868;1&#x6240;&#x793A;&#xFF0C;&#x5BF9;&#x4E8E;Avast Free Antivirus v11.2.2262&#x3001;Dr. Web 11.0&#x3001;AhnLab v8.0&#x3001;Norman Security Suite v11.0.0&#x548C;Spyware Detector v2.0.0.3&#x8FD9;&#x4E94;&#x4E2A;&#x53CD;&#x75C5;&#x6BD2;&#x8F6F;&#x4EF6;&#xFF0C;&#x88AB;&#x68C0;&#x6D4B;&#x51FA;&#x5B58;&#x5728;UNPROBE&#x6F0F;&#x6D1E;&#x7684;&#x6570;&#x91CF;&#x603B;&#x5171;&#x4E3A;23&#x4E2A;&#x3002;</p>
+<p><img src="Digtool-A-Virtualization-Based-Framework-for-Detecting-Kernel-Vulnerabilities/Table1.jpg" alt=""></p>
+<p>&#x5982;&#x8868;2&#x6240;&#x793A;&#xFF0C;&#x5BF9;&#x4E8E;&#x540C;&#x6837;&#x7684;&#x4E94;&#x4E2A;&#x53CD;&#x75C5;&#x6BD2;&#x8F6F;&#x4EF6;&#xFF0C;&#x88AB;&#x68C0;&#x6D4B;&#x51FA;&#x5B58;&#x5728;TOCTTOU&#x6F0F;&#x6D1E;&#x7684;&#x6570;&#x91CF;&#x603B;&#x5171;&#x4E3A;18&#x4E2A;&#x3002;</p>
+<p><img src="Digtool-A-Virtualization-Based-Framework-for-Detecting-Kernel-Vulnerabilities/Table2.jpg" alt=""></p>
+<h4 id="detecting-vulerabiliry-via-memory-footprints"><strong>Detecting Vulerabiliry via Memory Footprints:</strong></h4>
+<p>&#x4E3A;&#x4E86;&#x68C0;&#x6D4B;UAF&#x548C;OOB&#x6F0F;&#x6D1E;&#xFF0C;&#x4F5C;&#x8005;&#x9009;&#x62E9;32&#x4F4D;&#x7684;Windows 10&#x4E3A;&#x5B9E;&#x9A8C;&#x73AF;&#x5883;&#x3002;&#x68C0;&#x6D4B;&#x8FD9;&#x4E24;&#x7C7B;&#x6F0F;&#x6D1E;&#x4E0D;&#x518D;&#x4F7F;&#x7528;&#x65E5;&#x5FD7;&#x7684;&#x5F62;&#x5F0F;&#xFF0C;&#x800C;&#x662F;&#x4F7F;&#x7528;&#x4E2D;&#x65AD;&#x5BA2;&#x6237;&#x673A;&#x7CFB;&#x7EDF;&#x7684;&#x5F62;&#x5F0F;&#xFF0C;&#x5373;&#xFF1A;&#x5F53;&#x53D1;&#x73B0;&#x53EF;&#x80FD;&#x5B58;&#x5728;&#x7684;&#x6F0F;&#x6D1E;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4E2D;&#x65AD;&#x5BA2;&#x6237;&#x673A;&#x7CFB;&#x7EDF;&#xFF0C;&#x7B49;&#x5F85;&#x8C03;&#x8BD5;&#x5DE5;&#x5177;&#x8FDE;&#x63A5;&#xFF0C;&#x7B49;&#x8C03;&#x8BD5;&#x5DE5;&#x5177;&#x8FDE;&#x63A5;&#x4E0A;&#x6765;&#x4E4B;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x4EA7;&#x751F;&#x6F0F;&#x6D1E;&#x7684;&#x4F4D;&#x7F6E;&#x5BF9;&#x5E94;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x73AF;&#x5883;&#xFF0C;&#x7528;&#x4E8E;&#x5206;&#x6790;&#x6F0F;&#x6D1E;&#x3002;&#x4F46;&#x662F;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x7684;&#x4E0D;&#x8DB3;&#x4E4B;&#x5904;&#x5728;&#x4E8E;&#xFF1A;&#x5B83;&#x9700;&#x8981;&#x624B;&#x5DE5;&#x53BB;&#x5206;&#x6790;&#x6F0F;&#x6D1E;&#x3002;</p>
+<p>&#x5728;win32kfull.sys&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;DigTool&#x6700;&#x5148;&#x53D1;&#x73B0;&#x4E86;MS16-123/CVE-2016-7211 CVE&#x6F0F;&#x6D1E;&#x3002;</p>
+<p>&#x800C;&#x5BF9;&#x4E8E;OOB&#x6F0F;&#x6D1E;&#xFF0C;&#x4F5C;&#x8005;&#x4F7F;&#x7528;DigTool&#x53D1;&#x73B0;&#x4E86;&#x4E09;&#x4E2A;win32kbase&#x4E2D;&#x7684;CVE&#xFF0C;&#x5B83;&#x4EEC;&#x5206;&#x522B;&#x662F;&#xFF1A;MS16-090/CVE-2016-3252&#x3001;MS16-034/CVE-2016-0096 &#x548C; MS16-151/CVE-2016-7260&#x3002;</p>
+<h2 id="2-&#x6548;&#x7387;&#x8BC4;&#x4F30;"><strong>(2). &#x6548;&#x7387;&#x8BC4;&#x4F30;</strong></h2>
+<p>&#x76EE;&#x524D;&#xFF0C;&#x7531;&#x4E8E;Bochspwn&#xFF08;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E;Bochs&#x6A21;&#x62DF;&#x5668;&#x7684;&#x5185;&#x6838;&#x6F0F;&#x6D1E;&#x68C0;&#x6D4B;&#x5DE5;&#x5177;&#xFF09;&#x53EA;&#x80FD;&#x68C0;&#x6D4B;&#x524D;&#x6587;&#x4E2D;&#x63D0;&#x5230;&#x7684;&#x56DB;&#x79CD;&#x6F0F;&#x6D1E;&#x7C7B;&#x578B;&#x7684;&#x4E00;&#x7C7B;&#xFF1A;TOCTTOU&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;&#x4F5C;&#x8005;&#x53EA;&#x80FD;&#x5C06;DigTool&#x4E0E;Bochspwn&#x8FDB;&#x884C;TOCTTOU&#x6F0F;&#x6D1E;&#x6D4B;&#x8BD5;&#x6BD4;&#x8F83;&#x3002;&#x57FA;&#x4E8E;&#x76F8;&#x540C;&#x7684;&#x73AF;&#x5883;&#x4E0B;&#xFF08;&#x76F8;&#x540C;&#x7684;&#x786C;&#x4EF6;&#x3001;&#x76F8;&#x540C;&#x7684;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7248;&#x672C;&#x3001;&#x76F8;&#x540C;&#x7684;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x53C2;&#x6570;&#x548C;&#x76F8;&#x540C;&#x7684;&#x6D4B;&#x8BD5;&#x7A0B;&#x5E8F;&#xFF09;&#xFF0C;&#x4F5C;&#x8005;&#x9009;&#x7528;&#x4E86;&#x5341;&#x4E2A;&#x6700;&#x7ECF;&#x5E38;&#x4F7F;&#x7528;&#x3001;&#x6700;&#x7ECF;&#x5E38;&#x88AB;&#x53CD;&#x75C5;&#x6BD2;&#x8F6F;&#x4EF6;Hook&#x7684;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x7684;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x6765;&#x6D4B;&#x8BD5;&#x6027;&#x80FD;&#x5F00;&#x9500;&#x3002;&#x6B64;&#x5916;&#xFF0C;&#x4E3A;&#x4E86;&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;&#x7684;&#x5B8C;&#x6574;&#x6027;&#xFF0C;&#x4F5C;&#x8005;&#x8FD8;&#x9009;&#x7528;&#x4E86;&#x4E00;&#x4E2A;&#x5E38;&#x7528;&#x7684;&#x8F6F;&#x4EF6;WinRAR&#x6765;&#x52A0;&#x5165;&#x8FD9;&#x4E2A;&#x6D4B;&#x8BD5;&#x5B9E;&#x9A8C;&#x5F53;&#x4E2D;&#xFF0C;&#x8FD9;&#x4E24;&#x4E2A;&#x5DE5;&#x5177;&#x7684;&#x6027;&#x80FD;&#x6BD4;&#x8F83;&#x7ED3;&#x679C;&#x5982;&#x56FE;2&#x6240;&#x793A;&#x3002;</p>
+<p>&#x5728;&#x4E0A;&#x56FE;&#x7684;&#x5B9E;&#x9A8C;&#x7ED3;&#x679C;&#x4E2D;&#xFF0C;&#x4F5C;&#x8005;&#x5206;&#x4E24;&#x79CD;&#x60C5;&#x51B5;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;:&#x201C;Unrecorded&#x201D;&#x548C;&#x201C;Recorded&#x201D;,&#x5177;&#x4F53;&#x5982;&#x4E0B;&#xFF1A;</p>
+<h4 id="unrecorded"><strong>Unrecorded</strong></h4>
+<p>&#x5728;&#x8FD9;&#x79CD;&#x6D4B;&#x8BD5;&#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;&#x5728;DigTool&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x4E0D;&#x6DFB;&#x52A0;&#x4EFB;&#x4F55;&#x7684;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#xFF08;&#x76F8;&#x5F53;&#x4E8E;&#x6CA1;&#x6709;&#x5185;&#x5B58;&#x9875;&#x9762;&#x88AB;&#x76D1;&#x63A7;&#xFF09;&#xFF0C;&#x4E5F;&#x4E0D;&#x505A;&#x4EFB;&#x4F55;&#x7684;&#x65E5;&#x5FD7;&#x64CD;&#x4F5C;&#xFF0C;&#x4F46;&#x662F;&#x5728;&#x63A5;&#x53E3;&#x68C0;&#x6D4B;&#xFF08;Interface Detection&#xFF09;&#x6A21;&#x5757;&#x4E2D;&#x7684;&#x5176;&#x5B83;&#x5B50;&#x529F;&#x80FD;&#x662F;&#x5904;&#x4E8E;&#x5DE5;&#x4F5C;&#x72B6;&#x6001;&#x5F53;&#x4E2D;&#x7684;&#x3002;&#x7531;&#x4E8E;&#x5728;&#x68C0;&#x6D4B;TOCTTOU&#x6F0F;&#x6D1E;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5927;&#x90E8;&#x5206;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x548C;&#x7EBF;&#x7A0B;&#x90FD;&#x5904;&#x4E8E;&#x4E0D;&#x88AB;&#x76D1;&#x63A7;&#x72B6;&#x6001;&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;&#x8BE5;&#x6A21;&#x5F0F;&#x53EF;&#x4EE5;&#x53CD;&#x6620;&#x6574;&#x4E2A;&#x7CFB;&#x7EDF;&#x7684;&#x57FA;&#x672C;&#x6027;&#x80FD;&#x5F00;&#x9500;&#xFF0C;&#x5F88;&#x9002;&#x5408;&#x4E0E;Bochspwn&#x8FDB;&#x884C;&#x6BD4;&#x8F83;&#x3002;</p>
+<p>&#x8BE5;&#x6A21;&#x5F0F;&#x4E0B;&#x7684;&#x6027;&#x80FD;&#x5F00;&#x9500;&#x6BD4;Windows&#x6A21;&#x5F0F;&#xFF08;&#x65E2;&#x6CA1;&#x6709;DigTool&#xFF0C;&#x4E5F;&#x6CA1;&#x6709;Bochs&#xFF09;&#x4E0B;&#x6162;2.18&#x5230;5.03&#x500D;&#xFF0C;&#x6BD4;Bochspwn&#xFF08;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x8FD0;&#x884C;&#x5728;Bochs&#x4E2D;&#xFF09;&#x5FEB;45.4&#x5230;156.5&#x500D;&#x3002;&#x5BF9;&#x4E8E;WinRAR&#x7684;&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;&#xFF0C;DigTool&#x6BD4;Windows&#x6A21;&#x5F0F;&#x6162;2.25&#x500D;&#xFF0C;&#x6BD4;Bochspwn&#x6A21;&#x5F0F;&#x5FEB;428.8&#x500D;&#x3002;</p>
+<h4 id="recorded"><strong>Recorded</strong></h4>
+<p>&#x5728;&#x8FD9;&#x79CD;&#x6D4B;&#x8BD5;&#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;&#x76F8;&#x5E94;&#x7684;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x5C06;&#x88AB;&#x5199;&#x5165;&#x5230;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x5E76;&#x4E14;&#x76F8;&#x5E94;&#x7684;&#x884C;&#x4E3A;&#x4E5F;&#x4F1A;&#x88AB;&#x8BB0;&#x5F55;&#x4E0B;&#x6765;&#xFF08;&#x76D1;&#x63A7;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x4E2D;&#x6307;&#x5B9A;&#x7684;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x548C;&#x76F8;&#x5173;&#x7684;&#x7EBF;&#x7A0B;&#xFF0C;&#x5BF9;&#x4E8E;&#x65E0;&#x5173;&#x7684;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x548C;&#x7EBF;&#x7A0B;&#x90FD;&#x4E0D;&#x505A;&#x4EFB;&#x4F55;&#x64CD;&#x4F5C;&#xFF09;&#x3002;</p>
+<p>&#x8BE5;&#x6A21;&#x5F0F;&#x4E0B;&#x7684;&#x6027;&#x80FD;&#x5F00;&#x9500;&#x6BD4;Windows&#x6A21;&#x5F0F;&#xFF08;&#x65E2;&#x6CA1;&#x6709;DigTool&#xFF0C;&#x4E5F;&#x6CA1;&#x6709;Bochs&#xFF09;&#x4E0B;&#x6162;70&#x5230;90&#x500D;&#xFF0C;&#x4F46;&#x4EFB;&#x7136;&#x6BD4;Bochspwn&#xFF08;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x8FD0;&#x884C;&#x5728;Bochs&#x4E2D;&#xFF09;&#x7A0D;&#x5FEB;&#x3002;&#x5BF9;&#x4E8E;WinRAR&#x7684;&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;&#xFF0C;&#x8FD9;&#x6B21;&#x6D4B;&#x8BD5;&#x4F7F;&#x7528;&#x6781;&#x7AEF;&#x60C5;&#x51B5;&#xFF0C;&#x5373;&#xFF1A;&#x76D1;&#x63A7;NT kernel&#x4E2D;&#x7684;&#x6240;&#x6709;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x3002;&#x6D4B;&#x8BD5;&#x7ED3;&#x679C;&#x8868;&#x660E;&#xFF1A;DigTool&#x6BD4;Windows&#x6A21;&#x5F0F;&#x6162;13.45&#x500D;&#xFF0C;&#x6BD4;Bochspwn&#x6A21;&#x5F0F;&#x5FEB;71.8&#x500D;&#x3002;</p>
+<h1 id="&#x4E94;&#x3001;&#x4F18;&#x7F3A;&#x70B9;">&#x4E94;&#x3001;&#x4F18;&#x7F3A;&#x70B9;</h1>
+<h2 id="&#x4F18;&#x70B9;&#xFF1A;">&#x4F18;&#x70B9;&#xFF1A;</h2>
+<ul>
+<li>DigTool&#x76F8;&#x5BF9;&#x4E8E;Bochspwn&#x6765;&#x8BF4;&#xFF0C;&#x5728;&#x6027;&#x80FD;&#x65B9;&#x9762;&#x6709;&#x5F88;&#x5927;&#x7684;&#x4F18;&#x52BF;&#x3002;&#x4E0D;&#x7BA1;&#x662F;&#x5728;&#x201C;Unrecorded&#x201D;&#x6A21;&#x5F0F;&#x8FD8;&#x662F;&#x201C;Recorded&#x201D;&#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;DigTool&#x90FD;&#x6BD4;Bochspwn&#x5FEB;&#x3002;</li>
+<li>&#x76F8;&#x5BF9;&#x4E8E;DriverVerifier&#xFF08;&#x4E00;&#x6B3E;&#x5FAE;&#x8F6F;&#x5F00;&#x53D1;&#x7684;&#x3001;&#x7528;&#x4E8E;&#x68C0;&#x6D4B;Windows&#x5185;&#x6838;&#x6F0F;&#x6D1E;&#x7684;&#x5DE5;&#x5177;&#xFF09;&#xFF0C;DigTool&#x5177;&#x6709;&#x66F4;&#x597D;&#x7684;&#x5F39;&#x6027;&#x3002;&#x5728;&#x68C0;&#x6D4B;&#x5230;&#x4E00;&#x4E2A;&#x53EF;&#x80FD;&#x7684;&#x6F0F;&#x6D1E;&#x7684;&#x65F6;&#x5019;&#xFF0C;DriverVerifier&#x4F1A;&#x9020;&#x6210;&#x7CFB;&#x7EDF;&#x84DD;&#x5C4F;&#x6B7B;&#x673A;&#xFF08;BSOD&#xFF09;,&#x800C;&#x4E14;&#x5F53;&#x8FD9;&#x4E2A;&#x6F5C;&#x5728;&#x7684;&#x6F0F;&#x6D1E;&#x5728;&#x6CA1;&#x6709;&#x88AB;&#x4FEE;&#x590D;&#x4E4B;&#x524D;&#xFF0C;DriverVerifier&#x5C31;&#x4E0D;&#x80FD;&#x7EE7;&#x7EED;&#x5F80;&#x4E0B;&#x8FD0;&#x884C;&#xFF0C;&#x56E0;&#x6B64;&#x65E0;&#x6CD5;&#x540C;&#x65F6;&#x68C0;&#x6D4B;&#x591A;&#x4E2A;&#x6F0F;&#x6D1E;&#xFF1B;&#x800C;DigTool&#x5219;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#xFF0C;DigTool&#x5728;&#x68C0;&#x6D4B;&#x5230;&#x6F5C;&#x5728;&#x7684;&#x6F0F;&#x6D1E;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53EA;&#x4F1A;&#x8BB0;&#x5F55;&#x6F0F;&#x6D1E;&#x53D1;&#x751F;&#x7684;&#x5730;&#x70B9;&#x7B49;&#x4E00;&#x4E9B;&#x6709;&#x7528;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x4E0D;&#x4F1A;&#x9020;&#x6210;&#x7CFB;&#x7EDF;&#x84DD;&#x5C4F;&#x6B7B;&#x673A;&#xFF0C;&#x5E76;&#x4E14;&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x68C0;&#x6D4B;&#x591A;&#x4E2A;&#x6F0F;&#x6D1E;&#x3002;</li>
+<li>&#x5BF9;&#x4E8E;OOB&#x6F0F;&#x6D1E;&#x548C;UAF&#x6F0F;&#x6D1E;&#xFF0C;DigTool&#x5728;&#x68C0;&#x6D4B;&#x5230;&#x6F5C;&#x5728;&#x7684;&#x6F0F;&#x6D1E;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4E2D;&#x65AD;&#x5BA2;&#x6237;&#x673A;&#xFF0C;&#x7B49;&#x5F85;&#x5916;&#x90E8;&#x8C03;&#x8BD5;&#x5668;&#xFF08;&#x5982;WinDbg&#x7B49;&#xFF09;&#x8FDE;&#x63A5;&#xFF0C;&#x67E5;&#x770B;&#x4EA7;&#x751F;&#x6F0F;&#x6D1E;&#x65F6;&#x523B;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x65B9;&#x4FBF;&#x5206;&#x6790;&#x4EBA;&#x5458;&#x83B7;&#x53D6;&#x6709;&#x7528;&#x7684;&#x4FE1;&#x606F;&#xFF1B;&#x800C;DriverVerifier&#x5728;&#x68C0;&#x6D4B;&#x5230;&#x6F5C;&#x5728;&#x7684;&#x6F0F;&#x6D1E;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53EA;&#x80FD;Crash&#x5BA2;&#x6237;&#x673A;&#xFF0C;&#x5E76;&#x4E14;&#x65E0;&#x6CD5;&#x83B7;&#x53D6;&#x4EA7;&#x751F;&#x6F0F;&#x6D1E;&#x65F6;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x73AF;&#x5883;&#xFF0C;&#x82E5;&#x8981;&#x5206;&#x6790;&#x4EA7;&#x751F;&#x6F0F;&#x6D1E;&#x7684;&#x539F;&#x56E0;&#xFF0C;&#x5206;&#x6790;&#x4EBA;&#x5458;&#x8FD8;&#x9700;&#x8981;&#x505A;&#x989D;&#x5916;&#x7684;&#x9006;&#x5411;&#x5206;&#x6790;&#x5DE5;&#x4F5C;&#xFF0C;&#x4EE5;&#x786E;&#x5B9A;&#x6F0F;&#x6D1E;&#x4EA7;&#x751F;&#x7684;&#x5177;&#x4F53;&#x4F4D;&#x7F6E;&#x4EE5;&#x53CA;&#x5177;&#x4F53;&#x539F;&#x56E0;&#x3002;</li>
+<li>DigTool&#x53EF;&#x4EE5;&#x68C0;&#x6D4B;UNPROBE&#x548C;TOCTTOU&#x6F0F;&#x6D1E;&#x7C7B;&#x578B;&#xFF0C;&#x800C;DriverVerifier&#x5219;&#x4E0D;&#x53EF;&#x4EE5;&#x3002;</li>
+<li>&#x5728;&#x68C0;&#x6D4B;UAF&#x548C;OOB&#x6F0F;&#x6D1E;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5982;&#x679C;&#x6F0F;&#x6D1E;&#x6CA1;&#x6709;&#x9020;&#x6210;&#x7CFB;&#x7EDF;&#x5D29;&#x6E83;&#xFF0C;&#x5219;DriverVerifier&#x65E0;&#x6CD5;&#x68C0;&#x6D4B;&#x5230;&#x5B83;&#x7684;&#x5B58;&#x5728;&#x3002;</li>
+<li>DigTool&#x53D1;&#x73B0;&#x4E86;45&#x4E2A;0Day&#x5185;&#x6838;&#x6F0F;&#x6D1E;&#x3002;</li>
+</ul>
+<h2 id="&#x7F3A;&#x70B9;&#xFF1A;">&#x7F3A;&#x70B9;&#xFF1A;</h2>
+<ul>
+<li>&#x867D;&#x7136;DigTool&#x7684;&#x6027;&#x80FD;&#x76F8;&#x5BF9;&#x4E8E;Bochspwn&#x597D;&#x5F88;&#x591A;&#xFF0C;&#x4F46;&#x662F;&#xFF0C;&#x7531;&#x4E8E;DigTool&#x9700;&#x8981;&#x4ECE;Hypervisor&#x548C;&#x5BA2;&#x6237;&#x673A;&#x4E4B;&#x95F4;&#x9891;&#x7E41;&#x7684;&#x8FDB;&#x884C;&#x5207;&#x6362;&#xFF0C;&#x6027;&#x80FD;&#x5F00;&#x9500;&#x4F9D;&#x7136;&#x6BD4;&#x8F83;&#x5927;&#x3002;</li>
+<li>DigTool&#x7684;&#x53EF;&#x79FB;&#x690D;&#x6027;&#x4F9D;&#x7136;&#x4E0D;&#x662F;&#x90A3;&#x4E48;&#x597D;&#xFF0C;&#x5B83;&#x76EE;&#x524D;&#x53EA;&#x80FD;&#x8FD0;&#x884C;Windows&#x5E73;&#x53F0;&#x4E0A;&#x3002;&#x867D;&#x7136;DigTool&#x7684;Hypervisor&#x5C42;&#x4E0E;&#x5E73;&#x53F0;&#x65E0;&#x5173;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x7684;Middleware&#x5C42;&#x662F;&#x4E0E;&#x7279;&#x5B9A;&#x7684;&#x5E73;&#x53F0;&#x76F8;&#x5173;&#x7684;&#xFF0C;&#x8981;&#x60F3;&#x4F7F;&#x5F97;DigTool&#x5728;&#x522B;&#x7684;&#x5E73;&#x53F0;&#x4E0A;&#x80FD;&#x591F;&#x8FD0;&#x884C;&#xFF0C;&#x5219;&#x5FC5;&#x987B;&#x4FEE;&#x6539;&#x5B83;&#x7684;Middleware&#x3002;</li>
+<li>DigTool&#x76EE;&#x524D;&#x53EA;&#x80FD;&#x68C0;&#x6D4B;&#x56DB;&#x79CD;&#x6F0F;&#x6D1E;&#x7C7B;&#x578B;&#xFF1A;UNPROBE&#x3001;TOCTTOU&#x3001;UAF&#x548C;OOB&#x3002;&#x5BF9;&#x4E8E;&#x5176;&#x5B83;&#x7684;&#x6F0F;&#x6D1E;&#x7C7B;&#x578B;&#xFF08;&#x4F8B;&#x5982;&#xFF1A;&#x7A7A;&#x6307;&#x9488;&#x89E3;&#x5F15;&#x7528;&#x3001;&#x53CC;&#x91CD;&#x91CA;&#x653E;&#x7B49;&#xFF09;&#x5374;&#x65E0;&#x6CD5;&#x68C0;&#x6D4B;&#x5230;&#x3002;</li>
+<li>&#x8BE5;&#x5DE5;&#x5177;&#x4E0D;&#x662F;&#x5F00;&#x6E90;&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x76EE;&#x524D;&#x7F51;&#x4E0A;&#x6CA1;&#x6709;&#x8BE5;&#x5DE5;&#x5177;&#x7684;&#x6E90;&#x4EE3;&#x7801;&#x3002;</li>
+<li>&#x8BE5;&#x5DE5;&#x5177;&#x53EA;&#x80FD;&#x5E94;&#x7528;&#x4E8E;&#x5185;&#x6838;&#x6F0F;&#x6D1E;&#x68C0;&#x6D4B;&#xFF0C;&#x65E0;&#x6CD5;&#x7528;&#x4E8E;&#x5E94;&#x7528;&#x5C42;&#x7684;&#x6F0F;&#x6D1E;&#x68C0;&#x6D4B;&#x3002;</li>
+</ul>
+<h1 id="&#x516D;&#x3001;&#x4E2A;&#x4EBA;&#x89C2;&#x70B9;">&#x516D;&#x3001;&#x4E2A;&#x4EBA;&#x89C2;&#x70B9;</h1>
+<p>&#x76EE;&#x524D;&#xFF0C;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x5F88;&#x591A;&#x7528;&#x4E8E;&#x68C0;&#x6D4B;&#x6F0F;&#x6D1E;&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x65E2;&#x6709;&#x6536;&#x8D39;&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x53C8;&#x6709;&#x514D;&#x8D39;&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x4E0D;&#x540C;&#x7684;&#x5DE5;&#x5177;&#x4E00;&#x822C;&#x90FD;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x7528;&#x9014;&#xFF0C;&#x5E76;&#x4E14;&#x5F88;&#x591A;&#x5DE5;&#x5177;&#x90FD;&#x53EA;&#x662F;&#x68C0;&#x6D4B;&#x5177;&#x4F53;&#x7684;&#x67D0;&#x4E00;&#x7C7B;&#x6216;&#x8005;&#x662F;&#x67D0;&#x51E0;&#x7C7B;&#x6F0F;&#x6D1E;&#x3002;&#x5B83;&#x4EEC;&#x7684;&#x68C0;&#x6D4B;&#x65B9;&#x6CD5;&#x4E5F;&#x5404;&#x4E0D;&#x76F8;&#x540C;&#xFF0C;&#x6709;&#x4E9B;&#x57FA;&#x4E8E;&#x6E90;&#x7801;&#x68C0;&#x6D4B;&#xFF0C;&#x6709;&#x4E9B;&#x5219;&#x57FA;&#x4E8E;&#x4E8C;&#x8FDB;&#x5236;&#x4EE3;&#x7801;&#x68C0;&#x6D4B;&#x3002;&#x800C;&#x57FA;&#x4E8E;&#x6E90;&#x7801;&#x68C0;&#x6D4B;&#x7684;&#x5DE5;&#x5177;&#x6BD4;&#x8F83;&#x591A;&#xFF0C;&#x8FD9;&#x4E9B;&#x5DE5;&#x5177;&#x5927;&#x90E8;&#x5206;&#x90FD;&#x662F;&#x7528;&#x4E8E;&#x68C0;&#x6D4B;&#x5E94;&#x7528;&#x5C42;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x4EE5;&#x53CA;&#x5F00;&#x6E90;&#x7684;&#x7CFB;&#x7EDF;&#x5185;&#x6838;&#xFF08;&#x4F8B;&#x5982;Linux&#x5185;&#x6838;&#x7B49;&#xFF09;&#x3002;&#x5F88;&#x5C11;&#x6709;&#x68C0;&#x6D4B;Windows&#x5185;&#x6838;&#x6F0F;&#x6D1E;&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x56E0;&#x4E3A;Windows&#x5185;&#x6838;&#x662F;&#x95ED;&#x6E90;&#x7684;&#xFF0C;&#x65E0;&#x6CD5;&#x83B7;&#x53D6;&#x5230;&#x5B83;&#x7684;&#x6E90;&#x4EE3;&#x7801;&#x3002;</p>
+<p>&#x5BF9;&#x4E8E;&#x68C0;&#x6D4B;Windows&#x5185;&#x6838;&#x6F0F;&#x6D1E;&#xFF0C;&#x76EE;&#x524D;&#x6709;&#x4E00;&#x6B3E;&#x529F;&#x80FD;&#x975E;&#x5E38;&#x53D7;&#x9650;&#x7684;&#x3001;&#x5FAE;&#x8F6F;&#x5F00;&#x53D1;&#x7684;&#x68C0;&#x6D4B;&#x5DE5;&#x5177;DriverVerifier&#xFF0C;&#x524D;&#x6587;&#x4E5F;&#x63D0;&#x5230;&#xFF0C;&#x8BE5;&#x5DE5;&#x5177;&#x7684;&#x9650;&#x5236;&#x6761;&#x4EF6;&#x6BD4;&#x8F83;&#x591A;&#xFF0C;&#x68C0;&#x6D4B;&#x7684;&#x6F0F;&#x6D1E;&#x7C7B;&#x578B;&#x4E5F;&#x5F88;&#x5C11;&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;&#x4F5C;&#x8005;&#x81EA;&#x5DF1;&#x5F00;&#x53D1;&#x4E86;&#x4E00;&#x6B3E;&#x68C0;&#x6D4B;Windows&#x5185;&#x6838;&#x6F0F;&#x6D1E;&#x7684;&#x5DE5;&#x5177;&#xFF1A;DigTool&#xFF0C;&#x4F5C;&#x4E3A;DriverVerifier&#x7684;&#x8865;&#x5145;&#x5DE5;&#x5177;&#x3002;</p>
+<p>DigTool&#x4E3B;&#x8981;&#x5173;&#x6CE8;&#x4E24;&#x4E2A;&#x90E8;&#x5206;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x4E00;&#x4E2A;&#x662F;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x5165;&#x53E3;&#xFF0C;&#x5F53;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x8C03;&#x7528;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x7531;&#x4E8E;&#x5404;&#x79CD;&#x539F;&#x56E0;&#xFF0C;&#x5BFC;&#x81F4;&#x975E;&#x6CD5;&#x7684;&#x3001;&#x6216;&#x8005;&#x662F;&#x4E0D;&#x9002;&#x5F53;&#x7684;&#x53C2;&#x6570;&#x88AB;&#x4F20;&#x5165;&#x5230;&#x7CFB;&#x7EDF;&#x5185;&#x6838;&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x5185;&#x6838;&#x4EE3;&#x7801;&#x4E0D;&#x80FD;&#x5904;&#x7406;&#x597D;&#x5916;&#x90E8;&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x653B;&#x51FB;&#x8005;&#x5C31;&#x53EF;&#x80FD;&#x4F1A;&#x5229;&#x7528;&#x8FD9;&#x4E9B;&#x5165;&#x53E3;&#x70B9;&#xFF0C;&#x6765;&#x83B7;&#x5F97;&#x989D;&#x5916;&#x7684;&#x6743;&#x9650;&#xFF0C;&#x8FD9;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x7CFB;&#x7EDF;&#x5185;&#x6838;&#x6CA6;&#x9677;&#x3002;&#x53E6;&#x4E00;&#x79CD;&#x60C5;&#x51B5;&#x662F;&#xFF0C;&#x5185;&#x6838;&#x4EE3;&#x7801;&#x5982;&#x679C;&#x5BF9;&#x5185;&#x5B58;&#x64CD;&#x4F5C;&#x4E0D;&#x5F53;&#xFF0C;&#x4E5F;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x4E25;&#x91CD;&#x7684;&#x540E;&#x679C;&#xFF08;&#x4F8B;&#x5982;&#xFF0C;&#x7CFB;&#x7EDF;&#x53EF;&#x80FD;&#x4F1A;&#x51FA;&#x73B0;&#x5D29;&#x6E83;&#x3001;&#x62D2;&#x7EDD;&#x670D;&#x52A1;&#x7B49;&#x73B0;&#x8C61;&#xFF09;&#x3002;</p>
+<p>DigTool&#x662F;&#x57FA;&#x4E8E;&#x4E8C;&#x8FDB;&#x5236;&#x4EE3;&#x7801;&#x7684;&#x4E00;&#x4E2A;&#x6F0F;&#x6D1E;&#x68C0;&#x6D4B;&#x5DE5;&#x5177;&#xFF0C;&#x5B83;&#x7684;&#x603B;&#x4F53;&#x67B6;&#x6784;&#x5206;&#x4E3A;&#x4E09;&#x4E2A;&#x7EC4;&#x6210;&#x90E8;&#x5206;&#xFF08;Hypervisor Component&#x3001;Kernel-Space Component &#x548C; User-Space Component&#xFF09;&#xFF0C;&#x5176;&#x4E2D;Hypervisor Component&#x662F;&#x4E0E;&#x5E73;&#x53F0;&#x65E0;&#x5173;&#x7684;&#xFF0C;&#x800C;&#x53E6;&#x5916;&#x4E24;&#x4E2A;&#x90E8;&#x5206;&#x662F;&#x4E0E;&#x5E73;&#x53F0;&#x76F8;&#x5173;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x80FD;&#x591F;&#x628A;&#x5B83;&#x7684;Kernel-Space Component&#xFF08;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x5B83;&#x7684;Middleware&#x90E8;&#x5206;&#xFF09;&#x79FB;&#x690D;&#x5230;&#x522B;&#x7684;&#x7CFB;&#x7EDF;&#x4E0A;&#xFF08;&#x4F8B;&#x5982;MacOS&#x3001;Linux OS&#x7B49;&#xFF09;&#xFF0C;&#x90A3;&#x4E48;&#xFF0C;&#x6211;&#x4EEC;&#x4E5F;&#x53EF;&#x4EE5;&#x5229;&#x7528;&#x4F5C;&#x8005;&#x7684;&#x8FD9;&#x4E2A;&#x5DE5;&#x5177;&#x68C0;&#x6D4B;&#x522B;&#x7684;&#x7CFB;&#x7EDF;&#x4E0A;&#x7684;&#x6F0F;&#x6D1E;&#x3002;&#x867D;&#x7136;DigTool&#x7684;User-Space Component&#x4E5F;&#x662F;&#x4E0E;&#x5E73;&#x53F0;&#x76F8;&#x5173;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x90E8;&#x5206;&#x7684;&#x79FB;&#x690D;&#x76F8;&#x5BF9;&#x4E8E;Middleware&#x6765;&#x8BF4;&#x7B80;&#x5355;&#x7684;&#x591A;&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;DigTool&#x7684;&#x53EF;&#x79FB;&#x690D;&#x6027;&#x4E3B;&#x8981;&#x4F53;&#x73B0;&#x5728;&#x5B83;&#x7684;Middleware&#x4E0A;&#x3002;</p>
+<p>&#x4F5C;&#x8005;&#x7684;DigTool&#x76EE;&#x524D;&#x5DF2;&#x7ECF;&#x53EF;&#x4EE5;&#x68C0;&#x6D4B;&#x56DB;&#x79CD;&#x6F0F;&#x6D1E;&#x7C7B;&#x578B;&#xFF08;UNPROBE&#x3001;TOCTTOU&#x3001;UAF&#x548C;OOB&#xFF09;&#xFF0C;&#x5982;&#x679C;&#x7A0D;&#x4F5C;&#x6539;&#x8FDB;&#xFF0C;&#x53EF;&#x80FD;&#x4E5F;&#x4F1A;&#x6BD4;&#x8F83;&#x5BB9;&#x6613;&#x68C0;&#x6D4B;&#x53CC;&#x91CD;&#x91CA;&#x653E;&#x7B49;&#x7C7B;&#x578B;&#x7684;&#x6F0F;&#x6D1E;&#xFF0C;&#x56E0;&#x4E3A;&#x4F5C;&#x8005;&#x7684;&#x8FD9;&#x4E2A;&#x5DE5;&#x5177;&#x53EF;&#x4EE5;&#x68C0;&#x6D4B;&#x5230;&#x4EFB;&#x610F;&#x7684;&#x5185;&#x5B58;&#x5730;&#x5740;&#x7A7A;&#x95F4;&#x3002;&#x4F5C;&#x8005;&#x5728;&#x6587;&#x7AE0;&#x4E2D;&#x8BF4;&#x9053;&#xFF0C;&#x5F53;&#x68C0;&#x6D4B;OOB&#x6F0F;&#x6D1E;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F5C;&#x8005;&#x4F7F;&#x7528;AVL&#x6811;&#x6765;&#x4FDD;&#x5B58;&#x5DF2;&#x7ECF;&#x5206;&#x914D;&#x7684;&#x5185;&#x5B58;&#x533A;&#x57DF;&#xFF0C;&#x5982;&#x679C;&#x4E00;&#x7247;&#x5185;&#x5B58;&#x533A;&#x57DF;&#x5DF2;&#x7ECF;&#x88AB;&#x91CA;&#x653E;&#xFF0C;&#x5219;&#x5B83;&#x5C06;&#x4F1A;&#x4ECE;AVL&#x6811;&#x4E2D;&#x88AB;&#x79FB;&#x9664;&#xFF0C;&#x5982;&#x679C;&#x518D;&#x6B21;&#x91CA;&#x653E;&#x8BE5;&#x5185;&#x5B58;&#x533A;&#x57DF;&#xFF0C;&#x5219;DigTool&#x4F1A;&#x9996;&#x5148;&#x5728;AVL&#x6811;&#x4E2D;&#x67E5;&#x627E;&#x8BE5;&#x5185;&#x5B58;&#x533A;&#x57DF;&#xFF0C;&#x82E5;&#x627E;&#x5230;&#xFF0C;&#x5219;&#x91CA;&#x653E;&#xFF08;&#x4E00;&#x822C;&#x4E0D;&#x53EF;&#x80FD;&#xFF09;&#xFF1B;&#x82E5;&#x6CA1;&#x6709;&#x627E;&#x5230;&#xFF0C;&#x5219;&#x8868;&#x660E;&#x5DF2;&#x7ECF;&#x88AB;&#x91CA;&#x653E;&#xFF0C;&#x6216;&#x8005;&#x662F;&#x6CA1;&#x6709;&#x8BE5;&#x5185;&#x5B58;&#x533A;&#x57DF;&#xFF0C;&#x5373;&#xFF1A;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#x53CC;&#x91CD;&#x91CA;&#x653E;&#x7C7B;&#x578B;&#x7684;&#x6F0F;&#x6D1E;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x6709;&#x4E00;&#x4E2A;&#x5F88;&#x5927;&#x7684;&#x95EE;&#x9898;&#x9650;&#x5236;&#x4E86;&#x8FD9;&#x4E2A;&#x60F3;&#x6CD5;&#xFF0C;&#x90A3;&#x5C31;&#x662F;&#xFF1A;&#x4F5C;&#x8005;&#x7684;DigTool&#x4E0D;&#x5F00;&#x6E90;&#xFF0C;&#x6211;&#x4EEC;&#x65E0;&#x6CD5;&#x83B7;&#x53D6;&#x5230;&#x4ED6;&#x7684;&#x6E90;&#x4EE3;&#x7801;&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;&#x6211;&#x4EEC;&#x4E5F;&#x5C31;&#x65E0;&#x6CD5;&#x5728;&#x4ED6;&#x7684;&#x8FD9;&#x4E2A;&#x5DE5;&#x5177;&#x4E0A;&#x505A;&#x4E8C;&#x6B21;&#x5F00;&#x53D1;&#x3002;</p>
+<p>&#x200B;                                                                                                                                                               <strong><em>&#x8F6C;&#x8F7D;&#x4E8E;GoSSIP</em></strong></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Check-It-Again-Detecting-Lacking-Recheck-Bugs-in-OS-Kernels.html" class="navigation navigation-prev " aria-label="Previous page: Check It Again: Detecting Lacking-Recheck Bugs in OS Kernels">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="Enforcing-Unique-Code-Target-Property-for-Control-Flow-Integrity.html" class="navigation navigation-next " aria-label="Next page: Enforcing Unique Code Target Property for Control-Flow Integrity">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Digtool: A Virtualization-Based Framework for Detecting Kernel Vulnerabilities","level":"1.9.2.4","depth":3,"next":{"title":"Enforcing Unique Code Target Property for Control-Flow Integrity","level":"1.9.2.5","depth":3,"path":"Paper/Fuzzing/papers/Enforcing-Unique-Code-Target-Property-for-Control-Flow-Integrity.md","ref":"Paper/Fuzzing/papers/Enforcing-Unique-Code-Target-Property-for-Control-Flow-Integrity.md","articles":[]},"previous":{"title":"Check It Again: Detecting Lacking-Recheck Bugs in OS Kernels","level":"1.9.2.3","depth":3,"path":"Paper/Fuzzing/papers/Check-It-Again-Detecting-Lacking-Recheck-Bugs-in-OS-Kernels.md","ref":"Paper/Fuzzing/papers/Check-It-Again-Detecting-Lacking-Recheck-Bugs-in-OS-Kernels.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters","splitter","intopic-toc"],"pluginsConfig":{"intopic-toc":{"label":{"de":"In diesem Artikel","en":"In this article"},"selector":".markdown-section h1","visible":true},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Paper/Fuzzing/papers/Digtool-A-Virtualization-Based-Framework-for-Detecting-Kernel-Vulnerabilities.md","mtime":"2019-03-28T13:06:38.563Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-03-29T03:34:00.933Z"},"basePath":"../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-intopic-toc/anchor.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-intopic-toc/gumshoe.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-intopic-toc/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
