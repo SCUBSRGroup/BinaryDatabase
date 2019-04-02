@@ -23,6 +23,7 @@
         * [Towards Paving the Way for Large-Scale Windows Malware Analysis: Generic Binary Unpacking With Orders-of-Magnitude Performance Boost](Paper/Fuzzing/papers/Towards-Paving-the-Way-for-Large-Scale-Windows-Malware-Analysis-Generic-Binary-Unpacking-With-Orders-of-Magnitude-Performance-Boost.md)
         * [Using Logic Programming to Recover C++ Classes and Methods From Compiled  Executables](Paper/Fuzzing/papers/Using-Logic-Programming-to-Recover-C-Classes-and-Methods-From-Compiled-Executables.md)
         * [VUzzer: Application-aware Evolutionary Fuzzing](Paper/Fuzzing/papers/VUzzer-Application-aware-Evolutionary-Fuzzing.md)
+        * [From automation to intelligence Survey of research on vulnerability discovery techniques](Paper/Fuzzing/papers/From-automation-to-intelligence-Survey-of-research-on-vulnerability-discovery-techniques.md)
     * [<> MaliciousSampleDetecion](Paper/MaliciousSampleDetecion/README.md)
         * [Capturing the symptoms of malicious code in electronic documents by file's entropy signal combined with Machine learning](Paper/MaliciousSampleDetection/)
     * [<> ReverseEngineering](Paper/ReverseEngineering/README.md)
