@@ -19,7 +19,7 @@
 
 > 存放其它非论文资料，如一些学习资料，包括PPT、PDF、word等。一些好用的工具也可存放到这里。
 
-- 恶意文档检测数据集
+- ### 恶意文档检测数据集
 
   > 上传者：刘露平
   >
@@ -27,13 +27,18 @@
   >
   > 下载链接：[https://drive.google.com/file/d/1WQalJ39wzZ9g6LpxZTdSVQkIHpXDfHNv/view?usp=sharing](https://drive.google.com/file/d/1WQalJ39wzZ9g6LpxZTdSVQkIHpXDfHNv/view?usp=sharing)
   >
-  > 摘要：该数据集是通过收集整理自己形成的，目前包含总共样本10381个，其中恶意样本5344个，正常样本5037个。包含Office(rtf,doc,ppt,xls, docx, pptx, xlsx）和PDF几个类别等几个类别。各个样本的统计分布如下图所示![数据集中样本分布情况](E:\网站博客\实验室\BinaryDatabase\database\figures\MaliciousDocument.png)：
+  > 摘要：该数据集是通过收集整理自己形成的，目前包含总共样本10381个，其中恶意样本5344个，正常样本5037个。包含Office(rtf,doc,ppt,xls, docx, pptx, xlsx）和PDF几个类别等几个类别。各个样本的统计分布如下图所示
+  >
+  > ![数据集中样本分布情况](figures/MaliciousDocument.png)
 
-- UNSW-NB-15数据集
+
+
+
+- ### UNSW-NB-15数据集
 
 > 上传者：王炎
 >
-> 时间：2019.04.03日
+> 时间：2019.04.03
 >
 > UNSW-NB 15数据集的原始网络数据包是由澳大利亚网络安全中心（ACCS）的网络范围实验室中的IXIA PerfectStorm工具创建的，用于生成真实现代正常活动和合成当代攻击行为的混合体。
 >
@@ -56,3 +61,23 @@
 > 主页介绍和下载链接：<https://www.unsw.adfa.edu.au/unsw-canberra-cyber/cybersecurity/ADFA-NB15-Datasets/>
 >
 > 论文介绍：<https://ieeexplore.ieee.org/abstract/document/7348942>
+
+
+
+- ### 源代码度量和漏洞的数据集
+
+> 上传者：王炎
+>
+> 时间：2019.04.08
+>
+> 它包含有关函数和文件的软件度量标准以及是否存在安全漏洞的信息。表I列出了数据集中的数据摘要。我们可以观察到，数据集是基于2186安全补丁和相应源存储库的4372个快照构建的。此数据集包含有关函数，文件的软件度量以及是否存在安全漏洞的信息。这些信息是针对五个开源项目收集的：Mozilla Firefox，Linux内核，Xen Hypervisor，Httpd和Glibc。这些项目具有良好的安全性，是区分漏洞的良好选择，因为它们是不同领域的项目。 Mozilla是一个Web浏览器，Linux内核是操作系统内核，Xen是虚拟器环境，Httpd是通信协议，Glibc是用C编写的系统调用库。
+>
+> **官方主页介绍及下载地址**：https://eden.dei.uc.pt/~nmsa/metrics-dataset/index.html
+>
+> 相关论文：
+>
+> 1. LADC 2016: *Experimenting Machine Learning Techniques to Predict Vulnerabilities*
+> 2.  EDCC 2016: *Software Metrics and Security Vulnerabilities: Dataset and Exploratory Study*
+
+
+
