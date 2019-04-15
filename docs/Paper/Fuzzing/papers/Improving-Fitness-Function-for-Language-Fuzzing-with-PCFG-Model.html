@@ -1,0 +1,1022 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Improving Fitness Function for Language Fuzzing with PCFG Model · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-intopic-toc/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ExploitMeter-Combining-Fuzzing-with-Machine-Learning-for-Automated-Evaluation-of-Software-Exploitability.html" />
+    
+    
+    <link rel="prev" href="Learn-to-Accelerate-Identifying-New-Test-Cases-in-Fuzzing.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../../Fuzzing-学习资源汇总.html">
+            
+                <a href="../../../Fuzzing-学习资源汇总.html">
+            
+                    
+                    Fuzzing-学习资源汇总
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../../污点分析-学习资源汇总.html">
+            
+                <a href="../../../污点分析-学习资源汇总.html">
+            
+                    
+                    污点分析-学习资源汇总
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../../符号执行-学习资源汇总.html">
+            
+                <a href="../../../符号执行-学习资源汇总.html">
+            
+                    
+                    符号执行-学习资源汇总
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../../恶意样本检测-学习资源汇总.html">
+            
+                <a href="../../../恶意样本检测-学习资源汇总.html">
+            
+                    
+                    恶意样本检测-学习资源汇总
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../../../逆向工程-学习资源汇总.html">
+            
+                <a href="../../../逆向工程-学习资源汇总.html">
+            
+                    
+                    逆向工程-学习资源汇总
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../../../工作面试复习资料汇总.html">
+            
+                <a href="../../../工作面试复习资料汇总.html">
+            
+                    
+                    工作面试复习资料汇总
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../../../信息安全相关会议期刊汇总.html">
+            
+                <a href="../../../信息安全相关会议期刊汇总.html">
+            
+                    
+                    信息安全相关会议期刊汇总
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Paper
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../../AutomatedExploit/">
+            
+                <a href="../../AutomatedExploit/">
+            
+                    
+                    <> AutomatedExploit
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1.1" data-path="../../AutomatedExploit/papers/HEAPHOPPER-Bringing-Bounded-Model-Checking-to-Heap-Implementation-Security.html">
+            
+                <a href="../../AutomatedExploit/papers/HEAPHOPPER-Bringing-Bounded-Model-Checking-to-Heap-Implementation-Security.html">
+            
+                    
+                    HEAPHOPPER Bringing Bounded Model Checking to Heap Implementation Security
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    <> Fuzzing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.2.1" data-path="Angora-Efficient-Fuzzing-by-Principled-Search.html">
+            
+                <a href="Angora-Efficient-Fuzzing-by-Principled-Search.html">
+            
+                    
+                    Angora: Efficient Fuzzing by Principled Search
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.2" data-path="Automated-Detection-Exploitation-and-Elimination-of-Double-Fetch-Bugs-Using-Modern-CPU-Features.html">
+            
+                <a href="Automated-Detection-Exploitation-and-Elimination-of-Double-Fetch-Bugs-Using-Modern-CPU-Features.html">
+            
+                    
+                    Automated Detection Exploitation and Elimination of Double-Fetch Bugs Using  Modern CPU Features
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.3" data-path="Check-It-Again-Detecting-Lacking-Recheck-Bugs-in-OS-Kernels.html">
+            
+                <a href="Check-It-Again-Detecting-Lacking-Recheck-Bugs-in-OS-Kernels.html">
+            
+                    
+                    Check It Again: Detecting Lacking-Recheck Bugs in OS Kernels
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.4" data-path="Digtool-A-Virtualization-Based-Framework-for-Detecting-Kernel-Vulnerabilities.html">
+            
+                <a href="Digtool-A-Virtualization-Based-Framework-for-Detecting-Kernel-Vulnerabilities.html">
+            
+                    
+                    Digtool: A Virtualization-Based Framework for Detecting Kernel Vulnerabilities
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.5" data-path="Enforcing-Unique-Code-Target-Property-for-Control-Flow-Integrity.html">
+            
+                <a href="Enforcing-Unique-Code-Target-Property-for-Control-Flow-Integrity.html">
+            
+                    
+                    Enforcing Unique Code Target Property for Control-Flow Integrity
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.6" data-path="Fuzzing-Art-Science-and-Engineering.html">
+            
+                <a href="Fuzzing-Art-Science-and-Engineering.html">
+            
+                    
+                    Fuzzing: Art, Science, and Engineering
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.7" data-path="NAR-Miner-Discovering-Negative-Association-Rules-from-Code.html">
+            
+                <a href="NAR-Miner-Discovering-Negative-Association-Rules-from-Code.html">
+            
+                    
+                    NAR-Miner Discovering Negative Association Rules from Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.8" data-path="SoK-Security-Evaluation-of-Home-Based-IoT-Deployments.html">
+            
+                <a href="SoK-Security-Evaluation-of-Home-Based-IoT-Deployments.html">
+            
+                    
+                    SoK: Security Evaluation of Home-Based IoT Deployments
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.9" data-path="Towards-Paving-the-Way-for-Large-Scale-Windows-Malware-Analysis-Generic-Binary-Unpacking-With-Orders-of-Magnitude-Performance-Boost.html">
+            
+                <a href="Towards-Paving-the-Way-for-Large-Scale-Windows-Malware-Analysis-Generic-Binary-Unpacking-With-Orders-of-Magnitude-Performance-Boost.html">
+            
+                    
+                    Towards Paving the Way for Large-Scale Windows Malware Analysis: Generic Binary Unpacking With Orders-of-Magnitude Performance Boost
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.10" data-path="Using-Logic-Programming-to-Recover-C-Classes-and-Methods-From-Compiled-Executables.html">
+            
+                <a href="Using-Logic-Programming-to-Recover-C-Classes-and-Methods-From-Compiled-Executables.html">
+            
+                    
+                    Using Logic Programming to Recover C++ Classes and Methods From Compiled  Executables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.11" data-path="VUzzer-Application-aware-Evolutionary-Fuzzing.html">
+            
+                <a href="VUzzer-Application-aware-Evolutionary-Fuzzing.html">
+            
+                    
+                    VUzzer: Application-aware Evolutionary Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.12" data-path="From-automation-to-intelligence-Survey-of-research-on-vulnerability-discovery-techniques.html">
+            
+                <a href="From-automation-to-intelligence-Survey-of-research-on-vulnerability-discovery-techniques.html">
+            
+                    
+                    From automation to intelligence Survey of research on vulnerability discovery techniques
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.13" data-path="NEUZZ-Efficient-Fuzzing-with-Neural-Program-Smoothing.html">
+            
+                <a href="NEUZZ-Efficient-Fuzzing-with-Neural-Program-Smoothing.html">
+            
+                    
+                    NEUZZ Efficient FuzzinG with Neural Program Smoothing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.14" data-path="HVLearn-Automated-Black-box-Analysis-of-Hostname-Verification-in-SSL-TLS-Implementations.html">
+            
+                <a href="HVLearn-Automated-Black-box-Analysis-of-Hostname-Verification-in-SSL-TLS-Implementations.html">
+            
+                    
+                    HVLearn: Automated Black-box Analysis of Hostname Verification in SSL/TLS Implementations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.15" data-path="A-Reinforcement-Learning-Based-Approach-to-Automated-Testing-of-Android-Applications.html">
+            
+                <a href="A-Reinforcement-Learning-Based-Approach-to-Automated-Testing-of-Android-Applications.html">
+            
+                    
+                    A Reinforcement Learning Based Approach to Automated Testing of Android
+  Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.16" data-path="Skyfire-Data-Driven-Seed-Generation-for-Fuzzing.html">
+            
+                <a href="Skyfire-Data-Driven-Seed-Generation-for-Fuzzing.html">
+            
+                    
+                    Skyfire: Data-Driven Seed Generation for Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.17" data-path="Learn-to-Accelerate-Identifying-New-Test-Cases-in-Fuzzing.html">
+            
+                <a href="Learn-to-Accelerate-Identifying-New-Test-Cases-in-Fuzzing.html">
+            
+                    
+                    Learn to Accelerate Identifying New Test Cases in Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.9.2.18" data-path="Improving-Fitness-Function-for-Language-Fuzzing-with-PCFG-Model.html">
+            
+                <a href="Improving-Fitness-Function-for-Language-Fuzzing-with-PCFG-Model.html">
+            
+                    
+                    Improving Fitness Function for Language Fuzzing with PCFG Model
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.19" data-path="ExploitMeter-Combining-Fuzzing-with-Machine-Learning-for-Automated-Evaluation-of-Software-Exploitability.html">
+            
+                <a href="ExploitMeter-Combining-Fuzzing-with-Machine-Learning-for-Automated-Evaluation-of-Software-Exploitability.html">
+            
+                    
+                    ExploitMeter: Combining Fuzzing with Machine Learning for Automated Evaluation of Software Exploitability
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.20" data-path="Experimenting-machine-learning-techniques-to-predict-vulnerabilities.html">
+            
+                <a href="Experimenting-machine-learning-techniques-to-predict-vulnerabilities.html">
+            
+                    
+                    Experimenting machine learning techniques to predict vulnerabilities
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.21" data-path="A-Review-of-Machine-Learning-in-Software-Vulnerability-Research.html">
+            
+                <a href="A-Review-of-Machine-Learning-in-Software-Vulnerability-Research.html">
+            
+                    
+                    A Review of Machine Learning in Software Vulnerability Research
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.22" data-path="Sofware-Vulnerability-Analysis-and-Discovery-Using-Machine-Learning-and-Data-Mining-Techniques-A-Survey.html">
+            
+                <a href="Sofware-Vulnerability-Analysis-and-Discovery-Using-Machine-Learning-and-Data-Mining-Techniques-A-Survey.html">
+            
+                    
+                    Sofware Vulnerability Analysis and Discovery Using Machine-Learning and
+  Data-Mining Techniques: A Survey
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.23" data-path="A-Survey-on-Source-Code-Review-Using-Machine-Learning.html">
+            
+                <a href="A-Survey-on-Source-Code-Review-Using-Machine-Learning.html">
+            
+                    
+                    A Survey on Source Code Review Using Machine Learning
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../../MaliciousSampleDetecion/">
+            
+                <a href="../../MaliciousSampleDetecion/">
+            
+                    
+                    <> MaliciousSampleDetecion
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.3.1" data-path="../../MaliciousSampleDetection">
+            
+                <span>
+            
+                    
+                    Capturing the symptoms of malicious code in electronic documents by file's entropy signal combined with Machine learning
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../../ReverseEngineering/">
+            
+                <a href="../../ReverseEngineering/">
+            
+                    
+                    <> ReverseEngineering
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.4.1" data-path="../../ReverseEngineering/papers/Lord-of-the-X86-Rings-A-Portable-User-Mode-Privilege-Separation-Architecture-on-X86.html">
+            
+                <a href="../../ReverseEngineering/papers/Lord-of-the-X86-Rings-A-Portable-User-Mode-Privilege-Separation-Architecture-on-X86.html">
+            
+                    
+                    Lord-of-the-X86-Rings-A-Portable-User-Mode-Privilege-Separation-Architecture-on-X86
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4.2" data-path="../../ReverseEngineering/papers/Superset-Disassembly-Statically-Rewriting-X86-Binaries-Without-Heuristics-Disassembly.html">
+            
+                <a href="../../ReverseEngineering/papers/Superset-Disassembly-Statically-Rewriting-X86-Binaries-Without-Heuristics-Disassembly.html">
+            
+                    
+                    Superset-Disassembly-Statically-Rewriting-X86-Binaries-Without-Heuristics-Disassembly
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../../SymbolicExecution/">
+            
+                <a href="../../SymbolicExecution/">
+            
+                    
+                    <> SymbolicExecution
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="../../TaintAnalysis/">
+            
+                <a href="../../TaintAnalysis/">
+            
+                    
+                    <> TaintAnalysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../../../database/">
+            
+                <a href="../../../database/">
+            
+                    
+                    database
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../.." >Improving Fitness Function for Language Fuzzing with PCFG Model</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="improving-fitness-function-for-language-fuzzing-with-pcfg-model">Improving Fitness Function for Language Fuzzing with PCFG Model</h1>
+<h1 id="abstract">Abstract</h1>
+<p>&#x5728;&#x672C;&#x6587;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x6280;&#x672F;&#x6765;&#x6A21;&#x62DF;&#x8BED;&#x8A00;&#x89E3;&#x91CA;&#x5668;&#x7684;&#x9519;&#x8BEF;&#x6A21;&#x7CCA;&#xFF0C;&#x5E76;&#x5F00;&#x53D1;&#x57FA;&#x4E8E;&#x9057;&#x4F20;&#x7F16;&#x7A0B;&#x7684;&#x8BED;&#x8A00;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x7684;&#x9002;&#x5E94;&#x5EA6;&#x51FD;&#x6570;&#x3002;&#x57FA;&#x672C;&#x601D;&#x60F3;&#x662F;&#x9519;&#x8BEF;&#x89E6;&#x53D1;&#x811A;&#x672C;&#x901A;&#x5E38;&#x5305;&#x542B;&#x4E0D;&#x5E38;&#x89C1;&#x7684;&#x7528;&#x6CD5;&#xFF0C;&#x8FD9;&#x4E9B;&#x7528;&#x6CD5;&#x5728;&#x65E5;&#x5E38;&#x5F00;&#x53D1;&#x4E2D;&#x4E0D;&#x592A;&#x53EF;&#x80FD;&#x88AB;&#x7A0B;&#x5E8F;&#x5458;&#x4F7F;&#x7528;&#x3002;&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x4F7F;&#x7528;&#x6982;&#x7387;&#x4E0A;&#x4E0B;&#x6587;&#x65E0;&#x5173;&#x8BED;&#x6CD5;&#x6A21;&#x578B;&#x548C;&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x6A21;&#x578B;&#x6765;&#x8BA1;&#x7B97;&#x811A;&#x672C;&#x7684;&#x6982;&#x7387;&#xFF0C;&#x4EE5;&#x4FBF;&#x9519;&#x8BEF;&#x89E6;&#x53D1;&#x811A;&#x672C;&#x5C06;&#x83B7;&#x5F97;&#x66F4;&#x4F4E;&#x7684;&#x6982;&#x7387;&#x548C;&#x66F4;&#x9AD8;&#x7684;&#x9002;&#x5E94;&#x503C;&#xFF0C;&#x4ECE;&#x800C;&#x6355;&#x83B7;&#x4E0D;&#x5E38;&#x89C1;&#x3002;&#x6211;&#x4EEC;&#x9009;&#x62E9;ROC&#xFF08;&#x63A5;&#x6536;&#x5668;&#x64CD;&#x4F5C;&#x7279;&#x6027;&#xFF09;&#x66F2;&#x7EBF;&#x6765;&#x8BC4;&#x4F30;&#x9002;&#x5E94;&#x5EA6;&#x51FD;&#x6570;&#x5728;&#x4ECE;&#x6B63;&#x5E38;&#x811A;&#x672C;&#x4E2D;&#x8BC6;&#x522B;&#x9519;&#x8BEF;&#x89E6;&#x53D1;&#x811A;&#x672C;&#x65F6;&#x7684;&#x6027;&#x80FD;&#x3002;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x6765;&#x81EA;Github&#x7684;&#x5927;&#x91CF;JavaScript&#x811A;&#x672C;&#x548C;&#x6765;&#x81EA;SpiderMonkey&#x7684;bugzilla&#x7684;&#x9519;&#x8BEF;&#x62A5;&#x544A;&#x7684;POC&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x8FDB;&#x884C;&#x8BC4;&#x4F30;&#x3002;&#x5B9E;&#x9A8C;&#x4E2D;&#x7684;ROC&#x66F2;&#x7EBF;&#x8868;&#x660E;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x63D0;&#x4F9B;&#x66F4;&#x597D;&#x7684;&#x80FD;&#x529B;&#x6765;&#x6392;&#x5E8F;&#x524D;K&#x4E2A;&#x5143;&#x7D20;&#x4E2D;&#x7684;&#x9519;&#x8BEF;&#x89E6;&#x53D1;&#x811A;&#x672C;&#x3002;</p>
+<p>&#x5173;&#x952E;&#x8BCD; - &#x8BED;&#x8A00;&#x6A21;&#x7CCA;&#xFF0C;&#x6982;&#x7387;&#x4E0A;&#x4E0B;&#x6587;&#x65E0;&#x5173;&#x8BED;&#x6CD5;&#xFF0C;&#x8FDB;&#x5316;&#x7B97;&#x6CD5;&#xFF0C;&#x811A;&#x672C;&#x6392;&#x5E8F;&#xFF0C;&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x94FE;</p>
+<table>
+<thead>
+<tr>
+<th>relevant information</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>&#x4F5C;&#x8005;</em></td>
+<td>Xiaoshan Sun, Yu Fu&#xFF0C;Yun Dong&#xFF0C;Zhihao Liu, Yang Zhang</td>
+</tr>
+<tr>
+<td><em>&#x5355;&#x4F4D;</em></td>
+<td>Trusted Computing and Information Assurance Laboratory Institute of Software, Chinese Academy of Sciences<br> Beijing Capitek Co., Ltd</td>
+</tr>
+<tr>
+<td><em>&#x51FA;&#x5904;</em></td>
+<td>2018 42nd IEEE International Conference on Computer Software &amp; Applications</td>
+</tr>
+<tr>
+<td><em>&#x539F;&#x6587;&#x5730;&#x5740;</em></td>
+<td><a href="https://ieeexplore.ieee.org/document/8377723" target="_blank">https://ieeexplore.ieee.org/document/8377723</a></td>
+</tr>
+<tr>
+<td><em>&#x6570;&#x636E;&#x96C6;&#x5730;&#x5740;</em></td>
+<td><a href="https://github.com/learnbigcode/learnbigcode.github.io/blob/master/datasets/index.md" target="_blank">https://github.com/learnbigcode/learnbigcode.github.io/blob/master/datasets/index.md</a></td>
+</tr>
+<tr>
+<td><em>&#x53D1;&#x8868;&#x65F6;&#x95F4;</em></td>
+<td>2018&#x5E74;</td>
+</tr>
+</tbody>
+</table>
+<h1 id="i--&#x7B80;&#x4ECB;">I  &#x7B80;&#x4ECB;</h1>
+<p>&#x73B0;&#x4EE3;Web&#x6D4F;&#x89C8;&#x5668;&#x901A;&#x5E38;&#x96C6;&#x6210;&#x89E3;&#x91CA;&#x5668;&#x6765;&#x89E3;&#x6790;&#xFF0C;&#x7F16;&#x8BD1;&#x548C;&#x6267;&#x884C;&#x7528;JavaScript&#x7F16;&#x5199;&#x7684;&#x811A;&#x672C;&#x3002;&#x8FD9;&#x7C7B;&#x89E3;&#x91CA;&#x5668;&#x7684;&#x7A81;&#x51FA;&#x4F8B;&#x5B50;&#x5305;&#x62EC;&#x8C37;&#x6B4C;Chrome&#x7684;JavaScript&#x5F15;&#x64CE;V8 [1]&#xFF0C;Mozilla FireFox&#x7684;SpiderMonkey [2]&#x548C;Apple Safari&#x6D4F;&#x89C8;&#x5668;&#x7684;SquirrelFish [3]&#x3002;&#x8BED;&#x8A00;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x662F;&#x5728;Web&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x67E5;&#x627E;&#x5B89;&#x5168;&#x6F0F;&#x6D1E;&#x4EE5;&#x63D0;&#x9AD8;&#x5176;&#x5B89;&#x5168;&#x6027;&#x7684;&#x4E00;&#x79CD;&#x6709;&#x6548;&#x65B9;&#x6CD5;&#xFF0C;&#x56E0;&#x4E3A;Web&#x6D4F;&#x89C8;&#x5668;&#x8D8A;&#x6765;&#x8D8A;&#x6210;&#x4E3A;&#x9ED1;&#x5BA2;&#x653B;&#x51FB;&#x7684;&#x76EE;&#x6807;&#x3002;</p>
+<p>&#x7531;&#x6D4B;&#x8BD5;&#x8BED;&#x8A00;&#x5B9A;&#x4E49;&#x7684;&#x6240;&#x6709;&#x53EF;&#x80FD;&#x811A;&#x672C;&#x6784;&#x6210;&#x811A;&#x672C;&#x7A7A;&#x95F4;&#xFF0C;&#x8BED;&#x8A00;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x53EF;&#x88AB;&#x89C6;&#x4E3A;&#x7A7A;&#x95F4;&#x641C;&#x7D22;&#x95EE;&#x9898;&#x3002;&#x9057;&#x4F20;&#x7F16;&#x7A0B;&#xFF08;GP&#xFF09;&#x662F;&#x4E00;&#x79CD;&#x6709;&#x6548;&#x7684;&#x641C;&#x7D22;&#x5927;&#x7A7A;&#x95F4;&#x76EE;&#x6807;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x5B83;&#x5DF2;&#x5E94;&#x7528;&#x4E8E;&#x6D4B;&#x8BD5;[4] [5] [6]&#x548C;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;[7]&#x3002;&#x89E3;&#x91CA;&#x5668;&#x7684;&#x7F3A;&#x9677;&#x662F;&#x591A;&#x79CD;&#x591A;&#x6837;&#x7684;&#xFF0C;&#x5E76;&#x4E14;&#x89E3;&#x91CA;&#x5668;&#x4E2D;&#x7684;&#x9519;&#x8BEF;&#x6982;&#x5FF5;&#x88AB;&#x6A21;&#x7CCA;&#x5730;&#x5B9A;&#x4E49;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x5B9A;&#x4E49;&#x9002;&#x5E94;&#x5EA6;&#x51FD;&#x6570;&#x3002;&#x6211;&#x4EEC;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;&#x57FA;&#x4E8E;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x7684;&#x65B9;&#x6CD5;&#x6765;&#x5B9A;&#x4E49;&#x8BED;&#x8A00;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x7684;&#x9002;&#x5E94;&#x5EA6;&#x51FD;&#x6570;&#x3002;&#x5927;&#x591A;&#x6570;&#x9519;&#x8BEF;&#x89E6;&#x53D1;&#x811A;&#x672C;&#x5305;&#x542B;&#x4E0D;&#x5E38;&#x89C1;&#x7684;&#x7528;&#x6CD5;&#xFF0C;&#x8FD9;&#x79CD;&#x4E0D;&#x5E38;&#x89C1;&#x53EF;&#x4EE5;&#x88AB;&#x5EFA;&#x6A21;&#x4E3A;&#x751F;&#x6210;&#x6B64;&#x811A;&#x672C;&#x7684;&#x4F4E;&#x6982;&#x7387;&#xFF0C;&#x6982;&#x7387;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6982;&#x7387;&#x65E0;&#x4E0A;&#x4E0B;&#x6587;&#x8BED;&#x6CD5;&#xFF08;PCFG&#xFF09;&#x8BA1;&#x7B97;&#xFF0C;&#x56E0;&#x4E3A;&#x8BE5;&#x6A21;&#x578B;&#x7528;&#x4E8E;&#x6D4B;&#x91CF;&#x4E00;&#x68F5;&#x6811;&#x7684;&#x53EF;&#x80FD;&#x6027;&#xFF0C;&#x811A;&#x672C;&#x53EF;&#x4EE5;&#x89E3;&#x6790;&#x4E3A;&#x62BD;&#x8C61;&#x8BED;&#x6CD5;&#x6811;&#xFF08;AST&#xFF09;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x8F83;&#x957F;&#x7684;&#x811A;&#x672C;&#x56E0;&#x6B64;&#x88AB;&#x8BA4;&#x4E3A;&#x4E0D;&#x592A;&#x53EF;&#x80FD;&#xFF0C;&#x5E76;&#x4E14;&#x5B83;&#x4E0D;&#x9002;&#x7528;&#x4E8E;&#x6211;&#x4EEC;&#x7684;&#x6982;&#x5FF5;&#x201C;bug-triggering&#x201D;&#xFF0C;&#x56E0;&#x4E3A;&#x901A;&#x5E38;&#x8FD9;&#x6837;&#x7684;&#x811A;&#x672C;&#x5F88;&#x77ED;&#x3002;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x9700;&#x8981;&#x8FDB;&#x4E00;&#x6B65;&#x7684;&#x8BBE;&#x8BA1;&#x3002;</p>
+<p>&#x8D21;&#x732E;&#xFF1A;&#x672C;&#x6587;&#x7684;&#x4E3B;&#x8981;&#x8D21;&#x732E;&#x662F;&#xFF1A;</p>
+<ul>
+<li>&#x6211;&#x4EEC;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x6280;&#x672F;&#x6765;&#x6A21;&#x62DF;&#x89E3;&#x91CA;&#x5668;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x4E2D;&#x7684;&#x201C;&#x9519;&#x8BEF;&#x89E6;&#x53D1;&#x201D;&#x6982;&#x5FF5;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x79F0;&#x4E3A;&#x81EA;&#x7136;&#x542F;&#x53D1;&#x5F0F;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x7684;&#x9002;&#x5E94;&#x6027;&#x51FD;&#x6570;&#x57FA;&#x4E8E;<code>PCFG&#x6A21;&#x578B;</code>&#x5E76;&#x96C6;&#x6210;&#x5B83;&#x4F7F;&#x7528;<code>&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x94FE;&#x6A21;&#x578B;</code>&#x7684;&#x6A21;&#x578B;&#xFF0C;&#x7ED3;&#x679C;&#x79F0;&#x4E3A;MPCFG&#x6A21;&#x578B;&#x3002;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x5747;&#x5300;&#x5206;&#x5E03;&#x6765;&#x6807;&#x51C6;&#x5316;MPCFG&#x6A21;&#x578B;&#x8BA1;&#x7B97;&#x7684;&#x6982;&#x7387;&#xFF0C;&#x5E76;&#x4F7F;&#x7528;&#x51E0;&#x4F55;&#x5E73;&#x5747;&#x503C;&#x6765;&#x51CF;&#x5C11;&#x811A;&#x672C;&#x957F;&#x5EA6;&#x503C;&#x7684;&#x5F71;&#x54CD;&#x3002;&#x7ED3;&#x679C;&#xFF0C;&#x9002;&#x5E94;&#x5EA6;&#x503C;&#x51E0;&#x4E4E;&#x4E0E;&#x811A;&#x672C;&#x957F;&#x5EA6;&#x65E0;&#x5173;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7F13;&#x89E3;&#x57FA;&#x4E8E;GP&#xFF08;&#x9057;&#x4F20;&#x7F16;&#x7A0B;&#xFF09;&#x7684;&#x8BED;&#x8A00;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x4E2D;&#x7684;&#x81A8;&#x80C0;&#x95EE;&#x9898;&#x3002;</li>
+<li>&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x5927;&#x91CF;&#x5F00;&#x6E90;JavaScript&#x811A;&#x672C;&#x8FDB;&#x884C;&#x4E86;&#x4E00;&#x9879;&#x5B9E;&#x9A8C;&#xFF0C;&#x4EE5;&#x8BC4;&#x4F30;&#x9002;&#x5E94;&#x5EA6;&#x51FD;&#x6570;&#x7684;&#x6709;&#x6548;&#x6027;&#x3002;&#x5B9E;&#x9A8C;&#x8868;&#x660E;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x65B9;&#x6CD5;&#x6BD4;&#x7528;&#x4E8E;IFuzzer&#x548C;&#x7EAF;PCFG&#x6A21;&#x578B;&#x7684;&#x65B9;&#x6CD5;&#x66F4;&#x6709;&#x6548;&#x5730;&#x533A;&#x5206;&#x6B63;&#x5E38;&#x548C;&#x4E0D;&#x5E38;&#x89C1;&#x7684;&#x811A;&#x672C;&#xFF0C;&#x8FD9;&#x53EF;&#x80FD;&#x8868;&#x660E;&#x6211;&#x4EEC;&#x7684;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x7528;&#x4F5C;JavaScript&#x6A21;&#x7CCA;&#x5668;&#x7684;&#x66F4;&#x597D;&#x7684;&#x9002;&#x5E94;&#x6027;&#x51FD;&#x6570;&#xFF0C;&#x4EE5;&#x66F4;&#x6709;&#x6548;&#x5730;&#x751F;&#x6210;&#x9519;&#x8BEF;&#x89E6;&#x53D1;&#x811A;&#x672C;&#x3002;</li>
+</ul>
+<h1 id="ii-&#x76F8;&#x5173;&#x5DE5;&#x4F5C;">II &#x76F8;&#x5173;&#x5DE5;&#x4F5C;</h1>
+<p>&#x8BED;&#x8A00;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x6B63;&#x5728;&#x79EF;&#x6781;&#x7814;&#x7A76;&#x4E2D;&#x3002;&#x65E9;&#x671F;&#x7684;&#x8BED;&#x8A00;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x5DE5;&#x4F5C;&#xFF0C;&#x4F8B;&#x5982;&#x5305;&#x62EC;LangFuzz [8]&#xFF0C;JsFunFuzz [9]&#x548C;CSmith [10]&#xFF0C;&#x4E3B;&#x8981;&#x4F7F;&#x7528;&#x624B;&#x5DE5;&#x5236;&#x4F5C;&#x7684;&#x89C4;&#x5219;&#x6765;&#x6307;&#x5BFC;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x7A0B;&#x5E8F;&#x7684;&#x751F;&#x6210;&#x3002;&#x4F46;&#x662F;&#x5B83;&#x4EEC;&#x5728;&#x7A0B;&#x5E8F;&#x751F;&#x6210;&#x7684;&#x5F15;&#x5BFC;&#x65B9;&#x5F0F;&#x4E0A;&#x5F7C;&#x6B64;&#x4E0D;&#x540C;&#xFF0C;CSmith&#x751F;&#x6210;&#x7684;C&#x7A0B;&#x5E8F;&#x8986;&#x76D6;&#x4E86;C&#x7684;&#x5927;&#x90E8;&#x5206;&#xFF0C;&#x540C;&#x65F6;&#x907F;&#x514D;&#x4E86;&#x672A;&#x5B9A;&#x4E49;&#x548C;&#x672A;&#x6307;&#x5B9A;&#x7684;&#x884C;&#x4E3A;&#xFF0C;&#x8FD9;&#x4E9B;&#x884C;&#x4E3A;&#x4F1A;&#x7834;&#x574F;&#x5176;&#x81EA;&#x52A8;&#x67E5;&#x627E;&#x9519;&#x8BEF;&#x4EE3;&#x7801;&#x9519;&#x8BEF;&#x7684;&#x80FD;&#x529B;; LangFuzz [8]&#x4F7F;&#x7528;&#x4EE3;&#x7801;&#x53D8;&#x5F02;&#x4ECE;&#x5148;&#x524D;&#x751F;&#x6210;&#x7684;&#x7A0B;&#x5E8F;&#x751F;&#x6210;&#x65B0;&#x7A0B;&#x5E8F;&#xFF0C;&#x8FD9;&#x4E9B;&#x7A0B;&#x5E8F;&#x5728;&#x89E3;&#x91CA;&#x5668;&#x4E2D;&#x89E6;&#x53D1;&#x4E86;&#x9519;&#x8BEF;; JsFunFuzz [9]&#x662F;SpiderMonkey&#x7684;&#x65E9;&#x671F;&#x6A21;&#x7CCA;&#x5668;&#x3002;&#x636E;&#x62A5;&#x9053;&#xFF0C;JsFunFuzz&#x548C;DOMFuzz&#x53D1;&#x73B0;&#x4E86;790&#x4E2A;&#x5B89;&#x5168;&#x5173;&#x952E;&#x9519;&#x8BEF;&#x3002;&#x7136;&#x800C;&#xFF0C;&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#x53EF;&#x80FD;&#x4F1A;&#x9000;&#x5316;&#x4E3A;&#x968F;&#x673A;&#x641C;&#x7D22;[7]&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x7684;&#x5DE5;&#x4F5C;&#x8FD8;&#x6D89;&#x53CA;&#x57FA;&#x4E8E;GP&#x7684;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x3002;&#x8FDB;&#x5316;&#x6A21;&#x7CCA;&#x5668;&#x7684;&#x9002;&#x5E94;&#x5EA6;&#x51FD;&#x6570;&#x901A;&#x5E38;&#x662F;&#x57FA;&#x4E8E;&#x8986;&#x76D6;&#x7684;&#x3002;DeMott&#x7B49;&#x4EBA; [11]&#x63D0;&#x51FA;&#x4E86;&#x4E00;&#x79CD;&#x7070;&#x76D2;&#x6280;&#x672F;&#x6765;&#x751F;&#x6210;&#x5177;&#x6709;&#x66F4;&#x597D;&#x4EE3;&#x7801;&#x8986;&#x76D6;&#x7387;&#x7684;&#x65B0;&#x8F93;&#x5165;&#xFF0C;&#x4EE5;&#x901A;&#x8FC7;&#x4F7F;&#x7528;&#x5757;&#x8986;&#x76D6;&#x4F5C;&#x4E3A;&#x9002;&#x5E94;&#x503C;&#x6765;&#x53D1;&#x73B0;&#x9519;&#x8BEF;&#x3002; Kifetew&#x7B49; [12]&#x5C06;&#x968F;&#x673A;&#x8BED;&#x6CD5;&#x4E0E;GP&#x7ED3;&#x5408;&#x8D77;&#x6765;&#xFF0C;&#x901A;&#x8FC7;&#x8FD0;&#x884C;&#x88AB;&#x6D4B;&#x7CFB;&#x7EDF;&#x4E0E;&#x5355;&#x5143;&#x4E2D;&#x6240;&#x6709;&#x672A;&#x88AB;&#x89E3;&#x6790;&#x7684;&#x6811;&#x5E76;&#x6D4B;&#x91CF;&#x8986;&#x76D6;&#x7684;&#x5206;&#x652F;&#x6570;&#x91CF;&#x4EE5;&#x53CA;&#x8986;&#x76D6;&#x672A;&#x8986;&#x76D6;&#x5206;&#x652F;&#x7684;&#x8DDD;&#x79BB;&#x6765;&#x786E;&#x5B9A;&#x9002;&#x5408;&#x5EA6;&#x503C;&#x3002; VUzzer [13]&#x8BA1;&#x7B97;&#x6BCF;&#x4E2A;&#x8F93;&#x5165;&#x7684;&#x9002;&#x5408;&#x5EA6;&#x4F5C;&#x4E3A;&#x6267;&#x884C;&#x7684;&#x57FA;&#x672C;&#x5757;&#x7684;&#x9891;&#x7387;&#x7684;&#x52A0;&#x6743;&#x548C;&#x3002;&#x5B83;&#x4EEC;&#x4E3B;&#x8981;&#x4F7F;&#x7528;&#x4EE3;&#x7801;&#x8986;&#x76D6;&#x8FDB;&#x884C;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#xFF0C;&#x5E76;&#x4E14;&#x5B83;&#x4EEC;&#x7684;&#x9002;&#x5E94;&#x5EA6;&#x51FD;&#x6570;&#x662F;&#x72EC;&#x7ACB;&#x4E8E;&#x7279;&#x5B9A;&#x7A0B;&#x5E8F;&#x5B9A;&#x4E49;&#x7684;&#x3002; IFuzzer [7]&#x5C06;&#x7ED3;&#x6784;&#x5EA6;&#x91CF;&#xFF0C;&#x4F8B;&#x5982;&#x7A0B;&#x5E8F;&#x7684;<code>&#x5708;&#x590D;&#x6742;&#x5EA6;</code>&#x4F5C;&#x4E3A;&#x9057;&#x4F20;&#x7F16;&#x7A0B;&#x4E2D;&#x811A;&#x672C;&#x7684;&#x9002;&#x5E94;&#x503C;&#x3002;
+&#x673A;&#x5668;&#x5B66;&#x4E60;&#x65B9;&#x6CD5;&#x5DF2;&#x6210;&#x529F;&#x5E94;&#x7528;&#x4E8E;&#x7EDF;&#x8BA1;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;[14]&#xFF0C;&#x57FA;&#x4E8E;n-gram&#x6A21;&#x578B;&#x7684;&#x6284;&#x88AD;&#x68C0;&#x6D4B;&#x5668;[15]&#xFF0C;&#x57FA;&#x4E8E;n-gram&#x8BED;&#x8A00;&#x6A21;&#x578B;&#x7684;&#x9519;&#x8BEF;&#x68C0;&#x6D4B;[16]&#xFF0C;&#x4EE5;&#x53CA;&#x4F7F;&#x7528;&#x8D1D;&#x53F6;&#x65AF;&#x63A8;&#x7406;&#x53EF;&#x80FD;&#x7684;&#x9519;&#x8BEF;&#x7A0B;&#x5E8F;&#x884C;&#x4E3A;&#x68C0;&#x6D4B;[17]&#x3002;&#x5C06;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x65B9;&#x6CD5;&#x5E94;&#x7528;&#x4E8E;&#x7A0B;&#x5E8F;&#x5206;&#x6790;&#x4EFB;&#x52A1;&#x7684;&#x7EDF;&#x8BA1;&#x57FA;&#x7840;&#x662F;&#x8F6F;&#x4EF6;&#x7684;&#x81EA;&#x7136;&#x6027;&#xFF0C;&#x7531;Hinder [18]&#x548C;Ray [19]&#x7814;&#x7A76;&#x3002;<strong>&#x57FA;&#x4E8E;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x7684;&#x65B9;&#x6CD5;&#x4E5F;&#x5E94;&#x7528;&#x4E8E;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x3002; Godefroid&#x7B49; [20]&#x63D0;&#x51FA;&#x4E86;&#x4E00;&#x79CD;&#x4F7F;&#x7528;&#x57FA;&#x4E8E;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x7684;&#x6280;&#x672F;&#x751F;&#x6210;&#x65B0;&#x8F93;&#x5165;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x4ED6;&#x4EEC;&#x901A;&#x8FC7;&#x9009;&#x62E9;&#x6982;&#x7387;&#x4F4E;&#x4E8E;&#x9608;&#x503C;pt&#x7684;&#x503C;&#x6765;&#x5BF9;&#x6240;&#x5B66;&#x4E60;&#x7684;&#x6837;&#x672C;&#x5206;&#x5E03;&#x8FDB;&#x884C;&#x91C7;&#x6837;&#x3002; Skyfire [21]&#x5B66;&#x4E60;&#x6982;&#x7387;&#x4E0A;&#x4E0B;&#x6587;&#x654F;&#x611F;&#x8BED;&#x6CD5;&#x4EE5;&#x6307;&#x5B9A;&#x8BED;&#x6CD5;&#x7279;&#x5F81;&#x548C;&#x8BED;&#x4E49;&#x89C4;&#x5219;&#xFF0C;&#x5E76;&#x4F7F;&#x7528;&#x5B66;&#x4E60;&#x7684;&#x8BED;&#x6CD5;&#x751F;&#x6210;&#x79CD;&#x5B50;&#x8F93;&#x5165;&#x3002; Skyfire&#x5728;&#x751F;&#x6210;&#x8FC7;&#x7A0B;&#x4E2D;&#x66F4;&#x559C;&#x6B22;&#x4F4E;&#x6982;&#x7387;&#x751F;&#x4EA7;&#x89C4;&#x5219;&#xFF0C;&#x4EE5;&#x4EA7;&#x751F;&#x4E0D;&#x5E38;&#x89C1;&#x7684;&#x8F93;&#x5165;&#x3002; Tree Fuzz[22]&#x4F7F;&#x7528;&#x7C7B;&#x4F3C;PCFG&#x7684;&#x6A21;&#x578B;&#x4ECE;&#x4EE3;&#x7801;&#x8BED;&#x6599;&#x5E93;&#x4E2D;&#x5B66;&#x4E60;&#x6982;&#x7387;&#x5206;&#x5E03;&#xFF0C;&#x5E76;&#x901A;&#x8FC7;&#x4EE5;&#x6DF1;&#x5EA6;&#x4F18;&#x5148;&#x7684;&#x65B9;&#x5F0F;&#x521B;&#x5EFA;&#x6811;&#x6765;&#x4ECE;&#x6A21;&#x578B;&#x751F;&#x6210;&#x65B0;&#x6570;&#x636E;&#x3002;</strong></p>
+<p>&#x6211;&#x4EEC;&#x7684;&#x5DE5;&#x4F5C;&#x5728;&#x5F88;&#x591A;&#x65B9;&#x9762;&#x90FD;&#x4E0E;&#x76F8;&#x5173;&#x5DE5;&#x4F5C;&#x4E0D;&#x540C;&#x3002;&#x6211;&#x4EEC;&#x5EFA;&#x8BAE;&#x5C06;PCFG&#x548C;Markov&#x6A21;&#x578B;&#x7528;&#x4E8E;&#x201C;&#x9519;&#x8BEF;&#x89E6;&#x53D1;&#x201D;&#x89E6;&#x53D1;&#x811A;&#x672C;&#x7684;&#x6982;&#x5FF5;&#xFF0C;&#x5E76;&#x4E14;&#x6211;&#x4EEC;&#x63D0;&#x51FA;&#x4E86;&#x57FA;&#x4E8E;GP&#x7684;&#x8BED;&#x8A00;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x7684;&#x9002;&#x5E94;&#x5EA6;&#x51FD;&#x6570;&#xFF0C;&#x800C;&#x4E4B;&#x524D;&#x7684;&#x5DE5;&#x4F5C;&#x4F7F;&#x7528;&#x57FA;&#x4E8E;&#x4EE3;&#x7801;&#x8986;&#x76D6;&#x7684;&#x6D4B;&#x91CF;&#x6216;&#x4EE3;&#x7801;&#x590D;&#x6742;&#x5EA6;&#x6D4B;&#x91CF;&#x3002;&#x8F83;&#x957F;&#x7684;&#x811A;&#x672C;&#x901A;&#x5E38;&#x5728;&#x57FA;&#x4E8E;PCFG&#x7684;&#x6A21;&#x578B;&#x4E2D;&#x5177;&#x6709;&#x8F83;&#x4F4E;&#x7684;&#x6982;&#x7387;&#xFF0C;&#x56E0;&#x6B64;&#x8F83;&#x957F;&#x7684;&#x516C;&#x5171;&#x811A;&#x672C;&#x548C;&#x4E0D;&#x5E38;&#x89C1;&#x7684;&#x811A;&#x672C;&#x5177;&#x6709;&#x8F83;&#x4F4E;&#x7684;&#x6982;&#x7387;&#xFF0C;&#x5E76;&#x4E14;&#x6A21;&#x578B;&#x53EF;&#x80FD;&#x65E0;&#x6CD5;&#x533A;&#x5206;&#x5B83;&#x4EEC;&#x3002;&#x6211;&#x4EEC;&#x5F00;&#x53D1;&#x4E86;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#x6765;&#x663E;&#x7740;&#x51CF;&#x5C11;&#x5176;&#x957F;&#x5EA6;&#x7684;&#x5F71;&#x54CD;&#xFF0C;&#x4EE5;&#x4FBF;&#x6A21;&#x578B;&#x53EF;&#x4EE5;&#x533A;&#x5206;&#x4E0D;&#x5E38;&#x89C1;&#x7684;&#x811A;&#x672C;&#x548C;&#x5E38;&#x89C1;&#x7684;&#x811A;&#x672C;&#x3002;&#x6211;&#x4EEC;&#x8868;&#x660E;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x6A21;&#x578B;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x66F4;&#x597D;&#x7684;&#x9002;&#x5E94;&#x5EA6;&#x51FD;&#x6570;&#x6765;&#x63CF;&#x8FF0;&#x201C;&#x9519;&#x8BEF;&#x89E6;&#x53D1;&#x201D;&#x811A;&#x672C;&#x7684;&#x6A21;&#x7CCA;&#x6982;&#x5FF5;&#xFF0C;&#x800C;&#x4E0D;&#x4F7F;&#x7528;&#x4EE3;&#x7801;&#x590D;&#x6742;&#x6027;&#x548C;&#x4EE3;&#x7801;&#x8986;&#x76D6;&#x65B9;&#x6CD5;&#xFF0C;&#x5E76;&#x4E14;&#x6BD4;&#x57FA;&#x4E8E;&#x4EE3;&#x7801;&#x590D;&#x6742;&#x6027;&#x7684;&#x65B9;&#x6CD5;&#x66F4;&#x597D;&#x5730;&#x5DE5;&#x4F5C;&#x3002;</p>
+<h1 id="iii-&#x7528;fuzzing&#x7684;&#x8F6F;&#x4EF6;&#x7684;&#x81EA;&#x7136;&#x6027;">III &#x7528;fuzzing&#x7684;&#x8F6F;&#x4EF6;&#x7684;&#x81EA;&#x7136;&#x6027;</h1>
+<p>&#x5728;&#x672C;&#x8282;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x89E3;&#x91CA;&#x4F7F;&#x7528;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x65B9;&#x6CD5;&#x5BF9;&#x201C;bug-triggering&#x201D;&#x811A;&#x672C;&#x7684;&#x6982;&#x5FF5;&#x8FDB;&#x884C;&#x5EFA;&#x6A21;&#x4EE5;&#x6784;&#x5EFA;&#x57FA;&#x4E8E;GP&#x7684;&#x8BED;&#x8A00;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x7684;&#x9002;&#x5E94;&#x5EA6;&#x51FD;&#x6570;&#x7684;&#x57FA;&#x672C;&#x601D;&#x60F3;&#x3002;</p>
+<p>A. Hindle&#x7B49;&#x4EBA;[18]&#x5DF2;&#x89C2;&#x5BDF;&#x5230;&#x5B83;&#x5728;&#x7406;&#x8BBA;&#x4E0A;&#xFF0C;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x662F;&#x590D;&#x6742;&#xFF0C;&#x7075;&#x6D3B;&#x548C;&#x5F3A;&#x5927;&#x7684;&#xFF0C;&#x4F46;&#x7A0B;&#x5E8F;&#x5458;&#x5B9E;&#x9645;&#x7F16;&#x5199;&#x7684;&#x7A0B;&#x5E8F;&#x5927;&#x591A;&#x662F;&#x7B80;&#x5355;&#x800C;&#x4E14;&#x76F8;&#x5F53;&#x91CD;&#x590D;&#xFF0C;&#x56E0;&#x6B64;&#x5B83;&#x4EEC;&#x5177;&#x6709;&#x6709;&#x7528;&#x7684;&#x53EF;&#x9884;&#x6D4B;&#x7EDF;&#x8BA1;&#x5C5E;&#x6027;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x8F6F;&#x4EF6;&#x5DE5;&#x7A0B;&#x4EFB;&#x52A1;&#x7684;&#x7EDF;&#x8BA1;&#x6A21;&#x578B;&#x4E2D;&#x6355;&#x83B7;&#x3002;
+&#x8FD9;&#x79CD;&#x89C2;&#x5BDF;&#x4E5F;&#x5B58;&#x5728;&#x4E8E;&#x4EBA;&#x7C7B;&#x7F16;&#x5199;&#x7684;&#x811A;&#x672C;&#x4E2D;&#xFF0C;&#x5E76;&#x4E14;&#x201C;&#x9519;&#x8BEF;&#x89E6;&#x53D1;&#x201D;&#x811A;&#x672C;&#x5728;&#x5927;&#x591A;&#x6570;&#x60C5;&#x51B5;&#x4E0B;&#x662F;&#x76F4;&#x89C2;&#x5947;&#x602A;&#x7684;&#xFF0C;&#x539F;&#x56E0;&#x662F;&#x4EBA;&#x7C7B;&#x901A;&#x5E38;&#x4E0D;&#x4EE5;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x4F7F;&#x7528;&#x811A;&#x672C;&#x8BED;&#x8A00;&#x3002;&#x8FD9;&#x79F0;&#x4E3A;&#x4E0D;&#x5E38;&#x89C1;&#x3002;</p>
+<p><img src="Improving-Fitness-Function-for-Language-Fuzzing-with-PCFG-Model/1.jpg" alt=""></p>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x56FE;1&#x663E;&#x793A;&#x4E86;JavaScript&#x4E2D;&#x201C;Regexp&#x201D;&#x7684;&#x7279;&#x5F81;&#x7528;&#x6CD5;&#x3002; &#x201C;re.test&#xFF08;str&#xFF09;&#x201D;&#xFF08;&#x7B2C;3&#x884C;&#xFF09;&#x662F;&#x5206;&#x652F;&#x6761;&#x4EF6;&#xFF0C;&#x5206;&#x652F;&#x4E2D;&#x7684;&#x6D41;&#x52A8;&#x8BED;&#x53E5;&#x7EE7;&#x7EED;&#x5B58;&#x50A8;&#x7ED3;&#x679C;&#x3002;&#x8FD9;&#x662F;&#x7A0B;&#x5E8F;&#x5458;&#x5728;&#x5927;&#x591A;&#x6570;JavaScript&#x7A0B;&#x5E8F;&#x4E2D;&#x7F16;&#x5199;&#x7684;&#x903B;&#x8F91;&#x3002;&#x56FE;2&#x7ED9;&#x51FA;&#x4E86;&#x4E00;&#x4E2A;&#x793A;&#x4F8B;&#x811A;&#x672C;&#xFF0C;&#x5B83;&#x901A;&#x8FC7;&#x66F4;&#x65B0;&#x8F93;&#x5165;&#xFF08;&#x7B2C;7&#x884C;&#xFF09;&#x8FDD;&#x53CD;&#x4E86;&#x8FD9;&#x79CD;&#x7528;&#x6CD5;&#xFF0C;&#x5E76;&#x4E14;&#x8BE5;&#x811A;&#x672C;&#x5728;&#x4E00;&#x4E2A;&#x7248;&#x672C;&#x7684;SpiderMonkey&#x4E2D;&#x89E6;&#x53D1;&#x4E86;&#x4E00;&#x4E2A;&#x9519;&#x8BEF;&#x3002;&#x8FD9;&#x79CD;&#x7528;&#x6CD5;&#x53EF;&#x4EE5;&#x88AB;&#x8BA4;&#x4E3A;&#x662F;&#x4E0D;&#x5E38;&#x89C1;&#x7684;&#x3002;&#x7531;&#x4E8E;&#x4E0D;&#x5E38;&#x89C1;&#x7684;&#x811A;&#x672C;&#x4E0D;&#x592A;&#x53EF;&#x80FD;&#xFF0C;&#x5E76;&#x4E14;&#x4F7F;&#x7528;&#x53EF;&#x80FD;&#x6210;&#x4E3A;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x7684;&#x201C;&#x76F2;&#x70B9;&#x201D;&#xFF0C;&#x56E0;&#x6B64;&#x5E38;&#x89C1;&#x7684;&#x4F7F;&#x7528;&#x53CD;&#x6620;&#x4E86;&#x67D0;&#x4E9B;&#x5047;&#x8BBE;&#xFF0C;&#x8FD9;&#x53EF;&#x80FD;&#x5BFC;&#x81F4;&#x89E3;&#x91CA;&#x5668;&#x7684;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x4F7F;&#x7528;&#x8FD9;&#x4E9B;&#x5047;&#x8BBE;&#x7F16;&#x5199;&#x4EE3;&#x7801;&#xFF0C;&#x8FD9;&#x4E9B;&#x5047;&#x8BBE;&#x5728;&#x67D0;&#x4E9B;&#x4E0D;&#x5E38;&#x89C1;&#x7684;&#x811A;&#x672C;&#x4E2D;&#x53EF;&#x80FD;&#x65E0;&#x6548;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x60F3;&#x6CD5;&#x662F;&#x4ECE;&#x4EBA;&#x7C7B;&#x7A0B;&#x5E8F;&#x5458;&#x5F00;&#x53D1;&#x7684;&#x6B63;&#x5E38;&#x811A;&#x672C;&#x8BED;&#x6599;&#x5E93;&#x4E2D;&#x5B66;&#x4E60;&#x5171;&#x6027;&#xFF0C;&#x5E76;&#x4E14;&#x5B66;&#x4E60;&#x5230;&#x7684;&#x4FE1;&#x606F;&#x53EF;&#x7528;&#x4E8E;&#x901A;&#x8FC7;&#x6D4B;&#x91CF;&#x811A;&#x672C;&#x4E0E;&#x666E;&#x901A;&#x811A;&#x672C;&#x7684;&#x504F;&#x5DEE;&#x6765;&#x8BA1;&#x7B97;&#x811A;&#x672C;&#x7684;&#x4E0D;&#x5E38;&#x89C1;&#x3002;&#x504F;&#x5DEE;&#x8F83;&#x5927;&#x7684;&#x811A;&#x672C;&#x53EF;&#x80FD;&#x66F4;&#x6709;&#x53EF;&#x80FD;&#x89E6;&#x53D1;&#x89E3;&#x91CA;&#x5668;&#x4E2D;&#x7684;&#x9519;&#x8BEF;&#x3002;&#x8BE5;&#x504F;&#x5DEE;&#x53EF;&#x7528;&#x4E8E;&#x8BA1;&#x7B97;&#x57FA;&#x4E8E;GP&#x7684;&#x8BED;&#x8A00;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x7684;&#x811A;&#x672C;&#x7684;&#x9002;&#x5408;&#x5EA6;&#x3002;</p>
+<p><img src="Improving-Fitness-Function-for-Language-Fuzzing-with-PCFG-Model/2.jpg" alt=""></p>
+<h1 id="iv-&#x8BBE;&#x8BA1;">IV &#x8BBE;&#x8BA1;</h1>
+<p>&#x5728;&#x672C;&#x8282;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x8BE6;&#x7EC6;&#x8BF4;&#x660E;&#x4E86;&#x8BED;&#x8A00;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x7684;&#x9002;&#x5E94;&#x5EA6;&#x51FD;&#x6570;&#x7684;&#x57FA;&#x672C;&#x539F;&#x7406;&#x548C;&#x8BBE;&#x8BA1;&#x7EC6;&#x8282;&#x3002;</p>
+<h2 id="a&#x673A;&#x5668;&#x5B66;&#x4E60;&#x6A21;&#x578B;">A.&#x673A;&#x5668;&#x5B66;&#x4E60;&#x6A21;&#x578B;</h2>
+<ul>
+<li><strong>PCFG&#x6A21;&#x578B;</strong></li>
+</ul>
+<p>&#x5728;&#x8FD9;&#x91CC;&#xFF0C;&#x6211;&#x4EEC;&#x63D0;&#x51FA;&#x4E86;PCFG [24] [25]&#x7684;&#x6B63;&#x5F0F;&#x5B9A;&#x4E49;&#x548C;&#x6982;&#x7387;&#x8BA1;&#x7B97;&#x3002;</p>
+<p>&#x4E00;&#x4E2A;PCFG G&#x662F;&#x5143;&#x7EC4;&#xFF08;V&#xFF0C;N&#xFF0C;S&#xFF0C;R&#xFF0C;D&#xFF09;&#xFF0C;&#x5176;&#x4E2D;&#xFF1A;</p>
+<ul>
+<li>V&#x662F;&#x4E00;&#x7EC4;&#x7EC8;&#x7AEF;&#xFF0C;&#x4F8B;&#x5982;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x6570;&#x5B57;&#x548C;&#x6807;&#x8BC6;&#x7B26;&#x3002;</li>
+<li>N&#x662F;&#x4E00;&#x7EC4;&#x975E;&#x7EC8;&#x7ED3;&#x7B26;&#x53F7;Ni&#xFF0C;&#x4F8B;&#x5982;&#x7A0B;&#x5E8F;&#x4E2D;&#x7684;&#x8BED;&#x53E5;&#xFF0C;for-loop&#x7ED3;&#x6784;&#x3002;</li>
+<li>S&#x2208;N&#x662F;&#x8D77;&#x59CB;&#x7B26;&#x53F7;&#x3002;</li>
+<li>R&#x662F;&#x4E00;&#x7EC4;Ni&#x2192;&#x3B2;m&#x5F62;&#x5F0F;&#x7684;&#x89C4;&#x5219;&#xFF0C;&#x5176;&#x4E2D;&#x3B2;m= M1M2&#x2026; Mn&#x662F;&#x672B;&#x7AEF;&#x548C;&#x975E;&#x672B;&#x7AEF;&#x7684;&#x5E8F;&#x5217;&#x3002;</li>
+<li>D&#x662F;&#x4E00;&#x4E2A;&#x4E3A;&#x89C4;&#x5219;&#x5206;&#x914D;&#x6982;&#x7387;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x56E0;&#x6B64;</li>
+</ul>
+<p>$$
+&#x2200;i \sum_mD(N_i &#x2192; &#x3B2;_m) = 1</p>
+<p>$$</p>
+<p>&#x6211;&#x4EEC;&#x4F7F;&#x7528;PCFG&#x6A21;&#x578B;&#x5229;&#x7528;&#x516C;&#x5F0F;2&#x4E2D;&#x7684;&#x89C4;&#x5219;&#x76F4;&#x63A5;&#x4ECE;AST&#x6811;t&#x8BA1;&#x7B97;&#x811A;&#x672C;&#x7684;&#x6982;&#x7387;&#x3002;</p>
+<p>$$
+P(t) = D(N<em>t &#x2192; &#x3B2;)
+\prod_1^kP(t</em>{M_i})</p>
+<p>$$
+&#x5176;&#x4E2D;N_t&#x662F;t&#x7684;&#x6839;&#x8282;&#x70B9;&#xFF0C;&#x3B2;= M1M2&#x2026; Mk&#x548C; t_m_i &#x8868;&#x793A;N_t&#x7684;&#x6839;&#xFF0C;&#x5176;&#x6839;&#x662F;M_i&#xFF08;1&#x2264;i&#x2264;k&#xFF09;</p>
+<ul>
+<li><strong>&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x94FE;PCFG&#x6A21;&#x578B;</strong></li>
+</ul>
+<p>PCFG&#x6A21;&#x62DF;N_i&#x548C;&#x3B2;_m&#x4E4B;&#x95F4;&#x7684;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x4E3A;&#x89C4;&#x5219;Ni&#x2192;&#x3B2;m&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x4E0D;&#x5E94;&#x9519;&#x8FC7;&#x5185;&#x90E8;&#x5B50;&#x6811;&#x7684;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x811A;&#x672C;&#x7684;AST&#x6811;&#x5982;&#x56FE;4&#x6240;&#x793A;&#xFF0C;&#x8BED;&#x6CD5;&#x5B9A;&#x4E49;&#x5982;&#x4E0B;&#xFF08;&#x6211;&#x4EEC;&#x7701;&#x7565;&#x4E86;&#x4E0D;&#x540C;&#x79CD;&#x7C7B;&#x7684;stmt&#x548C;param&#x7684;&#x8FDB;&#x4E00;&#x6B65;&#x5B9A;&#x4E49;&#xFF09;&#xFF1A;</p>
+<pre><code class="lang-c">fun_def := param_list stmt_list
+stmt_list := stmt | stmt stmt_list
+param_list := &#x3B5; | param | param param_list
+stmt := assign | <span class="hljs-keyword">if</span> | <span class="hljs-keyword">while</span> | fun_def| . . .
+</code></pre>
+<p>&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x53EF;&#x80FD;&#x6709;&#x89C4;&#x5219;stmt_list&#x2192;fun_def stmt_list&#x548C;stmt_list&#x2192;assign stmt_list&#x7B49;&#x7B49;&#x3002;&#x6709;&#x8DA3;&#x7684;def&#x662F;&#x51FD;&#x6570;X&#xFF08;&#xFF09;&#xFF0C;&#x8D4B;&#x503C;&#x662F;X.prototype.getName = ....&#x89C4;&#x5219;&#x65E0;&#x6CD5;&#x6A21;&#x62DF;&#x51FD;&#x6570;X&#xFF08;&#xFF09;&#x548C;X.prototype.getName = ...&#x4E4B;&#x95F4;&#x7684;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x6CA1;&#x6709;&#x51FA;&#x73B0;&#x5728;&#x4E00;&#x6761;&#x89C4;&#x5219;&#x4E2D;&#x3002;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4FEE;&#x6539;PCFG&#x6A21;&#x578B;&#x3002;</p>
+<p><img src="Improving-Fitness-Function-for-Language-Fuzzing-with-PCFG-Model/3.jpg" alt=""></p>
+<p>&#x6211;&#x4EEC;&#x9009;&#x62E9;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x94FE;&#x6A21;&#x578B;&#x7528;&#x4E8E;stmt&#x5217;&#x8868;&#x548C;&#x5176;&#x4ED6;&#x9012;&#x5F52;&#x5B9A;&#x4E49;&#x3002;&#x5BF9;&#x4E8E;AST&#x4E2D;&#x7684;&#x5B50;&#x6811;t&#xFF0C;&#x9012;&#x5F52;&#x5730;&#x5B9A;&#x4E49;Nt&#xFF0C;Nt&#x2192;&#x3B2;k&#x548C;&#x3B2;k= M1M2&#x2026; MK&#x3002;&#x4F7F;&#x7528;&#x65B0;&#x516C;&#x5F0F;&#x8BA1;&#x7B97;Nt&#x2192;&#x3B2;k&#x7684;&#x6982;&#x7387;&#xFF1A;</p>
+<p>$$
+D(N<em>t)P(M_1|N_t)
+\prod_2^k
+P(M_i|N_t,M_1 . . . M</em>{i&#x2212;1})</p>
+<p>$$
+&#x8BE5;&#x516C;&#x5F0F;&#x4F7F;&#x7528;&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x6A21;&#x578B;&#x6765;&#x8BA1;&#x7B97;&#x4E00;&#x7CFB;&#x5217;&#x8BED;&#x53E5;&#x7684;&#x6982;&#x7387;&#x3002;</p>
+<p>&#x4F8B;&#x5982;</p>
+<pre><code>P(testCallProtoMethod) = P(fund_def)P(&#x3B5;|fun_def)P(stmt_list|fun_def)P(stmt_list1)
+P(stmt_list1) = P(fun_defX)P(assign|fun_def)P(var|fun_def assign)
+. . . . . .
+</code></pre><p>&#x5B8C;&#x5168;&#x6761;&#x4EF6;&#x6982;&#x7387;P&#xFF08;Mi | Nt&#xFF0C;M1 ... Mi-1&#xFF09;&#x8BA1;&#x7B97;&#x8D77;&#x6765;&#x5F88;&#x6602;&#x8D35;&#x3002;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x5FC5;&#x987B;&#x8BA1;&#x7B97;&#x8FD1;&#x4F3C;&#x6982;&#x7387;&#x3002;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x5047;&#x8BBE;Mi&#x7684;&#x6982;&#x7387;&#x4EC5;&#x7531;&#x5176;&#x524D;&#x8FDB;&#x7B26;&#x53F7;Mi-1&#x786E;&#x5B9A;&#xFF0C;&#x5219;&#x7B49;&#x5F0F;3&#x4E2D;&#x7684;&#x6982;&#x7387;</p>
+<p>$$
+P(M<em>1|N_t)
+\prod_2^k
+P(M_i|N_t,M_1 . . . M</em>{i&#x2212;1})</p>
+<p>$$
+&#x53EF;&#x4EE5;&#x662F;&#x7B80;&#x5316;&#x4E3A;</p>
+<p>$$
+P(M<em>1|N_t)
+\prod_2^k
+P(M_i|N_t,M</em>{i&#x2212;1})</p>
+<p>$$
+&#x8FD9;&#x662F;&#x7CBE;&#x5EA6;&#x548C;&#x6548;&#x7387;&#x4E4B;&#x95F4;&#x7684;&#x6743;&#x8861;&#x3002;&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x6A21;&#x578B;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5047;&#x8BBE;&#x5F53;&#x524D;&#x8BED;&#x53E5;&#x4F9D;&#x8D56;&#x4E8E;&#x5148;&#x524D;&#x7684;K&#x4E2A;&#x5143;&#x7D20;&#x6765;&#x6A21;&#x62DF;&#x7A0B;&#x5E8F;&#x7684;&#x6709;&#x8DA3;&#x5C5E;&#x6027;[26]&#x3002;&#x5982;&#x679C;K&#x5927;&#x4E8E;1&#xFF0C;&#x5219;&#x7CBE;&#x5EA6;&#x63D0;&#x9AD8;&#xFF0C;&#x540C;&#x65F6;&#x6D88;&#x8017;&#x66F4;&#x591A;&#x7684;&#x5185;&#x5B58;&#x548C;&#x8BA1;&#x7B97;&#x65F6;&#x95F4;&#x3002;</p>
+<h2 id="b&#x6A21;&#x7CCA;&#x7684;&#x81EA;&#x7136;&#x542F;&#x53D1;&#x5F0F;">B.&#x6A21;&#x7CCA;&#x7684;&#x81EA;&#x7136;&#x542F;&#x53D1;&#x5F0F;</h2>
+<p>&#x672C;&#x5C0F;&#x8282;&#x4ECB;&#x7ECD;&#x4E86;&#x57FA;&#x4E8E;&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x94FE;PCFG&#x6A21;&#x578B;&#x6784;&#x5EFA;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x9002;&#x5E94;&#x5EA6;&#x51FD;&#x6570;&#x7684;&#x6280;&#x672F;&#x3002; PCFG&#x548C;Markov-Chain PCFG&#x6A21;&#x578B;&#x5C06;&#x4E3A;&#x8F83;&#x957F;&#x7684;&#x811A;&#x672C;&#x63D0;&#x4F9B;&#x8F83;&#x4F4E;&#x7684;&#x6982;&#x7387;&#x503C;&#xFF0C;&#x8FD9;&#x5BF9;&#x4E8E;&#x6211;&#x4EEC;&#x7684;&#x9002;&#x5E94;&#x5EA6;&#x51FD;&#x6570;&#x6765;&#x8BF4;&#x662F;&#x4E0D;&#x53EF;&#x53D6;&#x7684;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x9996;&#x5148;&#x901A;&#x8FC7;&#x5F52;&#x4E00;&#x5316;&#x56E0;&#x5B50;Z_fix&#xFF08;t&#xFF09;=&#xFF08;1/| N |&#xFF09;^lt &#x6765;&#x51CF;&#x5C0F;&#x7A0B;&#x5E8F;&#x957F;&#x5EA6;&#x5BF9;P&#xFF08;t&#xFF09;&#x7684;&#x5F71;&#x54CD;&#xFF0C;&#x5176;&#x4E2D;t&#x662F;&#x7A0B;&#x5E8F;&#x7684;AST&#xFF0C;lt &#x662F; t &#x4E2D;&#x5305;&#x542B;&#x7684;&#x975E;&#x7EC8;&#x7ED3;&#x7B26;&#x7684;&#x6570;&#x91CF;&#xFF0C; |N| &#x662F;&#x8BED;&#x6CD5;&#x89C4;&#x5219;&#x4E2D;&#x53EF;&#x7528;&#x7684;&#x975E;&#x7EC8;&#x7ED3;&#x7B26;&#x53F7;&#x3002; Z_fix&#xFF08;t&#xFF09;&#x662F;&#x5747;&#x5300;&#x5206;&#x5E03;&#x4E0B; t &#x4E2D;&#x975E;&#x7EC8;&#x7ED3;&#x5E8F;&#x5217;&#x7684;&#x6982;&#x7387;&#x3002;&#x968F;&#x7740;&#x811A;&#x672C;&#x957F;&#x5EA6;&#x7684;&#x589E;&#x52A0;&#xFF0C;Z_fix&#xFF08;t&#xFF09;&#x548C;P&#xFF08;t&#xFF09;&#x540C;&#x65F6;&#x51CF;&#x5C11;&#x3002;&#x56E0;&#x6B64;&#xFF0C;P&#x2019;&#xFF08;t&#xFF09;&#x5BF9;&#x811A;&#x672C;&#x7684;&#x957F;&#x5EA6;&#x4E0D;&#x592A;&#x654F;&#x611F;&#x3002;
+&#x4F7F;&#x7528;Z_fix&#xFF08;t&#xFF09;&#xFF0C;&#x7B49;&#x5F0F;2&#x88AB;&#x4FEE;&#x6539;&#x4E3A;&#xFF1A;</p>
+<p>$$
+P^{&#x2019;}(t) = Z<em>fix(t)D(N_t &#x2192; &#x3B2;_k)
+\prod_1^kP(t</em>{M_i})</p>
+<p>$$
+&#x73B0;&#x5728;P&#x2019;&#xFF08;t&#xFF09;&#x4E0D;&#x662F;&#x6982;&#x7387;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x4E0D;&#x603B;&#x548C;&#x4E3A;1&#x3002;&#x76F8;&#x53CD;&#xFF0C;&#x5B83;&#x8861;&#x91CF;&#x811A;&#x672C;&#x7684;&#x4E0D;&#x5E38;&#x89C1;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x5177;&#x6709;&#x66F4;&#x9AD8;P&#x2019;&#xFF08;t&#xFF09;&#x7684;&#x811A;&#x672C;&#x8868;&#x660E;&#x5B83;&#x4E0E;&#x666E;&#x901A;&#x7684;&#x811A;&#x672C;&#x5171;&#x4EAB;&#x66F4;&#x591A;&#x7ED3;&#x6784;&#x7279;&#x5F81;&#x3002;&#x5982;&#x679C;P&#x2019;&#xFF08;t&#xFF09;&#x4E3A;&#x4F4E;&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x66F4;&#x53EF;&#x80FD;&#x5305;&#x542B;&#x975E;&#x81EA;&#x7136;&#x7684;&#x8BED;&#x6CD5;&#x5143;&#x7D20;&#x5E8F;&#x5217;&#x3002;</p>
+<p>&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x94FE;PCFG&#x6A21;&#x578B;&#x5305;&#x542B;&#x751F;&#x4EA7;</p>
+<p>$$
+\prod<em>1^kP(M_i|N_t,M_1 . . . M</em>{i&#x2212;1})</p>
+<p>$$
+&#x548C;Z_fix&#x540C;&#x7B49;&#x5730;&#x51CF;&#x5C11;&#x6BCF;&#x4E2A;&#x6761;&#x4EF6;&#x6982;&#x7387;&#x7684;&#x503C;&#x3002;&#x7136;&#x800C;&#xFF0C;&#x5E76;&#x975E;&#x6BCF;&#x4E2A;&#x6761;&#x4EF6;&#x6982;&#x7387;&#x90FD;&#x540C;&#x6837;&#x91CD;&#x8981;&#x3002;&#x6211;&#x4EEC;&#x53D1;&#x73B0;&#x8BB8;&#x591A;&#x9519;&#x8BEF;&#x89E6;&#x53D1;&#x811A;&#x672C;&#x5728;&#x8BB8;&#x591A;&#x5176;&#x4ED6;&#x5B50;&#x6811;&#x4E2D;&#x53EA;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x6216;&#x4E24;&#x4E2A;&#x4E0D;&#x5E38;&#x89C1;&#x7684;&#x5B50;&#x6811;&#x3002;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x653E;&#x5927;&#x90A3;&#x4E9B;&#x4E0D;&#x5E38;&#x89C1;&#x7684;&#x5B50;&#x6811;&#x7684;&#x56E0;&#x7D20;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x9012;&#x5F52;&#x5730;&#x6807;&#x51C6;&#x5316;&#x6BCF;&#x4E2A;&#x5B50;&#x6811;&#x7684;&#x6982;&#x7387;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x901A;&#x8FC7;Z_fix&#x6807;&#x51C6;&#x5316;&#x6574;&#x4E2A;&#x6982;&#x7387;&#x3002;&#x7136;&#x540E;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x51E0;&#x4F55;&#x5E73;&#x5747;&#x503C;&#x6765;&#x8868;&#x793A;&#x6574;&#x4E2A;&#x6982;&#x7387;&#x3002;</p>
+<p>$$
+P^h(t) = &#x3C6;{(1/|N|)^lD(N<em>t &#x2192; &#x3B2;_k)
+\prod_1^kP^h(t</em>{M_i})}</p>
+<p>$$
+&#x91C7;&#x7528;&#x7B49;&#x5F0F;5&#x4E2D;&#x7684;&#x3C6;&#x51FD;&#x6570;&#x6765;&#x589E;&#x52A0;&#x901A;&#x5E38;&#x5177;&#x6709;&#x4F4E;&#x6982;&#x7387;&#x7684;&#x90A3;&#x4E9B;&#x4E0D;&#x5E38;&#x89C1;&#x7ED3;&#x6784;&#x7684;&#x91CD;&#x8981;&#x6027;&#x3002;&#x6211;&#x4EEC;&#x5728;&#x5F53;&#x524D;&#x7684;&#x5B9E;&#x73B0;&#x4E2D;&#x9009;&#x62E9;&#x4E86;square&#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x3C6;&#x3002;&#x8BBE;&#x8BA1;&#x539F;&#x5219;&#x662F;x^2&#x7684;&#x65B9;&#x5DEE;&#x5927;&#x4E8E;x&#x7684;&#x65B9;&#x5DEE;&#x3002;</p>
+<p>$$
+H(t) = &#x2212; log(P^h(t))</p>
+<p>$$
+&#x51FD;&#x6570;H&#xFF08;t&#xFF09;&#x662F;&#x6211;&#x4EEC;&#x65B9;&#x6CD5;&#x7684;&#x9002;&#x5E94;&#x5EA6;&#x51FD;&#x6570;&#x3002;&#x5177;&#x6709;&#x8F83;&#x4F4E;&#x503C;&#x7684;&#x811A;&#x672C;&#x88AB;&#x8BA4;&#x4E3A;&#x662F;&#x201C;&#x9519;&#x8BEF;&#x89E6;&#x53D1;&#x201D;&#x5BF9;&#x8C61;&#x7684;&#x66F4;&#x597D;&#x811A;&#x672C;&#x3002;&#x5206;&#x6570;&#x8F83;&#x9AD8;&#x7684;&#x811A;&#x672C;&#x88AB;&#x8BA4;&#x4E3A;&#x66F4;&#x6709;&#x53EF;&#x80FD;&#x89E6;&#x53D1;&#x9519;&#x8BEF;&#x3002;</p>
+<h2 id="c&#x53C2;&#x6570;&#x8BAD;&#x7EC3;">C.&#x53C2;&#x6570;&#x8BAD;&#x7EC3;</h2>
+<p>&#x7B49;&#x5F0F;3&#x4E2D;&#x7684;D&#xFF08;Ni&#xFF09;&#xFF0C;P&#xFF08;M1 | Ni&#xFF09;&#x548C;P&#xFF08;Mi | Nt&#xFF0C;Mi-1&#xFF09;&#x7684;&#x503C;&#x53EF;&#x4EE5;&#x4ECE;&#x5927;&#x7684;&#x8BAD;&#x7EC3;&#x8BED;&#x6599;&#x5E93;&#x4E2D;&#x5B66;&#x4E60;&#x3002; D&#xFF08;Ni&#xFF09;&#x8BA1;&#x7B97;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>$$
+D(Ni) = \frac{#Ni}{#N}</p>
+<p>$$
+&#x5176;&#x4E2D;&#xFF03;&#xFF08;Ni&#xFF09;&#x662F;Ni&#x7684;&#x51FA;&#x73B0;&#x6B21;&#x6570;&#xFF0C;&#xFF03;N&#x662F;&#x8BAD;&#x7EC3;&#x8BED;&#x6599;&#x5E93;&#x4E2D;&#x89C4;&#x5219;&#x7684;&#x51FA;&#x73B0;&#x6B21;&#x6570;&#x3002;&#x7C7B;&#x4F3C;&#x5730;&#xFF0C;&#x6761;&#x4EF6;&#x6982;&#x7387;P&#xFF08;Mi | Nt&#xFF0C;Mi-1&#xFF09;&#x53EF;&#x4EE5;&#x8FD1;&#x4F3C;&#x4E3A;</p>
+<p>$$
+P(M<em>i|N_t,M</em>{i&#x2212;1}) = \frac{#Mi}{#Mi&#x2212;1M}</p>
+<p>$$
+&#x5176;&#x4E2D;#Mi&#x548C;&#xFF03;Mi-1&#x88AB;&#x7EDF;&#x8BA1;&#x4E3A;&#x8BAD;&#x7EC3;&#x8BED;&#x6599;&#x5E93;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x89C4;&#x5219;Nt&#x2192;&#x3B2;m&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x7684;&#x6A21;&#x578B;&#x8BD5;&#x56FE;&#x6355;&#x6349;&#x811A;&#x672C;&#x7684;&#x4E0D;&#x5E38;&#x89C1;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5982;&#x679C;&#x5E8F;&#x5217;Mi-1Mi&#x6CA1;&#x6709;&#x51FA;&#x73B0;&#x5728;&#x8BAD;&#x7EC3;&#x8BED;&#x6599;&#x5E93;&#x4E2D;&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x8BA4;&#x4E3A;&#x8FD9;&#x4E2A;&#x5E8F;&#x5217;&#x66F4;&#x53EF;&#x80FD;&#x662F;&#x5947;&#x6570;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x6982;&#x7387;P&#xFF08;Mi | Mi-1&#xFF09;&#x8BBE;&#x7F6E;&#x4E3A;CPU&#x5141;&#x8BB8;&#x7684;&#x6700;&#x5C0F;&#x6D6E;&#x70B9;&#x503C;&#x800C;&#x4E0D;&#x662F;&#x96F6;&#x3002;</p>
+<h1 id="v&#x8BC4;&#x4F30;">V.&#x8BC4;&#x4F30;</h1>
+<p>&#x5728;&#x8FD9;&#x90E8;&#x5206;&#xFF0C;&#x6211;&#x4EEC;&#x8BC4;&#x4F30;&#x6211;&#x4EEC;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x6211;&#x4EEC;&#x5C06;&#x6211;&#x4EEC;&#x7684;&#x9002;&#x5E94;&#x6027;&#x51FD;&#x6570;&#x4E0E;&#x7EAF;PCFG&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;&#xFF0C;IFuzzer&#x4E2D;&#x7684;&#x9002;&#x5E94;&#x6027;&#x51FD;&#x6570;&#x662F;&#x6700;&#x5148;&#x8FDB;&#x7684;&#x57FA;&#x4E8E;GP&#x7684;&#x8BED;&#x8A00;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x3002;&#x6211;&#x4EEC;&#x5728;&#x9009;&#x62E9;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x4E2D;&#x7684;&#x5019;&#x9009;&#x8005;&#x65F6;&#x8BC4;&#x4F30;&#x8FD9;&#x4E9B;&#x51FD;&#x6570;&#x7684;&#x51C6;&#x786E;&#x6027;&#x548C;&#x7CBE;&#x786E;&#x6027;&#x3002;</p>
+<h2 id="a&#x8BC4;&#x4F30;&#x6570;&#x636E;&#x96C6;&#x8BBE;&#x7F6E;">A.&#x8BC4;&#x4F30;&#x6570;&#x636E;&#x96C6;&#x8BBE;&#x7F6E;</h2>
+<p>&#x5728;&#x6211;&#x4EEC;&#x7684;&#x5B9E;&#x9A8C;&#x4E2D;&#xFF0C;&#x6765;&#x81EA;Mozilla&#x7684;Bugzilla&#x7684;150,000&#x4E2A;JavaScript&#x811A;&#x672C;[27]&#xFF08;100,000&#x4E2A;&#x7528;&#x4E8E;&#x53C2;&#x6570;&#x8BAD;&#x7EC3;&#xFF09;&#x548C;900&#x4E2A;&#x89E6;&#x53D1;&#x9519;&#x8BEF;&#x7684;JavaScript&#x811A;&#x672C;&#xFF08;&#x5168;&#x90E8;&#x7528;&#x4E8E;&#x6D4B;&#x8BD5;&#xFF09;&#x7528;&#x4E8E;&#x8BC4;&#x4F30;&#x4E09;&#x4E2A;&#x9002;&#x5E94;&#x5EA6;&#x51FD;&#x6570;&#x3002;&#x6211;&#x4EEC;&#x4ECE;2000&#x5E74;&#x5230;&#x73B0;&#x5728;&#x7684;SpiderMonkey&#x7684;&#x786E;&#x8BA4;&#x5D29;&#x6E83;&#x62A5;&#x544A;&#x4E2D;&#x9009;&#x62E9;&#x4E86;&#x6240;&#x6709;&#x7684;&#x9519;&#x8BEF;&#x89E6;&#x53D1;&#x811A;&#x672C;&#xFF08;&#x4E00;&#x4E9B;&#x5D29;&#x6E83;&#x62A5;&#x544A;&#x4EC5;&#x63D0;&#x4F9B;&#x8DDF;&#x8E2A;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x662F;&#x7701;&#x7565;&#x5B83;&#x4EEC;&#xFF09;&#x3002;&#x8FD9;&#x4E9B;&#x811A;&#x672C;&#x662F;&#x4ECE;&#x62A5;&#x544A;&#x6587;&#x672C;&#x6216;&#x9644;&#x4EF6;&#x4E2D;&#x63D0;&#x53D6;&#x7684;&#x3002;
+&#x6211;&#x4EEC;&#x5C06;Bugzilla&#x4E2D;&#x7684;&#x4E00;&#x7EC4;bug&#x89E6;&#x53D1;&#x811A;&#x672C;&#x79F0;&#x4E3A;bug&#x7EC4;&#xFF0C;&#x5C06;[27]&#x4E2D;&#x7684;50,000&#x4E2A;&#x811A;&#x672C;&#x79F0;&#x4E3A;&#x666E;&#x901A;&#x7EC4;&#x3002;</p>
+<p>&#x666E;&#x901A;&#x7EC4;&#x4E2D;&#x7684;&#x811A;&#x672C;&#x4E3B;&#x8981;&#x662F;&#x9488;&#x5BF9;&#x73B0;&#x5B9E;&#x4E16;&#x754C;&#x7684;&#x9879;&#x76EE;&#x7F16;&#x5199;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x811A;&#x672C;&#x4E0D;&#x592A;&#x53EF;&#x80FD;&#x5728;&#x53D1;&#x5E03;&#x4E4B;&#x524D;&#x89E6;&#x53D1;&#x5DF2;&#x5728;&#x5176;&#x4E0A;&#x6D4B;&#x8BD5;&#x8FC7;&#x7684;&#x89E3;&#x91CA;&#x5668;&#x4E2D;&#x7684;&#x9519;&#x8BEF;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x6211;&#x4EEC;&#x5047;&#x8BBE;&#x666E;&#x901A;&#x7EC4;&#x4E2D;&#x7684;&#x811A;&#x672C;&#x4E0D;&#x4F1A;&#x89E6;&#x53D1;&#x9519;&#x8BEF;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x6765;&#x81EA;bug&#x7EC4;&#x7684;&#x9519;&#x8BEF;&#x89E6;&#x53D1;&#x811A;&#x672C;&#x662F;&#x72EC;&#x7ACB;&#x4E8E;SpiderMonkey&#x7684;&#x7248;&#x672C;&#x3002;&#x539F;&#x56E0;&#x662F;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x7279;&#x5B9A;&#x7248;&#x672C;&#x7684;JavaScript&#x89E3;&#x91CA;&#x5668;&#xFF0C;&#x5F88;&#x96BE;&#x786E;&#x5B9A;&#x811A;&#x672C;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x89E6;&#x53D1;&#x9519;&#x8BEF;&#x3002;&#x811A;&#x672C;&#x53EF;&#x80FD;&#x4E0D;&#x4F1A;&#x5728;SpiderMonkey 32&#x4E2D;&#x89E6;&#x53D1;&#x9519;&#x8BEF;&#xFF0C;&#x4F46;&#x5B83;&#x53EF;&#x80FD;&#x4F1A;&#x89E6;&#x53D1;&#x5176;&#x4ED6;&#x7248;&#x672C;&#x7684;SpiderMonkey&#x6216;&#x5176;&#x4ED6;&#x89E3;&#x91CA;&#x5668;&#xFF08;&#x5982;V8&#x548C;Webkit&#xFF09;&#x4E2D;&#x7684;&#x9519;&#x8BEF;&#x3002;</p>
+<p>&#x5B9E;&#x9A8C;&#x8BBE;&#x7F6E;&#xFF1A;&#x6211;&#x4EEC;&#x4F7F;&#x7528;Acorn [28]&#x4F5C;&#x4E3A;&#x6240;&#x8003;&#x8651;&#x7684;JavaScript&#x811A;&#x672C;&#x7684;&#x89E3;&#x6790;&#x5668;&#x3002;&#x6211;&#x4EEC;&#x7684;NHF&#x51FD;&#x6570;&#x7684;&#x539F;&#x578B;&#x5DF2;&#x7ECF;&#x4F7F;&#x7528;Python&#x5B9E;&#x73B0;&#x3002;&#x6B64;&#x5916;&#xFF0C;&#x8BE5;&#x5B9E;&#x9A8C;&#x662F;&#x5728;&#x5177;&#x6709;3.40GHz&#x7684;Intel i7-6700 CPU&#x548C;8G&#x5185;&#x5B58;&#x7684;&#x8BA1;&#x7B97;&#x673A;&#x4E0A;&#x8FDB;&#x884C;&#x7684;&#x3002;</p>
+<p>B.&#x8BC4;&#x4F30;&#x63AA;&#x65BD;</p>
+<p>&#x6211;&#x4EEC;&#x4F7F;&#x7528;ROC&#xFF08;&#x63A5;&#x6536;&#x5668;&#x64CD;&#x4F5C;&#x7279;&#x6027;&#xFF09;&#x4F5C;&#x4E3A;&#x8BC4;&#x4F30;&#x65B9;&#x6CD5;&#x3002;&#x4E00;&#x4E2A;&#x539F;&#x56E0;&#x662F;ROC&#x88AB;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x793E;&#x533A;&#x5E7F;&#x6CDB;&#x63A5;&#x53D7;&#x3002;&#x53E6;&#x4E00;&#x4E2A;&#x539F;&#x56E0;&#x662F;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x4E0D;&#x662F;&#x786E;&#x5B9A;&#x6027;&#x7684;&#xFF0C;&#x5E76;&#x4E14;&#x53D1;&#x73B0;&#x7684;&#x9519;&#x8BEF;&#x6570;&#x91CF;&#x53EF;&#x80FD;&#x4F1A;&#x6709;&#x5F88;&#x5927;&#x7684;&#x504F;&#x5DEE;&#x3002;&#x9002;&#x5E94;&#x5EA6;&#x51FD;&#x6570;&#x4E3A;&#x811A;&#x672C;&#x63D0;&#x4F9B;&#x5206;&#x6570;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5C06;&#x5206;&#x6570;&#x9AD8;&#x4E8E;&#x3B8;s&#x7684;&#x811A;&#x672C;&#x5206;&#x7C7B;&#x4E3A;&#x9519;&#x8BEF;&#x89E6;&#x53D1;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;ROC&#x66F2;&#x7EBF;&#x6765;&#x8BC4;&#x4F30;&#x9002;&#x5E94;&#x6027;&#x51FD;&#x6570;&#x5728;&#x6392;&#x5E8F;&#x811A;&#x672C;&#x4E2D;&#x7684;&#x6027;&#x80FD;&#x3002;&#x5BF9;&#x4E8E;&#x7ED9;&#x5B9A;&#x7684;&#x9608;&#x503C;&#x3B8;s&#xFF0C;&#x5982;&#x679C;&#x9002;&#x5E94;&#x5EA6;&#x503C;&#x9AD8;&#x4E8E;&#x3B8;s&#x7684;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x7684;&#x6570;&#x91CF;&#x662F;B&#xFF0C;&#x5E76;&#x4E14;&#x9002;&#x5408;&#x5EA6;&#x9AD8;&#x4E8E;&#x3B8;s&#x7684;&#x4E24;&#x4E2A;&#x7EC4;&#x4E2D;&#x7684;&#x811A;&#x672C;&#x6570;&#x91CF;&#x662F;N.&#x7CBE;&#x5EA6;&#x88AB;&#x5B9A;&#x4E49;&#x4E3A;B / N&#x5E76;&#x4E14;&#x53EC;&#x56DE;&#x662F;&#x5B9A;&#x4E49;&#x4E3A;B /&#xFF08;T  -  B&#xFF09;&#xFF0C;&#x5176;&#x4E2D;T&#x662F;&#x9519;&#x8BEF;&#x7EC4;&#x4E2D;&#x7684;&#x811A;&#x672C;&#x6570;&#x3002;&#x5E94;&#x8BE5;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x5728;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x4E2D;&#x4E0D;&#x4F7F;&#x7528;&#x9608;&#x503C;&#xFF0C;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x53EA;&#x9009;&#x62E9;GP&#x8FED;&#x4EE3;&#x4E2D;&#x7684;&#x524D;K&#x4E2A;&#x5143;&#x7D20;&#x3002;</p>
+<h2 id="c&#x8BC4;&#x4F30;&#x7ED3;&#x679C;">C.&#x8BC4;&#x4F30;&#x7ED3;&#x679C;</h2>
+<p>&#x7531;IFuzzer&#xFF0C;PCFG&#x548C;NHF&#x4E3A;JavaScript&#x811A;&#x672C;&#x8BA1;&#x7B97;&#x7684;&#x9002;&#x5408;&#x5EA6;&#x503C;&#x7684;&#x9891;&#x7387;&#x76F4;&#x65B9;&#x56FE;&#x5206;&#x522B;&#x5728;&#x56FE;5,6,7&#x4E2D;&#x793A;&#x51FA;&#x3002;&#x8FD9;&#x4E9B;&#x56FE;&#x7684;&#x6C34;&#x5E73;&#x8F74;&#x8868;&#x793A;&#x5F52;&#x4E00;&#x5316;&#x7684;&#x9002;&#x5E94;&#x503C;&#x3002; &#xFF08;&#x5373;&#xFF0C;&#x811A;&#x672C;&#x7684;&#x9002;&#x5E94;&#x503C;&#x9664;&#x4EE5;&#x624B;&#x52A8;&#x9009;&#x62E9;&#x7684;&#x503C;&#xFF0C;&#x4EE5;&#x4FBF;&#x53EF;&#x4EE5;&#x6E05;&#x695A;&#x5730;&#x663E;&#x793A;&#x56FE;&#x5F62;&#x5E76;&#x4FDD;&#x7559;&#x5206;&#x5E03;&#x7684;&#x5F62;&#x72B6;&#xFF09;1&#x5728;&#x76F4;&#x65B9;&#x56FE;&#x4E2D;&#xFF0C;&#x5177;&#x6709;&#x8F83;&#x9AD8;&#x9002;&#x5E94;&#x503C;&#x7684;&#x811A;&#x672C;&#x5E94;&#x8BE5;&#x5728;&#x201C;bug&#x201D;&#x4E2D;-&#x7EC4;&#x201D;&#x3002;&#x7406;&#x60F3;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4E24;&#x7EC4;&#x7684;&#x8DDD;&#x79BB;&#x5E94;&#x8BE5;&#x5F88;&#x5927;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x5B9E;&#x9645;&#x4E0A;&#x6B63;&#x5E38;&#x7EC4;&#x548C;bug&#x7EC4;&#x91CD;&#x53E0;&#x3002;&#x53EF;&#x4EE5;&#x6CE8;&#x610F;&#x5230;&#xFF0C;&#x5728;NHF&#x7684;&#x76F4;&#x65B9;&#x56FE;&#x4E2D;&#xFF0C;&#x6B63;&#x5E38;&#x7EC4;&#x548C;bug&#x7EC4;&#x5177;&#x6709;&#x66F4;&#x5927;&#x7684;&#x5DEE;&#x5F02;&#x3002;</p>
+<p><img src="Improving-Fitness-Function-for-Language-Fuzzing-with-PCFG-Model/4.jpg" alt=""></p>
+<p>&#x56FE;8&#x663E;&#x793A;&#x4E86;IFuzzer&#xFF0C;NHF&#x548C;PCFG&#x7684;ROC&#x66F2;&#x7EBF;&#x3002;&#x5B83;&#x8868;&#x660E;&#xFF0C;IFuzzer&#x7684;&#x9002;&#x5E94;&#x5EA6;&#x51FD;&#x6570;&#x548C;PCFG&#x65B9;&#x6CD5;&#x7684;ROC&#x66F2;&#x7EBF;&#x90FD;&#x4F4E;&#x4E8E;&#x5BF9;&#x89D2;&#x7EBF;&#xFF0C;&#x8868;&#x660E;&#x5B83;&#x4EEC;&#x5728;&#x9884;&#x6D4B;&#x811A;&#x672C;&#x662F;&#x5426;&#x662F;&#x9519;&#x8BEF;&#x89E6;&#x53D1;&#x65B9;&#x9762;&#x8868;&#x73B0;&#x4E0D;&#x5982;&#x76F2;&#x76EE;&#x3002;</p>
+<p>&#x76F8;&#x53CD;&#xFF0C;&#x6211;&#x4EEC;&#x65B9;&#x6CD5;&#x7684;ROC&#x66F2;&#x7EBF;&#x9AD8;&#x4E8E;&#x5BF9;&#x89D2;&#x7EBF;&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x5B83;&#x4F18;&#x4E8E;PCFG&#x548C;IFuzzer&#x3002;&#x7531;&#x4E8E;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x6B64;&#x9002;&#x5E94;&#x6027;&#x529F;&#x80FD;&#x8FDB;&#x884C;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x65E0;&#x9700;&#x9009;&#x62E9;&#x9608;&#x503C;&#x3002;&#x6211;&#x4EEC;&#x53EA;&#x5728;GP&#x7684;&#x8FED;&#x4EE3;&#x671F;&#x95F4;&#x4E3A;&#x4E0B;&#x4E00;&#x4EE3;&#x4EBA;&#x53E3;&#x9009;&#x62E9;&#x524D;K&#x4E2A;&#x811A;&#x672C;&#x3002;&#x56FE;10&#x663E;&#x793A;&#x4E86;&#x7528;&#x4F5C;&#x5206;&#x7C7B;&#x5668;&#x65F6;&#x4E09;&#x4E2A;&#x9002;&#x5E94;&#x5EA6;&#x51FD;&#x6570;&#x7684;&#x7CBE;&#x786E;&#x7387;&#x3002;&#x6211;&#x4EEC;&#x663E;&#x793A;&#x4E86;&#x4E0D;&#x540C;&#x9608;&#x503C;&#xFF08;X&#x8F74;&#xFF09;&#x7684;&#x7CBE;&#x5EA6;&#xFF08;Y&#x8F74;&#xFF09;&#x3002;&#x8FD9;&#x8BC1;&#x660E;&#x4E86;&#x524D;K&#x4E2A;&#x811A;&#x672C;&#x7684;&#x51C6;&#x786E;&#x6027;&#x3002; IFuzzer&#x7684;&#x7CBE;&#x5EA6;&#x5F88;&#x4F4E;&#xFF0C;&#x5E76;&#x4E14;&#x968F;&#x7740;&#x9608;&#x503C;&#x7684;&#x589E;&#x52A0;&#x800C;&#x6CA1;&#x6709;&#x6539;&#x5584;&#x3002;&#x5F53;&#x9608;&#x503C;&#x5927;&#x7EA6;&#x4E3A;0.2&#x65F6;&#xFF0C;PCFG&#x7684;&#x7CBE;&#x5EA6;&#x5F88;&#x9AD8;&#xFF0C;&#x5F53;&#x9608;&#x503C;&#x8BBE;&#x7F6E;&#x4E3A;&#x5927;&#x4E8E;0.2&#x65F6;&#xFF0C;PCFG&#x7684;&#x7CBE;&#x5EA6;&#x5F00;&#x59CB;&#x663E;&#x7740;&#x4E0B;&#x964D;&#x3002;&#x8FD9;&#x662F;&#x56E0;&#x4E3A;&#x6B63;&#x5E38;&#x7EC4;&#x4E2D;&#x7684;&#x67D0;&#x4E9B;&#x811A;&#x672C;&#x7684;&#x957F;&#x5EA6;&#x8DB3;&#x4EE5;&#x4F7F;&#x5176;&#x5177;&#x6709;&#x6BD4;&#x9519;&#x8BEF;&#x7EC4;&#x4E2D;&#x7684;&#x811A;&#x672C;&#x66F4;&#x9AD8;&#x7684;&#x503C;&#x3002;&#x6211;&#x4EEC;&#x7684;&#x65B9;&#x6CD5;&#x5BF9;&#x4E8E;&#x8DB3;&#x591F;&#x5927;&#x7684;&#x9608;&#x503C;&#x5177;&#x6709;&#x7A33;&#x5065;&#x7684;&#x6027;&#x80FD;&#xFF0C;&#x5E76;&#x4E14;&#x5982;&#x679C;&#x9608;&#x503C;&#x5927;&#x4E8E;0.6&#xFF0C;&#x5219;&#x7CBE;&#x5EA6;&#x8D85;&#x8FC7;80&#xFF05;&#x3002;</p>
+<p><img src="Improving-Fitness-Function-for-Language-Fuzzing-with-PCFG-Model/6.jpg" alt=""></p>
+<p>&#x6211;&#x4EEC;&#x8FD8;&#x6CE8;&#x610F;&#x5230;&#xFF0C;IFuzzer&#x503E;&#x5411;&#x4E8E;&#x4E3A;&#x666E;&#x901A;&#x548C;bugtrigger&#x7EC4;&#x4E2D;&#x7684;&#x590D;&#x6742;&#x957F;&#x811A;&#x672C;&#x8BA1;&#x7B97;&#x66F4;&#x9AD8;&#x7684;&#x9002;&#x5E94;&#x503C;&#x3002;&#x4E3A;&#x4E86;&#x91CF;&#x5316;&#x9002;&#x5E94;&#x5EA6;&#x503C;&#x548C;&#x811A;&#x672C;&#x957F;&#x5EA6;&#x4E4B;&#x95F4;&#x7684;&#x76F8;&#x5173;&#x6027;&#xFF0C;&#x6211;&#x4EEC;&#x8BA1;&#x7B97;&#x76F8;&#x5173;&#x7CFB;&#x6570;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>$$
+r(S,L) =
+\frac{cov(S,L)}
+{\sqrt{var(S)var(L)}}</p>
+<p>$$
+&#x5176;&#x4E2D;S&#x662F;&#x9002;&#x5E94;&#x503C;&#xFF0C;L&#x662F;&#x811A;&#x672C;&#x957F;&#x5EA6;&#xFF0C;cov&#xFF08;S&#xFF0C;L&#xFF09;&#x662F;S&#x548C;L&#x7684;&#x534F;&#x65B9;&#x5DEE;&#xFF0C;var&#xFF08;X&#xFF09;&#x548C;var&#xFF08;L&#xFF09;&#x5206;&#x522B;&#x662F;X&#x548C;L&#x7684;&#x65B9;&#x5DEE;&#x3002;&#x7279;&#x522B;&#x662F;&#xFF0C;cov&#xFF08;S&#xFF0C;L&#xFF09;&#x8BA1;&#x7B97;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>$$
+cov(S,L) = \frac {\sum_{i=1}^n(S_i &#x2212; \overline S)(L_i &#x2212;\overline L)}
+{n &#x2212; 1}</p>
+<p>$$
+&#x8868;I&#x603B;&#x7ED3;&#x4E86;&#x4E0D;&#x540C;&#x6570;&#x636E;&#x96C6;&#x7EC4;&#x7684;&#x811A;&#x672C;&#x9002;&#x5E94;&#x5EA6;&#x503C;&#x548C;&#x957F;&#x5EA6;&#x7684;&#x76F8;&#x5173;&#x7CFB;&#x6570;&#x3002; IFuzzer&#x7684;&#x76F8;&#x5173;&#x7CFB;&#x6570;&#x5F88;&#x9AD8;&#x3002;&#x5E94;&#x8BE5;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x6B63;&#x5E38;&#x7EC4;&#x4E2D;&#x7684;&#x76F8;&#x5173;&#x7CFB;&#x6570;&#x5927;&#x4E8E;IFuzzer&#x7684;bug&#x7EC4;&#x4E2D;&#x7684;&#x76F8;&#x5173;&#x7CFB;&#x6570;&#x3002;&#x539F;&#x56E0;&#x662F;bug&#x7EC4;&#x4E2D;&#x7684;&#x811A;&#x672C;&#x901A;&#x5E38;&#x5305;&#x542B;&#x76F8;&#x5BF9;&#x7B80;&#x5355;&#x7684;&#x7ED3;&#x6784;&#xFF0C;&#x56E0;&#x6B64;&#x5B83;&#x4EEC;&#x7684;&#x5927;&#x591A;&#x6570;&#x9002;&#x5E94;&#x503C;&#x90FD;&#x5F88;&#x5C0F;&#x3002;PCFG&#x65B9;&#x6CD5;&#x5177;&#x6709;&#x8F83;&#x5C0F;&#x7684;&#x76F8;&#x5173;&#x7CFB;&#x6570;&#x3002;&#x6211;&#x4EEC;&#x7684;&#x65B9;&#x6CD5;&#x8FDB;&#x4E00;&#x6B65;&#x51CF;&#x5C11;&#x4E86;&#x9002;&#x5E94;&#x503C;&#x548C;&#x811A;&#x672C;&#x957F;&#x5EA6;&#x4E4B;&#x95F4;&#x7684;&#x76F8;&#x5173;&#x6027;&#x3002;&#x8FD9;&#x53EF;&#x80FD;&#x8868;&#x660E;&#xFF0C;&#x4F7F;&#x7528;&#x6211;&#x4EEC;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x811A;&#x672C;&#x7684;&#x9002;&#x5E94;&#x503C;&#x51E0;&#x4E4E;&#x4E0E;&#x5176;&#x957F;&#x5EA6;&#x65E0;&#x5173;&#x3002;</p>
+<p><img src="Improving-Fitness-Function-for-Language-Fuzzing-with-PCFG-Model/5.jpg" alt=""></p>
+<h1 id="vi-&#x7ED3;&#x8BBA;">VI &#x7ED3;&#x8BBA;</h1>
+<p>&#x6211;&#x4EEC;&#x63D0;&#x51FA;&#x4E86;&#x4E00;&#x79CD;&#x65B0;&#x9896;&#x7684;&#x9002;&#x5E94;&#x5EA6;&#x51FD;&#x6570;&#xFF0C;&#x5B83;&#x5C06;&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x94FE;&#x548C;PCFG&#x6A21;&#x578B;&#x96C6;&#x6210;&#x4E3A;&#x8BED;&#x8A00;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x7684;&#x201C;&#x9519;&#x8BEF;&#x89E6;&#x53D1;&#x201D;&#x6982;&#x5FF5;&#x3002;&#x9A6C;&#x5C14;&#x53EF;&#x592B;&#x94FE;&#x6A21;&#x62DF;&#x5217;&#x8868;&#x4E2D;&#x76F8;&#x90BB;&#x5143;&#x7D20;&#x4E4B;&#x95F4;&#x7684;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#xFF0C;&#x7528;&#x4E8E;&#x9012;&#x5F52;&#x89C4;&#x5219;&#x3002;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x89C4;&#x8303;&#x5316;&#x65B9;&#x6CD5;&#x6765;&#x51CF;&#x5C11;&#x811A;&#x672C;&#x957F;&#x5EA6;&#x7684;&#x5F71;&#x54CD;&#xFF0C;&#x4EE5;&#x4FBF;&#x957F;&#x516C;&#x5171;&#x811A;&#x672C;&#x4E0D;&#x4F1A;&#x88AB;&#x89C6;&#x4E3A;&#x4E0D;&#x5E38;&#x89C1;&#x7684;&#x811A;&#x672C;&#x3002;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x6765;&#x81EA;Github&#x548C;Firefox&#x7684;Bugzilla&#x7684;&#x5927;&#x91CF;JavaScript&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4EE3;&#x7801;&#x6765;&#x8BC4;&#x4F30;&#x6211;&#x4EEC;&#x65B9;&#x6CD5;&#x7684;&#x6709;&#x6548;&#x6027;&#x3002;&#x5B9E;&#x9A8C;&#x7ED3;&#x679C;&#x8868;&#x660E;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x65B9;&#x6CD5;&#x7684;&#x51C6;&#x786E;&#x6027;&#x4F18;&#x4E8E;&#x57FA;&#x4E8E;IFuzzer&#x548C;PCFG&#x7684;&#x6982;&#x7387;&#x3002;&#x6211;&#x4EEC;&#x7684;&#x6A21;&#x578B;&#x4E0E;&#x8BED;&#x8A00;&#x65E0;&#x5173;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x5E94;&#x7528;&#x4E8E;&#x5176;&#x4ED6;&#x8BED;&#x8A00;&#x7684;&#x89E3;&#x91CA;&#x5668;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x3002;&#x6211;&#x4EEC;&#x5C06;&#x5728;&#x672A;&#x6765;&#x7684;&#x5DE5;&#x4F5C;&#x4E2D;&#x5F00;&#x53D1;&#x51FA;&#x66F4;&#x5B8C;&#x6574;&#x7684;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x5DE5;&#x5177;&#x3002;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="Learn-to-Accelerate-Identifying-New-Test-Cases-in-Fuzzing.html" class="navigation navigation-prev " aria-label="Previous page: Learn to Accelerate Identifying New Test Cases in Fuzzing">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="ExploitMeter-Combining-Fuzzing-with-Machine-Learning-for-Automated-Evaluation-of-Software-Exploitability.html" class="navigation navigation-next " aria-label="Next page: ExploitMeter: Combining Fuzzing with Machine Learning for Automated Evaluation of Software Exploitability">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Improving Fitness Function for Language Fuzzing with PCFG Model","level":"1.9.2.18","depth":3,"next":{"title":"ExploitMeter: Combining Fuzzing with Machine Learning for Automated Evaluation of Software Exploitability","level":"1.9.2.19","depth":3,"path":"Paper/Fuzzing/papers/ExploitMeter-Combining-Fuzzing-with-Machine-Learning-for-Automated-Evaluation-of-Software-Exploitability.md","ref":"Paper/Fuzzing/papers/ExploitMeter-Combining-Fuzzing-with-Machine-Learning-for-Automated-Evaluation-of-Software-Exploitability.md","articles":[]},"previous":{"title":"Learn to Accelerate Identifying New Test Cases in Fuzzing","level":"1.9.2.17","depth":3,"path":"Paper/Fuzzing/papers/Learn-to-Accelerate-Identifying-New-Test-Cases-in-Fuzzing.md","ref":"Paper/Fuzzing/papers/Learn-to-Accelerate-Identifying-New-Test-Cases-in-Fuzzing.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters","splitter","intopic-toc"],"pluginsConfig":{"intopic-toc":{"label":{"de":"In diesem Artikel","en":"In this article"},"selector":".markdown-section h1","visible":true},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Paper/Fuzzing/papers/Improving-Fitness-Function-for-Language-Fuzzing-with-PCFG-Model.md","mtime":"2019-04-15T01:31:40.331Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-15T01:33:52.852Z"},"basePath":"../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-intopic-toc/anchor.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-intopic-toc/gumshoe.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-intopic-toc/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
