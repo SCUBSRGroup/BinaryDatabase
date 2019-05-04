@@ -1,0 +1,962 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Experimenting machine learning techniques to predict vulnerabilities · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-toggle-chapters/toggle.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-intopic-toc/style.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="A-Review-of-Machine-Learning-in-Software-Vulnerability-Research.html" />
+    
+    
+    <link rel="prev" href="ExploitMeter-Combining-Fuzzing-with-Machine-Learning-for-Automated-Evaluation-of-Software-Exploitability.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../../">
+            
+                <a href="../../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../../../Fuzzing-学习资源汇总.html">
+            
+                <a href="../../../Fuzzing-学习资源汇总.html">
+            
+                    
+                    Fuzzing-学习资源汇总
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../../../污点分析-学习资源汇总.html">
+            
+                <a href="../../../污点分析-学习资源汇总.html">
+            
+                    
+                    污点分析-学习资源汇总
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../../../符号执行-学习资源汇总.html">
+            
+                <a href="../../../符号执行-学习资源汇总.html">
+            
+                    
+                    符号执行-学习资源汇总
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../../../恶意样本检测-学习资源汇总.html">
+            
+                <a href="../../../恶意样本检测-学习资源汇总.html">
+            
+                    
+                    恶意样本检测-学习资源汇总
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../../../逆向工程-学习资源汇总.html">
+            
+                <a href="../../../逆向工程-学习资源汇总.html">
+            
+                    
+                    逆向工程-学习资源汇总
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../../../工作面试复习资料汇总.html">
+            
+                <a href="../../../工作面试复习资料汇总.html">
+            
+                    
+                    工作面试复习资料汇总
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../../../信息安全相关会议期刊汇总.html">
+            
+                <a href="../../../信息安全相关会议期刊汇总.html">
+            
+                    
+                    信息安全相关会议期刊汇总
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Paper
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../../AutomatedExploit/">
+            
+                <a href="../../AutomatedExploit/">
+            
+                    
+                    <> AutomatedExploit
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1.1" data-path="../../AutomatedExploit/papers/HEAPHOPPER-Bringing-Bounded-Model-Checking-to-Heap-Implementation-Security.html">
+            
+                <a href="../../AutomatedExploit/papers/HEAPHOPPER-Bringing-Bounded-Model-Checking-to-Heap-Implementation-Security.html">
+            
+                    
+                    HEAPHOPPER Bringing Bounded Model Checking to Heap Implementation Security
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    <> Fuzzing
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.2.1" data-path="Angora-Efficient-Fuzzing-by-Principled-Search.html">
+            
+                <a href="Angora-Efficient-Fuzzing-by-Principled-Search.html">
+            
+                    
+                    Angora: Efficient Fuzzing by Principled Search
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.2" data-path="Automated-Detection-Exploitation-and-Elimination-of-Double-Fetch-Bugs-Using-Modern-CPU-Features.html">
+            
+                <a href="Automated-Detection-Exploitation-and-Elimination-of-Double-Fetch-Bugs-Using-Modern-CPU-Features.html">
+            
+                    
+                    Automated Detection Exploitation and Elimination of Double-Fetch Bugs Using  Modern CPU Features
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.3" data-path="Check-It-Again-Detecting-Lacking-Recheck-Bugs-in-OS-Kernels.html">
+            
+                <a href="Check-It-Again-Detecting-Lacking-Recheck-Bugs-in-OS-Kernels.html">
+            
+                    
+                    Check It Again: Detecting Lacking-Recheck Bugs in OS Kernels
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.4" data-path="Digtool-A-Virtualization-Based-Framework-for-Detecting-Kernel-Vulnerabilities.html">
+            
+                <a href="Digtool-A-Virtualization-Based-Framework-for-Detecting-Kernel-Vulnerabilities.html">
+            
+                    
+                    Digtool: A Virtualization-Based Framework for Detecting Kernel Vulnerabilities
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.5" data-path="Enforcing-Unique-Code-Target-Property-for-Control-Flow-Integrity.html">
+            
+                <a href="Enforcing-Unique-Code-Target-Property-for-Control-Flow-Integrity.html">
+            
+                    
+                    Enforcing Unique Code Target Property for Control-Flow Integrity
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.6" data-path="Fuzzing-Art-Science-and-Engineering.html">
+            
+                <a href="Fuzzing-Art-Science-and-Engineering.html">
+            
+                    
+                    Fuzzing: Art, Science, and Engineering
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.7" data-path="NAR-Miner-Discovering-Negative-Association-Rules-from-Code.html">
+            
+                <a href="NAR-Miner-Discovering-Negative-Association-Rules-from-Code.html">
+            
+                    
+                    NAR-Miner Discovering Negative Association Rules from Code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.8" data-path="SoK-Security-Evaluation-of-Home-Based-IoT-Deployments.html">
+            
+                <a href="SoK-Security-Evaluation-of-Home-Based-IoT-Deployments.html">
+            
+                    
+                    SoK: Security Evaluation of Home-Based IoT Deployments
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.9" data-path="Towards-Paving-the-Way-for-Large-Scale-Windows-Malware-Analysis-Generic-Binary-Unpacking-With-Orders-of-Magnitude-Performance-Boost.html">
+            
+                <a href="Towards-Paving-the-Way-for-Large-Scale-Windows-Malware-Analysis-Generic-Binary-Unpacking-With-Orders-of-Magnitude-Performance-Boost.html">
+            
+                    
+                    Towards Paving the Way for Large-Scale Windows Malware Analysis: Generic Binary Unpacking With Orders-of-Magnitude Performance Boost
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.10" data-path="Using-Logic-Programming-to-Recover-C-Classes-and-Methods-From-Compiled-Executables.html">
+            
+                <a href="Using-Logic-Programming-to-Recover-C-Classes-and-Methods-From-Compiled-Executables.html">
+            
+                    
+                    Using Logic Programming to Recover C++ Classes and Methods From Compiled  Executables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.11" data-path="VUzzer-Application-aware-Evolutionary-Fuzzing.html">
+            
+                <a href="VUzzer-Application-aware-Evolutionary-Fuzzing.html">
+            
+                    
+                    VUzzer: Application-aware Evolutionary Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.12" data-path="From-automation-to-intelligence-Survey-of-research-on-vulnerability-discovery-techniques.html">
+            
+                <a href="From-automation-to-intelligence-Survey-of-research-on-vulnerability-discovery-techniques.html">
+            
+                    
+                    From automation to intelligence Survey of research on vulnerability discovery techniques
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.13" data-path="NEUZZ-Efficient-Fuzzing-with-Neural-Program-Smoothing.html">
+            
+                <a href="NEUZZ-Efficient-Fuzzing-with-Neural-Program-Smoothing.html">
+            
+                    
+                    NEUZZ Efficient FuzzinG with Neural Program Smoothing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.14" data-path="HVLearn-Automated-Black-box-Analysis-of-Hostname-Verification-in-SSL-TLS-Implementations.html">
+            
+                <a href="HVLearn-Automated-Black-box-Analysis-of-Hostname-Verification-in-SSL-TLS-Implementations.html">
+            
+                    
+                    HVLearn: Automated Black-box Analysis of Hostname Verification in SSL/TLS Implementations
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.15" data-path="A-Reinforcement-Learning-Based-Approach-to-Automated-Testing-of-Android-Applications.html">
+            
+                <a href="A-Reinforcement-Learning-Based-Approach-to-Automated-Testing-of-Android-Applications.html">
+            
+                    
+                    A Reinforcement Learning Based Approach to Automated Testing of Android
+  Applications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.16" data-path="Skyfire-Data-Driven-Seed-Generation-for-Fuzzing.html">
+            
+                <a href="Skyfire-Data-Driven-Seed-Generation-for-Fuzzing.html">
+            
+                    
+                    Skyfire: Data-Driven Seed Generation for Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.17" data-path="Learn-to-Accelerate-Identifying-New-Test-Cases-in-Fuzzing.html">
+            
+                <a href="Learn-to-Accelerate-Identifying-New-Test-Cases-in-Fuzzing.html">
+            
+                    
+                    Learn to Accelerate Identifying New Test Cases in Fuzzing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.18" data-path="Improving-Fitness-Function-for-Language-Fuzzing-with-PCFG-Model.html">
+            
+                <a href="Improving-Fitness-Function-for-Language-Fuzzing-with-PCFG-Model.html">
+            
+                    
+                    Improving Fitness Function for Language Fuzzing with PCFG Model
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.19" data-path="ExploitMeter-Combining-Fuzzing-with-Machine-Learning-for-Automated-Evaluation-of-Software-Exploitability.html">
+            
+                <a href="ExploitMeter-Combining-Fuzzing-with-Machine-Learning-for-Automated-Evaluation-of-Software-Exploitability.html">
+            
+                    
+                    ExploitMeter: Combining Fuzzing with Machine Learning for Automated Evaluation of Software Exploitability
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.9.2.20" data-path="Experimenting-machine-learning-techniques-to-predict-vulnerabilities.html">
+            
+                <a href="Experimenting-machine-learning-techniques-to-predict-vulnerabilities.html">
+            
+                    
+                    Experimenting machine learning techniques to predict vulnerabilities
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.21" data-path="A-Review-of-Machine-Learning-in-Software-Vulnerability-Research.html">
+            
+                <a href="A-Review-of-Machine-Learning-in-Software-Vulnerability-Research.html">
+            
+                    
+                    A Review of Machine Learning in Software Vulnerability Research
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.22" data-path="Sofware-Vulnerability-Analysis-and-Discovery-Using-Machine-Learning-and-Data-Mining-Techniques-A-Survey.html">
+            
+                <a href="Sofware-Vulnerability-Analysis-and-Discovery-Using-Machine-Learning-and-Data-Mining-Techniques-A-Survey.html">
+            
+                    
+                    Sofware Vulnerability Analysis and Discovery Using Machine-Learning and
+  Data-Mining Techniques: A Survey
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.23" data-path="A-Survey-on-Source-Code-Review-Using-Machine-Learning.html">
+            
+                <a href="A-Survey-on-Source-Code-Review-Using-Machine-Learning.html">
+            
+                    
+                    A Survey on Source Code Review Using Machine Learning
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../../MaliciousSampleDetecion/">
+            
+                <a href="../../MaliciousSampleDetecion/">
+            
+                    
+                    <> MaliciousSampleDetecion
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.3.1" data-path="../../MaliciousSampleDetection">
+            
+                <span>
+            
+                    
+                    Capturing the symptoms of malicious code in electronic documents by file's entropy signal combined with Machine learning
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../../ReverseEngineering/">
+            
+                <a href="../../ReverseEngineering/">
+            
+                    
+                    <> ReverseEngineering
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.4.1" data-path="../../ReverseEngineering/papers/Lord-of-the-X86-Rings-A-Portable-User-Mode-Privilege-Separation-Architecture-on-X86.html">
+            
+                <a href="../../ReverseEngineering/papers/Lord-of-the-X86-Rings-A-Portable-User-Mode-Privilege-Separation-Architecture-on-X86.html">
+            
+                    
+                    Lord-of-the-X86-Rings-A-Portable-User-Mode-Privilege-Separation-Architecture-on-X86
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4.2" data-path="../../ReverseEngineering/papers/Superset-Disassembly-Statically-Rewriting-X86-Binaries-Without-Heuristics-Disassembly.html">
+            
+                <a href="../../ReverseEngineering/papers/Superset-Disassembly-Statically-Rewriting-X86-Binaries-Without-Heuristics-Disassembly.html">
+            
+                    
+                    Superset-Disassembly-Statically-Rewriting-X86-Binaries-Without-Heuristics-Disassembly
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../../SymbolicExecution/">
+            
+                <a href="../../SymbolicExecution/">
+            
+                    
+                    <> SymbolicExecution
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="../../TaintAnalysis/">
+            
+                <a href="../../TaintAnalysis/">
+            
+                    
+                    <> TaintAnalysis
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../../../database/">
+            
+                <a href="../../../database/">
+            
+                    
+                    database
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../../.." >Experimenting machine learning techniques to predict vulnerabilities</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="experimenting-machine-learning-techniques-to-predict-vulnerabilities">Experimenting machine learning techniques to predict vulnerabilities</h1>
+<h1 id="abstract">Abstract</h1>
+<p>&#x8F6F;&#x4EF6;&#x5EA6;&#x91CF;&#x6807;&#x51C6;&#x53EF;&#x7528;&#x4F5C;&#x8F6F;&#x4EF6;&#x6F0F;&#x6D1E;&#x5B58;&#x5728;&#x7684;&#x6307;&#x793A;&#x5668;&#x3002;&#x8FD9;&#x4E9B;&#x6307;&#x6807;&#x5DF2;&#x7528;&#x4E8E;&#x673A;&#x5668;&#x5B66;&#x4E60;&#xFF0C;&#x4EE5;&#x9884;&#x6D4B;&#x5BB9;&#x6613;&#x5305;&#x542B;&#x6F0F;&#x6D1E;&#x7684;&#x6E90;&#x4EE3;&#x7801;&#x3002;&#x867D;&#x7136;&#x65E0;&#x6CD5;&#x627E;&#x5230;&#x7F3A;&#x9677;&#x7684;&#x786E;&#x5207;&#x4F4D;&#x7F6E;&#xFF0C;&#x4F46;&#x6A21;&#x578B;&#x53EF;&#x4EE5;&#x663E;&#x793A;&#x5728;&#x68C0;&#x67E5;&#x548C;&#x6D4B;&#x8BD5;&#x671F;&#x95F4;&#x54EA;&#x4E9B;&#x7EC4;&#x4EF6;&#x9700;&#x8981;&#x66F4;&#x591A;&#x5173;&#x6CE8;&#x3002;&#x6BCF;&#x79CD;&#x65B0;&#x6280;&#x672F;&#x90FD;&#x4F7F;&#x7528;&#x4ED6;&#x81EA;&#x5DF1;&#x7684;&#x8BC4;&#x4F30;&#x6570;&#x636E;&#x96C6;&#xFF0C;&#x8BE5;&#x6570;&#x636E;&#x96C6;&#x591A;&#x6B21;&#x5177;&#x6709;&#x6709;&#x9650;&#x7684;&#x5927;&#x5C0F;&#x548C;&#x4EE3;&#x8868;&#x6027;&#x3002;&#x5728;&#x6B64;&#x4F53;&#x9A8C;&#x62A5;&#x544A;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x5927;&#x578B;&#x4E14;&#x5177;&#x6709;&#x4EE3;&#x8868;&#x6027;&#x7684;&#x6570;&#x636E;&#x96C6;&#x6765;&#x8BC4;&#x4F30;&#x51E0;&#x79CD;&#x6700;&#x5148;&#x8FDB;&#x7684;&#x6F0F;&#x6D1E;&#x9884;&#x6D4B;&#x6280;&#x672F;&#x3002;&#x8BE5;&#x6570;&#x636E;&#x96C6;&#x662F;&#x4F7F;&#x7528;&#x6765;&#x81EA;&#x4E94;&#x4E2A;&#x5E7F;&#x6CDB;&#x4F7F;&#x7528;&#x7684;&#x5F00;&#x6E90;&#x9879;&#x76EE;&#x7684;2186&#x4E2A;&#x6F0F;&#x6D1E;&#x7684;&#x4FE1;&#x606F;&#x6784;&#x5EFA;&#x7684;&#x3002;&#x7ED3;&#x679C;&#x8868;&#x660E;&#xFF0C;&#x6570;&#x636E;&#x96C6;&#x53EF;&#x7528;&#x4E8E;&#x533A;&#x5206;&#x54EA;&#x79CD;&#x662F;&#x6700;&#x4F73;&#x6280;&#x672F;&#x3002;&#x8FD8;&#x8868;&#x660E;&#xFF0C;&#x4E00;&#x4E9B;&#x6280;&#x672F;&#x53EF;&#x4EE5;&#x9884;&#x6D4B;&#x51E0;&#x4E4E;&#x6240;&#x6709;&#x6570;&#x636E;&#x96C6;&#x4E2D;&#x5B58;&#x5728;&#x7684;&#x6F0F;&#x6D1E;&#xFF0C;&#x5C3D;&#x7BA1;&#x7CBE;&#x5EA6;&#x975E;&#x5E38;&#x4F4E;&#x3002;&#x6700;&#x540E;&#xFF0C;&#x51C6;&#x786E;&#x6027;&#xFF0C;&#x7CBE;&#x786E;&#x5EA6;&#x548C;&#x53EC;&#x56DE;&#x7387;&#x5E76;&#x4E0D;&#x662F;&#x8868;&#x5F81;&#x8FD9;&#x79CD;&#x5DE5;&#x5177;&#x6709;&#x6548;&#x6027;&#x7684;&#x6700;&#x6709;&#x6548;&#x65B9;&#x6CD5;&#x3002;
+&#x5173;&#x952E;&#x8BCD; - &#x673A;&#x5668;&#x5B66;&#x4E60;&#xFF0C;&#x8F6F;&#x4EF6;&#x5EA6;&#x91CF;&#xFF0C;&#x8F6F;&#x4EF6;&#x5B89;&#x5168;&#xFF0C;&#x6F0F;&#x6D1E;</p>
+<table>
+<thead>
+<tr>
+<th>relevant information</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>&#x4F5C;&#x8005;</em></td>
+<td>Henrique Alves, Baldoino Fonseca,Nuno Antunes</td>
+</tr>
+<tr>
+<td><em>&#x5355;&#x4F4D;</em></td>
+<td>Instituto de Computac&#xB8;ao Universidade Federal de Alagoas;CISUC, Department of Informatics Engineering University of Coimbra</td>
+</tr>
+<tr>
+<td><em>&#x51FA;&#x5904;</em></td>
+<td>7th Latin-American Symposium on Dependable Computing</td>
+</tr>
+<tr>
+<td><em>&#x539F;&#x6587;&#x5730;&#x5740;</em></td>
+<td><a href="https://ieeexplore.ieee.org/document/7781850" target="_blank">https://ieeexplore.ieee.org/document/7781850</a></td>
+</tr>
+<tr>
+<td><em>&#x6570;&#x636E;&#x96C6;&#x5730;&#x5740;</em></td>
+<td><a href="https://eden.dei.uc.pt/~nmsa/metrics-dataset/index.html" target="_blank">https://eden.dei.uc.pt/~nmsa/metrics-dataset/index.html</a></td>
+</tr>
+<tr>
+<td><em>&#x53D1;&#x8868;&#x65F6;&#x95F4;</em></td>
+<td>2016&#x5E74;</td>
+</tr>
+</tbody>
+</table>
+<h1 id="1-&#x7B80;&#x4ECB;">1. &#x7B80;&#x4ECB;</h1>
+<p>&#x8F6F;&#x4EF6;&#x6F0F;&#x6D1E;&#x4EE3;&#x8868;&#x4E86;&#x5F53;&#x4ECA;&#x8F6F;&#x4EF6;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x6700;&#x5934;&#x75BC;&#x7684;&#x95EE;&#x9898;&#x4E4B;&#x4E00;&#x3002;&#x6B63;&#x5728;&#x5F00;&#x53D1;&#x7684;&#x5927;&#x591A;&#x6570;&#x8F6F;&#x4EF6;&#x90FD;&#x4EE5;&#x67D0;&#x79CD;&#x65B9;&#x5F0F;&#x66B4;&#x9732;&#x7ED9;&#x5916;&#x90E8;&#x7528;&#x6237;&#xFF0C;&#x8FD9;&#x4E9B;&#x7528;&#x6237;&#x8FDF;&#x65E9;&#x4F1A;&#x8BD5;&#x56FE;&#x5229;&#x7528;&#x6076;&#x610F;&#x7684;&#x65B9;&#x5F0F;&#x5229;&#x7528;&#x5B83;&#x3002;&#x5373;&#x4F7F;&#x5728;&#x8F6F;&#x4EF6;&#x5B89;&#x5168;&#x65B9;&#x9762;&#x6295;&#x5165;&#x4E86;&#x5927;&#x91CF;&#x7CBE;&#x529B;&#xFF0C;&#x653B;&#x51FB;&#x4ECD;&#x7136;&#x7ECF;&#x5E38;&#x53D1;&#x751F;&#xFF0C;&#x6BCF;&#x5E74;&#x7684;&#x8D22;&#x52A1;&#x635F;&#x5931;&#x8FBE;&#x5230;2260&#x4EBF;&#x7F8E;&#x5143;[1]&#x3002;&#x66F4;&#x7CDF;&#x7CD5;&#x7684;&#x662F;&#xFF0C;&#x8F6F;&#x4EF6;&#x7684;&#x5927;&#x5C0F;&#x548C;&#x590D;&#x6742;&#x6027;&#x7684;&#x589E;&#x52A0;&#x52A0;&#x5267;&#x4E86;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x3002;</p>
+<p>&#x5F00;&#x53D1;&#x5B89;&#x5168;&#x4EE3;&#x7801;&#x662F;&#x4E00;&#x9879;&#x8270;&#x5DE8;&#x800C;&#x6602;&#x8D35;&#x7684;&#x4EFB;&#x52A1;&#xFF0C;&#x9700;&#x8981;&#x82B1;&#x8D39;&#x5927;&#x91CF;&#x65F6;&#x95F4;&#x3002;&#x8F6F;&#x4EF6;&#x5DE5;&#x7A0B;&#x5E08;&#x6709;&#x8BB8;&#x591A;&#x6280;&#x672F;&#x53EF;&#x4EE5;&#x627E;&#x5230;&#x8FD9;&#x4E9B;&#x7F3A;&#x9677;&#x548C;&#x6F0F;&#x6D1E;&#xFF0C;&#x4F46;&#x4F17;&#x6240;&#x5468;&#x77E5;&#xFF0C;&#x6700;&#x6709;&#x6548;&#x7684;&#x6280;&#x672F;&#x901A;&#x5E38;&#x9700;&#x8981;&#x5927;&#x91CF;&#x7684;&#x65F6;&#x95F4;&#x548C;&#x4E13;&#x4E1A;&#x8D44;&#x6E90;&#x3002;&#x4EE3;&#x7801;&#x68C0;&#x67E5;&#x548C;&#x6D4B;&#x8BD5;&#x7B49;&#x6280;&#x672F;&#x662F;&#x53D1;&#x73B0;&#x6F0F;&#x6D1E;&#x7684;&#x6709;&#x6548;&#x4E14;&#x88AB;&#x5E7F;&#x6CDB;&#x63A5;&#x53D7;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x4F46;&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#x6709;&#x5176;&#x5C40;&#x9650;&#x6027;&#x3002;&#x4EE3;&#x7801;&#x5BA1;&#x67E5;&#x548C;&#x68C0;&#x67E5;[2]&#x88AB;&#x8BA4;&#x4E3A;&#x662F;&#x51CF;&#x5C11;&#x9519;&#x8BEF;&#x6570;&#x91CF;&#x7684;&#x975E;&#x5E38;&#x6709;&#x6548;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x4F46;&#x4F17;&#x6240;&#x5468;&#x77E5;&#xFF0C;&#x5B83;&#x4EEC;&#x7684;&#x6210;&#x672C;&#x9650;&#x5236;&#x4E86;&#x5B83;&#x4EEC;&#x5728;&#x5927;&#x578B;&#x5DE5;&#x4EF6;&#x4E2D;&#x7684;&#x9002;&#x7528;&#x6027;&#x3002;&#x5373;&#x4F7F;&#x6D4B;&#x8BD5;&#x867D;&#x7136;&#x66F4;&#x5BB9;&#x6613;&#x548C;&#x66F4;&#x4FBF;&#x5B9C;&#xFF0C;&#x4F46;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;&#x591A;&#x4E8E;&#x5176;&#x81EA;&#x5DF1;&#x7684;&#x7CFB;&#x7EDF;&#x4EE3;&#x7801;&#xFF0C;&#x4EE5;&#x8986;&#x76D6;&#x6574;&#x4E2A;&#x7CFB;&#x7EDF;&#x4EE3;&#x7801;&#x3002;&#x968F;&#x7740;&#x7CFB;&#x7EDF;&#x89C4;&#x6A21;&#x7684;&#x589E;&#x957F;&#x53D8;&#x5F97;&#x8D8A;&#x6765;&#x8D8A;&#x6602;&#x8D35;&#xFF0C;&#x4EE5;&#x6EE1;&#x8DB3;&#x63D0;&#x4F9B;&#x9AD8;&#x5EA6;&#x4FE1;&#x4EFB;&#x7684;&#x4E25;&#x683C;&#x8986;&#x76D6;&#x8981;&#x6C42;[2]&#x3002;&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x8BD5;&#x56FE;&#x5C06;&#x7CBE;&#x529B;&#x96C6;&#x4E2D;&#x5728;&#x7CFB;&#x7EDF;&#x4E2D;&#x6700;&#x68D8;&#x624B;&#x7684;&#x90E8;&#x5206;&#x3002;</p>
+<p>&#x867D;&#x7136;&#x8BC6;&#x522B;&#x7CFB;&#x7EDF;&#x4E2D;&#x6700;&#x6709;&#x95EE;&#x9898;&#x7684;&#x90E8;&#x5206;&#x662F;&#x4E00;&#x4E2A;&#x6709;&#x8DA3;&#x4E14;&#x6709;&#x6548;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF0C;&#x4F46;&#x6267;&#x884C;&#x6B64;&#x5206;&#x6790;&#x7684;&#x6807;&#x51C6;&#x53EF;&#x80FD;&#x662F;&#x591A;&#x6837;&#x5316;&#x548C;&#x6DF7;&#x4E71;&#x7684;&#x3002;&#x8BF8;&#x5982;[3]&#xFF0C;[4]&#xFF0C;[5]&#xFF0C;[6]&#x7B49;&#x7814;&#x7A76;&#x5DF2;&#x7ECF;&#x7814;&#x7A76;&#x4E86;&#x8FD9;&#x79CD;&#x53EF;&#x80FD;&#x6027;&#xFF0C;&#x5E76;&#x4F7F;&#x7528;&#x4E86;&#x51E0;&#x79CD;&#x4E0E;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x6280;&#x672F;&#x76F8;&#x7ED3;&#x5408;&#x7684;&#x8F6F;&#x4EF6;&#x5EA6;&#x91CF;&#x6765;&#x5B8C;&#x6210;&#x8FD9;&#x9879;&#x6D3B;&#x52A8;&#x3002;&#x5F88;&#x660E;&#x663E;&#xFF0C;&#x6CA1;&#x6709;&#x4EE3;&#x7801;&#x751F;&#x800C;&#x5E73;&#x7B49;&#x4E14;&#x5177;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x7279;&#x5F81;&#x3002;&#x8FD9;&#x4E9B;&#x5DE5;&#x4F5C;&#x8868;&#x660E;&#xFF0C;&#x8FD9;&#x4E9B;&#x529F;&#x80FD;&#x53EF;&#x4EE5;&#x533A;&#x5206;&#x4EE3;&#x7801;&#x4E2D;&#x6F0F;&#x6D1E;&#x7684;&#x5B58;&#x5728;&#xFF08;&#x6700;&#x8FD1;&#x7684;&#x4E00;&#x9879;&#x7814;&#x7A76;&#x8BC1;&#x5B9E;[7]&#xFF09;&#x3002;</p>
+<p>&#x5728;&#x8FD9;&#x9879;&#x5DE5;&#x4F5C;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x611F;&#x5174;&#x8DA3;&#x7684;&#x662F;&#x4EE3;&#x8868;&#x4EE3;&#x7801;&#x9759;&#x6001;&#x5C5E;&#x6027;&#x7684;&#x8F6F;&#x4EF6;&#x5EA6;&#x91CF;&#x3002;&#x4EE3;&#x7801;&#x6267;&#x884C;&#x548C;&#x4EE3;&#x7801;&#x6D41;&#x5931;&#x5EA6;&#x91CF;&#x6807;&#x51C6;&#x4E0D;&#x5728;&#x8303;&#x56F4;&#x4E4B;&#x5185;&#x3002;&#x73B0;&#x6709;&#x5DE5;&#x4F5C;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x914D;&#x7F6E;&#x548C;&#x65B9;&#x6CD5;&#x5448;&#x73B0;&#x4E0D;&#x540C;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x5E76;&#x8003;&#x8651;&#x4E0D;&#x540C;&#x7684;&#x5EA6;&#x91CF;&#x96C6;&#x3002;&#x4F8B;&#x5982;&#x3002;&#x867D;&#x7136;&#x5728;[8]&#x4E2D;&#x4F7F;&#x7528;&#x4E86;9&#x4E2A;&#x8F6F;&#x4EF6;&#x5EA6;&#x91CF;&#x6765;&#x6784;&#x5EFA;&#x9884;&#x6D4B;&#x6A21;&#x578B;&#xFF0C;&#x4F46;&#x5728;[9]&#x4E2D;&#x4F7F;&#x7528;&#x4E86;17&#x4E2A;&#x8F6F;&#x4EF6;&#x5EA6;&#x91CF;&#x3002;&#x6B64;&#x5916;&#xFF0C;&#x8FD8;&#x6709;&#x5404;&#x79CD;&#x5404;&#x6837;&#x7684;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x6280;&#x672F;&#xFF0C;&#x901A;&#x8FC7;&#x8FD9;&#x4E9B;&#x6280;&#x672F;&#xFF0C;&#x6587;&#x7AE0;&#x53EF;&#x4EE5;&#x66F4;&#x9891;&#x7E41;&#x5730;&#x4F7F;&#x7528;&#x67D0;&#x4E9B;&#x6280;&#x672F;&#xFF0C;&#x5E76;&#x4E14;&#x6BCF;&#x79CD;&#x6280;&#x672F;&#x90FD;&#x652F;&#x6301;&#x57FA;&#x4E8E;&#x5176;&#x4E2D;&#x4EFB;&#x4F55;&#x4E00;&#x79CD;&#x7684;&#x7279;&#x5B9A;&#x7ED3;&#x679C;&#x3002;&#x6211;&#x4EEC;&#x610F;&#x8BC6;&#x5230;&#x6700;&#x5E38;&#x89C1;&#x7684;&#x662F;&#x6734;&#x7D20;&#x8D1D;&#x53F6;&#x65AF;&#xFF0C;&#x51B3;&#x7B56;&#x6811;&#xFF0C;&#x968F;&#x673A;&#x68EE;&#x6797;&#x548C;&#x903B;&#x8F91;&#x56DE;&#x5F52;&#x3002;</p>
+<p>&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5F88;&#x96BE;&#x6BD4;&#x8F83;&#x8FD9;&#x4E9B;&#x5DE5;&#x4F5C;&#x5E76;&#x9009;&#x62E9;&#x6700;&#x9002;&#x5408;&#x6BCF;&#x79CD;&#x5229;&#x7528;&#x65B9;&#x6848;&#x7684;&#x5DE5;&#x4F5C;&#x3002;&#x6B64;&#x5916;&#xFF0C;&#x6BCF;&#x9879;&#x5DE5;&#x4F5C;&#x4E2D;&#x63D0;&#x4F9B;&#x7684;&#x8BC4;&#x4F30;&#x7ED3;&#x679C;&#x5E76;&#x4E0D;&#x662F;&#x8BC4;&#x4F30;&#x5176;&#x6709;&#x6548;&#x6027;&#x7684;&#x975E;&#x5E38;&#x6709;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x4E3B;&#x8981;&#x6709;&#x4E24;&#x4E2A;&#x539F;&#x56E0;[7] :( i&#xFF09;&#x6BCF;&#x9879;&#x5DE5;&#x4F5C;&#x90FD;&#x4F7F;&#x7528;&#x7279;&#x5B9A;&#x7684;&#x6570;&#x636E;&#x96C6;&#x6765;&#x8FDB;&#x884C;&#x8BC4;&#x4F30;; &#xFF08;ii&#xFF09;&#x4F7F;&#x7528;&#x7684;&#x6570;&#x636E;&#x96C6;&#x5177;&#x6709;&#x6709;&#x9650;&#x7684;&#x4EE3;&#x8868;&#x6027;[7]&#x3002;</p>
+<p>&#x8BE5;&#x5B9E;&#x8DF5;&#x7ECF;&#x9A8C;&#x62A5;&#x544A;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x9879;&#x6BD4;&#x8F83;&#x7814;&#x7A76;&#xFF0C;&#x4EE5;&#x8BC4;&#x4F30;&#x73B0;&#x6709;&#x65B9;&#x6CD5;&#x9884;&#x6D4B;C / C ++&#x8F6F;&#x4EF6;&#x9879;&#x76EE;&#x6F0F;&#x6D1E;&#x7684;&#x6709;&#x6548;&#x6027;&#x3002;&#x8BE5;&#x7814;&#x7A76;&#x57FA;&#x4E8E;&#x4E00;&#x4E2A;&#x5927;&#x578B;&#x6570;&#x636E;&#x96C6;[7]&#xFF0C;&#x5176;&#x4E2D;&#x5305;&#x542B;&#x6709;&#x5173;&#x51FD;&#x6570;&#x548C;&#x6587;&#x4EF6;&#x7684;&#x8F6F;&#x4EF6;&#x5EA6;&#x91CF;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x4EE5;&#x53CA;&#x4ECE;&#x5B89;&#x5168;&#x89D2;&#x5EA6;&#x6765;&#x770B;&#x4E94;&#x4E2A;&#x9879;&#x76EE;&#x4E2D;&#x662F;&#x5426;&#x5B58;&#x5728;&#x5B89;&#x5168;&#x6F0F;&#x6D1E;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x88AB;&#x5E7F;&#x6CDB;&#x4F7F;&#x7528;&#x5E76;&#x66B4;&#x9732;&#x4E8E;&#x653B;&#x51FB;&#x3002;&#x4F7F;&#x7528;&#x6B64;&#x6570;&#x636E;&#x96C6;&#xFF0C;&#x53EF;&#x4EE5;&#x8BC4;&#x4F30;&#x7B2C;&#x4E09;&#x65B9;&#x5DE5;&#x4F5C;&#x4E2D;&#x5448;&#x73B0;&#x7684;&#x9884;&#x6D4B;&#x6A21;&#x578B;&#x7684;&#x6709;&#x6548;&#x6027;&#x3002;&#x6211;&#x4EEC;&#x590D;&#x5236;&#x4E86;&#x516D;&#x9879;&#x7814;&#x7A76;&#x4E2D;&#x63D0;&#x51FA;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x8FD9;&#x4E9B;&#x7814;&#x7A76;&#x6D89;&#x53CA;&#x57FA;&#x4E8E;&#x8F6F;&#x4EF6;&#x6307;&#x6807;&#x9884;&#x6D4B;&#x8F6F;&#x4EF6;&#x6F0F;&#x6D1E;&#x3002;</p>
+<p>&#x6B64;&#x7BC7;&#x6587;&#x7AE0;&#x7684;&#x7ED3;&#x6784;&#x5982;&#x4E0B;&#x3002;&#x7B2C;&#x4E8C;&#x8282;&#x4ECB;&#x7ECD;&#x4E86;&#x8FDB;&#x884C;&#x7684;&#x7814;&#x7A76;&#x3002;&#x7B2C;&#x4E09;&#x8282;&#x4ECB;&#x7ECD;&#x5E76;&#x8BA8;&#x8BBA;&#x4E86;&#x53D6;&#x5F97;&#x7684;&#x6210;&#x679C;&#x3002;&#x7B2C;&#x56DB;&#x90E8;&#x5206;&#x56DE;&#x987E;&#x4E86;&#x76F8;&#x5173;&#x5DE5;&#x4F5C;&#xFF0C;&#x7B2C;&#x4E94;&#x90E8;&#x5206;&#x8BA8;&#x8BBA;&#x4E86;&#x5BF9;&#x672C;&#x7814;&#x7A76;&#x6709;&#x6548;&#x6027;&#x7684;&#x6F5C;&#x5728;&#x5A01;&#x80C1;&#xFF0C;&#x7B2C;&#x516D;&#x90E8;&#x5206;&#x603B;&#x7ED3;&#x4E86;&#x8BBA;&#x6587;&#x3002;</p>
+<h1 id="ii&#x7814;&#x7A76;">II.&#x7814;&#x7A76;</h1>
+<p>&#x672C;&#x7814;&#x7A76;&#x63D0;&#x51FA;&#x4E86;&#x5728;C / C ++&#x8F6F;&#x4EF6;&#x73AF;&#x5883;&#x4E0B;&#x8106;&#x5F31;&#x6027;&#x9884;&#x6D4B;&#x65B9;&#x6CD5;&#x6709;&#x6548;&#x6027;&#x7684;&#x5B9E;&#x9A8C;&#x8BC4;&#x4F30;&#x3002;&#x4E3B;&#x8981;&#x76EE;&#x6807;&#x662F;&#x4ECE;&#x6587;&#x732E;&#x4E2D;&#x63D0;&#x51FA;&#x7684;&#x65B9;&#x6CD5;&#x4E2D;&#x4E86;&#x89E3;&#x54EA;&#x4E9B;&#x65B9;&#x6CD5;&#x80FD;&#x591F;&#x4EA7;&#x751F;&#x66F4;&#x597D;&#x7684;&#x6A21;&#x578B;&#x6765;&#x9884;&#x6D4B;&#x8106;&#x5F31;&#x6027;&#x3002;&#x5728;&#x5B9E;&#x8DF5;&#x4E2D;&#xFF0C;&#x8BE5;&#x7814;&#x7A76;&#x8BD5;&#x56FE;&#x56DE;&#x7B54;&#x4EE5;&#x4E0B;&#x95EE;&#x9898;&#xFF1A;</p>
+<ul>
+<li><p>&#x751F;&#x6210;&#x7684;&#x6A21;&#x578B;&#x4E8E;&#x9884;&#x6D4B;&#x6613;&#x53D7;&#x653B;&#x51FB;&#x7684;&#x6587;&#x4EF6;&#x5E76;&#x907F;&#x514D;&#x8BEF;&#x62A5;&#x6709;&#x591A;&#x597D;&#x7528;&#xFF1F;</p>
+</li>
+<li><p>&#x5728;&#x8FD9;&#x79CD;&#x73AF;&#x5883;&#x4E2D;&#x54EA;&#x4E9B;&#x6280;&#x672F;&#x8868;&#x73B0;&#x66F4;&#x597D;&#xFF1F;</p>
+</li>
+<li><p>&#x8868;&#x5F81;&#x65B9;&#x6CD5;&#x6709;&#x6548;&#x6027;&#x7684;&#x6700;&#x4F73;&#x6307;&#x6807;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;</p>
+</li>
+</ul>
+<p>&#x4E3A;&#x4E86;&#x56DE;&#x7B54;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x6211;&#x4EEC;&#x8BBE;&#x8BA1;&#x4E86;&#x4E00;&#x79CD;&#x57FA;&#x4E8E;&#x4E94;&#x4E2A;&#x5173;&#x952E;&#x7EC4;&#x4EF6;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5982;&#x56FE;1&#x6240;&#x793A;&#x3002;&#x4EE5;&#x4E0B;&#x5C0F;&#x8282;&#x5C06;&#x8BA8;&#x8BBA;&#x8FD9;&#x4E9B;&#x7EC4;&#x4EF6;&#x4E2D;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x3002;</p>
+<p><img src="Experimenting-machine-learning-techniques-to-predict-vulnerabilities/1.jpg" alt=""></p>
+<h2 id="a-&#x6570;&#x636E;&#x96C6;">A. &#x6570;&#x636E;&#x96C6;</h2>
+<p>&#x8BC4;&#x4F30;&#x4E2D;&#x4F7F;&#x7528;&#x7684;&#x6570;&#x636E;&#x96C6;&#x5728;[7]&#x4E2D;&#x7ED9;&#x51FA;&#xFF0C;&#x53EF;&#x4EE5;&#x4ECE;[10]&#x4E0B;&#x8F7D;&#x3002;&#x5B83;&#x5305;&#x542B;&#x6709;&#x5173;&#x51FD;&#x6570;&#x548C;&#x6587;&#x4EF6;&#x7684;&#x8F6F;&#x4EF6;&#x5EA6;&#x91CF;&#x6807;&#x51C6;&#x4EE5;&#x53CA;&#x662F;&#x5426;&#x5B58;&#x5728;&#x5B89;&#x5168;&#x6F0F;&#x6D1E;&#x7684;&#x4FE1;&#x606F;&#x3002;&#x8868;I&#x5217;&#x51FA;&#x4E86;&#x6570;&#x636E;&#x96C6;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x6458;&#x8981;&#x3002;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x89C2;&#x5BDF;&#x5230;&#xFF0C;&#x6570;&#x636E;&#x96C6;&#x662F;&#x57FA;&#x4E8E;2186&#x5B89;&#x5168;&#x8865;&#x4E01;&#x548C;&#x76F8;&#x5E94;&#x6E90;&#x5B58;&#x50A8;&#x5E93;&#x7684;4372&#x4E2A;&#x5FEB;&#x7167;&#x6784;&#x5EFA;&#x7684;&#xFF1A;1&#x5BF9;&#x5E94;&#x4E8E;&#x7D27;&#x63A5;&#x5728;&#x8865;&#x4E01;&#x4E4B;&#x524D;&#x7684;&#x63D0;&#x4EA4;&#xFF0C;1&#x5BF9;&#x5E94;&#x4E8E;&#x7D27;&#x968F;&#x5176;&#x540E;&#x7684;&#x63D0;&#x4EA4;&#x3002;</p>
+<p><img src="Experimenting-machine-learning-techniques-to-predict-vulnerabilities/2.jpg" alt="table 1"></p>
+<p>&#x6B64;&#x6570;&#x636E;&#x96C6;&#x5305;&#x542B;&#x6709;&#x5173;&#x51FD;&#x6570;&#xFF0C;&#x6587;&#x4EF6;&#x7684;&#x8F6F;&#x4EF6;&#x5EA6;&#x91CF;&#x4EE5;&#x53CA;&#x662F;&#x5426;&#x5B58;&#x5728;&#x5B89;&#x5168;&#x6F0F;&#x6D1E;&#x7684;&#x4FE1;&#x606F;&#x3002;&#x8FD9;&#x4E9B;&#x4FE1;&#x606F;&#x662F;&#x9488;&#x5BF9;&#x4E94;&#x4E2A;&#x5F00;&#x6E90;&#x9879;&#x76EE;&#x6536;&#x96C6;&#x7684;&#xFF1A;Mozilla Firefox&#xFF0C;Linux&#x5185;&#x6838;&#xFF0C;Xen Hypervisor&#xFF0C;Httpd&#x548C;Glibc&#x3002;&#x8FD9;&#x4E9B;&#x9879;&#x76EE;&#x5177;&#x6709;&#x826F;&#x597D;&#x7684;&#x5B89;&#x5168;&#x6027;&#xFF0C;&#x662F;&#x533A;&#x5206;&#x6F0F;&#x6D1E;&#x7684;&#x826F;&#x597D;&#x9009;&#x62E9;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x662F;&#x4E0D;&#x540C;&#x9886;&#x57DF;&#x7684;&#x9879;&#x76EE;&#x3002; Mozilla&#x662F;&#x4E00;&#x4E2A;Web&#x6D4F;&#x89C8;&#x5668;&#xFF0C;Linux&#x5185;&#x6838;&#x662F;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x5185;&#x6838;&#xFF0C;Xen&#x662F;&#x865A;&#x62DF;&#x5668;&#x73AF;&#x5883;&#xFF0C;Httpd&#x662F;&#x901A;&#x4FE1;&#x534F;&#x8BAE;&#xFF0C;Glibc&#x662F;&#x7528;C&#x7F16;&#x5199;&#x7684;&#x7CFB;&#x7EDF;&#x8C03;&#x7528;&#x5E93;&#x3002;
+&#x6700;&#x540E;&#xFF0C;&#x5982;&#x56FE;II-A&#x6240;&#x793A;&#xFF0C;&#x4E0E;&#x4E2D;&#x6027;&#x4EE3;&#x7801;&#x76F8;&#x6BD4;&#xFF0C;&#x6613;&#x53D7;&#x653B;&#x51FB;&#x4EE3;&#x7801;&#x7684;&#x767E;&#x5206;&#x6BD4;&#x975E;&#x5E38;&#x4F4E;&#x3002;</p>
+<p><img src="Experimenting-machine-learning-techniques-to-predict-vulnerabilities/3.jpg" alt="fig 2"></p>
+<h2 id="b&#x6D4B;&#x8BD5;&#x4E3B;&#x9898;&#x5E73;&#x8861;&#x548C;&#x9A8C;&#x8BC1;">B.&#x6D4B;&#x8BD5;&#x4E3B;&#x9898;&#x5E73;&#x8861;&#x548C;&#x9A8C;&#x8BC1;</h2>
+<p>&#x5728;&#x8FD9;&#x79CD;&#x5DE5;&#x4F5C;&#x4E2D;&#x9884;&#x8BA1;&#x4F1A;&#x51FA;&#x73B0;&#x5DEE;&#x5F02;&#xFF0C;&#x56E0;&#x4E3A;&#x9884;&#x8BA1;&#x5728;&#x8FD9;&#x79CD;&#x6570;&#x636E;&#x96C6;&#x4E2D;&#xFF0C;&#x6613;&#x53D7;&#x653B;&#x51FB;&#x7684;&#x5B9E;&#x4F8B;&#x7684;&#x6570;&#x91CF;&#x8FDC;&#x8FDC;&#x5C0F;&#x4E8E;&#x975E;&#x6613;&#x53D7;&#x653B;&#x51FB;&#x7684;&#x5B9E;&#x4F8B;&#x7684;&#x6570;&#x91CF;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x9488;&#x5BF9;&#x6B64;&#x7C7B;&#x4EFB;&#x52A1;&#x7684;&#x6240;&#x6709;&#x65B9;&#x6CD5;&#x90FD;&#x9700;&#x8981;&#x6267;&#x884C;&#x6570;&#x636E;&#x5E73;&#x8861;&#x3002;
+&#x8BC4;&#x4F30;&#x7684;&#x65B9;&#x6CD5;&#x6D89;&#x53CA;&#x79F0;&#x4E3A;&#x968F;&#x673A;&#x6B20;&#x91C7;&#x6837;&#xFF08;RU&#xFF09;&#x7684;&#x5E73;&#x8861;&#x6280;&#x672F;&#xFF0C;&#x79FB;&#x9664;&#x968F;&#x673A;&#x9009;&#x62E9;&#x7684;&#x591A;&#x6570;&#x7C7B;&#x6570;&#x636E;&#x3002;&#x9009;&#x5B9A;&#x7684;&#x6BD4;&#x4F8B;&#x662F;&#x76F4;&#x5230;&#x591A;&#x6570;&#x7C7B;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x5B9E;&#x4F8B;&#x6570;&#x4E0E;&#x5C11;&#x6570;&#x7C7B;&#x7684;&#x6570;&#x76F8;&#x540C;&#x3002;
+&#x540C;&#x6837;&#x91CD;&#x8981;&#x7684;&#x662F;&#x8981;&#x5F3A;&#x8C03;&#x7684;&#x662F;&#xFF0C;&#x4E0D;&#x540C;&#x7684;&#x65B9;&#x6CD5;&#x5BF9;&#x7ED3;&#x679C;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;&#x4F7F;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x7B56;&#x7565;&#x3002;&#x5728;&#x67D0;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5B83;&#x4F7F;&#x7528;&#x4E86;10&#x500D;&#x4EA4;&#x53C9;&#x9A8C;&#x8BC1;&#xFF08;[9]&#xFF09;&#xFF0C;&#x800C;&#x5728;&#x5176;&#x4ED6;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8FD9;&#x79CD;&#x91CD;&#x590D;&#x4F7F;&#x7528;&#x91CD;&#x590D;10&#x6B21;&#xFF0C;&#x547D;&#x540D;&#x4E3A;10x10&#x500D;&#x9A8C;&#x8BC1;[6]&#xFF0C;[11]&#x3002;&#x6700;&#x540E;&#xFF0C;&#x4E00;&#x4E9B;&#x6848;&#x4F8B;&#x4F7F;&#x7528;&#x4E0B;&#x4E00;&#x4E2A;&#x7248;&#x672C;&#x9A8C;&#x8BC1;&#xFF08;Release-fold&#xFF09;&#xFF0C;&#x5176;&#x4E2D;&#x6A21;&#x578B;&#x4F7F;&#x7528;&#x4EE5;&#x524D;&#x7684;&#x7248;&#x672C;&#x8FDB;&#x884C;&#x8BAD;&#x7EC3;&#xFF0C;&#x5E76;&#x4F7F;&#x7528;&#x4E0B;&#x4E00;&#x4E2A;&#x7248;&#x672C;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;[5]&#xFF0C;[12]&#x3002;&#x8FD9;&#x4E9B;&#x914D;&#x7F6E;&#x603B;&#x7ED3;&#x5728;&#x8868;II&#x7684;&#x914D;&#x7F6E;&#x5217;&#x4E2D;&#x3002;</p>
+<p><img src="Experimenting-machine-learning-techniques-to-predict-vulnerabilities/4.jpg" alt=""></p>
+<h2 id="c&#x8BC4;&#x4F30;&#x65B9;&#x6CD5;">C.&#x8BC4;&#x4F30;&#x65B9;&#x6CD5;</h2>
+<p>&#x5728;&#x6211;&#x4EEC;&#x7684;&#x7814;&#x7A76;&#x4E2D;&#x8BC4;&#x4F30;&#x7684;&#x65B9;&#x6CD5;&#x6765;&#x81EA;&#x5DF2;&#x53D1;&#x5E03;&#x7684;&#x5DE5;&#x4F5C;&#xFF0C;&#x8FD9;&#x4E9B;&#x4F5C;&#x54C1;&#x4F7F;&#x7528;&#x8F6F;&#x4EF6;&#x5EA6;&#x91CF;&#x6765;&#x6784;&#x5EFA;&#x9884;&#x6D4B;&#x6A21;&#x578B;&#xFF0C;&#x4EE5;&#x627E;&#x5230;&#x5177;&#x6709;&#x66F4;&#x9AD8;&#x53EF;&#x80FD;&#x6027;&#x7684;&#x6F0F;&#x6D1E;&#x7684;&#x6587;&#x4EF6;&#x3002;</p>
+<p>&#x5728;[12]&#x4E2D;&#x63D0;&#x51FA;&#x4E86;&#x4F7F;&#x7528;&#x4E5D;&#x79CD;&#x4EE3;&#x7801;&#x590D;&#x6742;&#x5EA6;&#x6307;&#x6807;&#x7684;&#x6848;&#x4F8B;&#x7814;&#x7A76;&#x3002;&#x8BE5;&#x65B9;&#x6CD5;&#x63D0;&#x4EA4;&#x6765;&#x81EA;Mozilla&#x6A21;&#x5757;&#x8BAD;&#x7EC3;&#x9884;&#x6D4B;&#x6A21;&#x578B;&#x7684;&#x903B;&#x8F91;&#x56DE;&#x5F52;&#x6570;&#x636E;&#x3002;&#x4ED6;&#x4EEC;&#x7684;&#x7ED3;&#x679C;&#x8868;&#x660E;&#xFF0C;&#x590D;&#x6742;&#x5EA6;&#x6307;&#x6807;&#x80FD;&#x591F;&#x8BC6;&#x522B;&#x6700;&#x5BB9;&#x6613;&#x51FA;&#x73B0;&#x6F0F;&#x6D1E;&#x7684;&#x533A;&#x57DF;&#xFF0C;&#x4F46;&#x662F;&#xFF0C;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x4ECD;&#x9700;&#x8981;&#x6539;&#x8FDB;&#xFF0C;&#x56E0;&#x4E3A;&#x7ED3;&#x679C;&#x663E;&#x793A;&#x4F4E;&#x8BEF;&#x62A5;&#x7387;&#x548C;&#x9AD8;&#x5047;&#x9634;&#x6027;&#x7387;&#x3002;</p>
+<p>&#x7C7B;&#x4F3C;&#x5730;&#xFF0C;&#x5728;[9]&#x4E2D;&#x4F7F;&#x7528;&#x4E86;17&#x4E2A;&#x8F6F;&#x4EF6;&#x5EA6;&#x91CF;&#x6765;&#x8BAD;&#x7EC3;&#x9884;&#x6D4B;&#x6A21;&#x578B;&#xFF0C;&#x5176;&#x4E2D;7&#x4E2A;&#x7279;&#x5B9A;&#x4E8E;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x8BED;&#x8A00;&#x3002;&#x4F5C;&#x8005;&#x4F7F;&#x7528;&#x56DB;&#x53F0;&#x673A;&#x5668;&#x907F;&#x514D;&#x4E86;&#x6700;&#x5927;&#x9650;&#x5EA6;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x4EE3;&#x8868;&#x4E86;&#x4E0D;&#x518D;&#x5173;&#x6CE8;&#x6A21;&#x578B;&#x7684;&#x6613;&#x53D7;&#x653B;&#x51FB;&#x7684;&#x4EE3;&#x7801;&#x3002;</p>
+<h2 id="e&#x65B9;&#x6CD5;&#x6709;&#x6548;&#x6027;&#x7684;&#x6307;&#x6807;">E.&#x65B9;&#x6CD5;&#x6709;&#x6548;&#x6027;&#x7684;&#x6307;&#x6807;</h2>
+<p>&#x5728;&#x6211;&#x4EEC;&#x7684;&#x5206;&#x6790;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x4E0B;&#x9762;&#x63D0;&#x4F9B;&#x7684;&#x4E00;&#x7EC4;&#x6307;&#x6807;&#x6765;&#x8868;&#x5F81;&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#x7684;&#x6709;&#x6548;&#x6027;&#x3002;&#x8FD9;&#x4E9B;&#x6307;&#x6807;&#x662F;&#x6839;&#x636E;&#x5B9E;&#x9A8C;&#x671F;&#x95F4;&#x83B7;&#x5F97;&#x7684;&#x57FA;&#x672C;&#x6D4B;&#x91CF;&#x503C;&#x8BA1;&#x7B97;&#x7684;&#xFF1A;&#x771F;&#x9633;&#x6027;&#xFF08;TP&#xFF09;;&#x8BEF;&#x62A5;&#xFF08;FP&#xFF09;;&#x771F;&#x9634;&#x6027;&#xFF08;TN&#xFF09;;&#x548C;&#x6F0F;&#x62A5;&#xFF08;FN&#xFF09;&#x3002;</p>
+<p>&#x51C6;&#x786E;&#x5EA6;&#xFF08;1&#xFF09;&#x8868;&#x793A;&#x6B63;&#x786E;&#x5206;&#x7C7B;&#x7684;&#x6848;&#x4F8B;&#x4E0E;&#x603B;&#x6848;&#x4F8B;&#x4E4B;&#x95F4;&#x7684;&#x6BD4;&#x4F8B;&#x3002;&#x8BEF;&#x62A5;&#x7387;&#xFF08;fpr&#xFF09;&#xFF08;2&#xFF09;&#x8868;&#x793A;&#x9519;&#x8BEF;&#x9884;&#x6D4B;&#x7684;&#x6587;&#x4EF6;&#x4E0E;&#x5B9E;&#x9645;&#x4E2D;&#x6027;&#x6587;&#x4EF6;&#x6613;&#x53D7;&#x653B;&#x51FB;&#x7684;&#x6BD4;&#x7387;&#x3002;&#x9AD8;fpr&#x663E;&#x793A;&#x6A21;&#x578B;&#x5C06;&#x8BB8;&#x591A;&#x5B9E;&#x4F8B;&#x4F5C;&#x4E3A;&#x8BEF;&#x62A5;&#x8FD4;&#x56DE;&#x7ED9;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x3002;</p>
+<p>$$
+accuracy = \cfrac{T P + T N}{T P + F N + T N + F P}</p>
+<p>$$</p>
+<p>$$
+fpr = \cfrac{F P}{T N + F P}</p>
+<p>$$</p>
+<p>&#x6211;&#x4EEC;&#x8FD8;&#x4F7F;&#x7528;&#x4E86;&#x957F;&#x671F;&#x7528;&#x4E8E;&#x8868;&#x5F81;&#x7CFB;&#x7EDF;&#x6709;&#x6548;&#x6027;&#x7684;&#x6307;&#x6807;&#xFF0C;&#x7279;&#x522B;&#x662F;&#x5728;&#x4FE1;&#x606F;&#x68C0;&#x7D22;&#x9886;&#x57DF;&#x3002;&#x7CBE;&#x5EA6;&#xFF08;3&#xFF09;&#x8868;&#x793A;&#x6B63;&#x786E;&#x9884;&#x6D4B;&#x7684;&#x6613;&#x53D7;&#x653B;&#x51FB;&#x6587;&#x4EF6;&#x4E0E;&#x68C0;&#x6D4B;&#x5230;&#x7684;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x7684;&#x6BD4;&#x7387;&#x3002;Recall&#xFF08;4&#xFF09;&#x63CF;&#x8FF0;&#x4E86;&#x6A21;&#x578B;&#x6B63;&#x786E;&#x9884;&#x6D4B;&#x4E3A;&#x6613;&#x53D7;&#x653B;&#x51FB;&#x7684;&#x771F;&#x5B9E;&#x6613;&#x53D7;&#x653B;&#x51FB;&#x6587;&#x4EF6;&#x7684;&#x767E;&#x5206;&#x6BD4;&#x3002;&#x4E5F;&#x79F0;&#x4E3A;&#x771F;&#x9633;&#x6027;&#x7387;&#xFF0C;&#x5B83;&#x4E0E;&#x6A21;&#x578B;&#x5982;&#x4F55;&#x8986;&#x76D6;&#x6613;&#x53D7;&#x653B;&#x51FB;&#x7684;&#x5B9E;&#x4F8B;&#x6709;&#x5173;&#x3002;&#x6700;&#x540E;&#xFF0C;FMeasure&#xFF08;5&#xFF09;&#xFF0C;&#x4E5F;&#x79F0;&#x4E3A;F1Score&#xFF0C;&#x4EE3;&#x8868;&#x7CBE;&#x5EA6;&#x548C;&#x53EC;&#x56DE;&#x7684;&#x8C03;&#x548C;&#x5E73;&#x5747;&#x503C;&#x3002;</p>
+<p>$$
+precision = \cfrac{T P}{T P + F P}</p>
+<p>$$</p>
+<p>$$
+recall = \cfrac{T P}{T P + F N} = tpr</p>
+<p>$$</p>
+<p>$$
+FMeasure = 2 <em> \cfrac{precision </em> recall}{precision + recall} = F_1Score</p>
+<p>$$</p>
+<p>&#x867D;&#x7136;&#x8FD9;&#x4E9B;&#x6307;&#x6807;&#x89E3;&#x51B3;&#x4E86;&#x4E0D;&#x540C;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x4F46;&#x6240;&#x6709;&#x8FD9;&#x4E9B;&#x6307;&#x6807;&#x90FD;&#x5B58;&#x5728;&#x4E00;&#x4E9B;&#x53EF;&#x80FD;&#x5F71;&#x54CD;&#x5176;&#x6709;&#x7528;&#x6027;&#x548C;&#x4EE3;&#x8868;&#x6027;&#x7684;&#x504F;&#x89C1;[14]&#xFF1A;1&#xFF09;&#x9633;&#x6027;&#x6837;&#x4F8B;&#x7684;&#x60A3;&#x75C5;&#x7387;; 2&#xFF09;&#x6A21;&#x578B;&#x7684;&#x504F;&#x5DEE;; 3&#xFF09;&#x503E;&#x659C;; 4&#xFF09;&#x6210;&#x672C;&#x6BD4;&#x7387;&#x3002;&#x8FD9;&#x4E9B;&#x504F;&#x89C1;&#x4FC3;&#x4F7F;&#x6211;&#x4EEC;&#x5728;&#x5206;&#x6790;&#x4E2D;&#x5305;&#x542B;&#x4E0D;&#x540C;&#x7684;&#x6307;&#x6807;&#x3002;</p>
+<p>&#x53D7;&#x5230;&#x535A;&#x5F69;&#x516C;&#x53F8;&#x8D54;&#x7387;[15]&#x7684;&#x542F;&#x53D1;&#xFF0C;&#x63D0;&#x51FA;&#x4E86;&#x65E0;&#x504F;&#x89C1;&#x7684;&#x6307;&#x6807;&#x6765;&#x8868;&#x5F81;&#x8003;&#x8651;&#x5206;&#x7C7B;&#x6BD4;&#x4F8B;&#x7684;&#x9884;&#x6D4B;&#x56E0;&#x5B50;&#x7684;&#x6709;&#x6548;&#x6027;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;&#x6295;&#x6CE8;&#x8D54;&#x7387;&#x3002;Bookmaker Informedness&#xFF08;6&#xFF09;&#x63CF;&#x8FF0;&#x4E86;&#x9884;&#x6D4B;&#x56E0;&#x5B50;&#x7684;&#x6709;&#x6548;&#x6027;&#xFF0C;&#x8003;&#x8651;&#x4E86;&#x7ED3;&#x679C;&#x6BD4;&#x4F8B;&#x7684;&#x6D4B;&#x91CF;&#x3002;&#x5B83;&#x91CF;&#x5316;&#x4E86;&#x9884;&#x6D4B;&#x53D8;&#x91CF;&#x9884;&#x6D4B;&#x7ED3;&#x679C;&#x7684;&#x4E00;&#x81F4;&#x7A0B;&#x5EA6;&#xFF0C;&#x5373;&#x9884;&#x6D4B;&#x53D8;&#x91CF;&#x5BF9;&#x6307;&#x5B9A;&#x6761;&#x4EF6;&#x7684;&#x4FE1;&#x606F;&#x4E0E;&#x673A;&#x4F1A;&#x7684;&#x76F8;&#x5173;&#x6027;&#x3002;&#x53E6;&#x4E00;&#x65B9;&#x9762;&#xFF0C;Markedness&#xFF08;7&#xFF09;&#x91CF;&#x5316;&#x4E86;&#x7ED3;&#x679C;&#x5C06;&#x9884;&#x6D4B;&#x53D8;&#x91CF;&#x4F5C;&#x4E3A;&#x6807;&#x8BB0;&#x7684;&#x4E00;&#x81F4;&#x6027;&#xFF0C;&#x5373;&#x6307;&#x5B9A;&#x9884;&#x6D4B;&#x53D8;&#x91CF;&#x7684;&#x6761;&#x4EF6;&#x4E0E;&#x673A;&#x4F1A;&#x7684;&#x6807;&#x8BB0;&#x7A0B;&#x5EA6;&#x3002;</p>
+<p>$$
+Informedness =  \cfrac{T P}{T P + F N} - \cfrac{F P}{T N + F P}</p>
+<p>$$</p>
+<p>$$
+Markedness = \cfrac{T P}{T P + F P} - \cfrac{F N}{T N + F N}</p>
+<p>$$</p>
+<p><img src="Experimenting-machine-learning-techniques-to-predict-vulnerabilities/6.jpg" alt="table 3"></p>
+<h1 id="iii&#x7ED3;&#x679C;&#x548C;&#x8BA8;&#x8BBA;">III.&#x7ED3;&#x679C;&#x548C;&#x8BA8;&#x8BBA;</h1>
+<p>&#x5728;&#x5E73;&#x8861;&#x6570;&#x636E;&#x96C6;&#x4E2D;&#x5E94;&#x7528;&#x8BBA;&#x6587;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x6211;&#x4EEC;&#x5F97;&#x5230;&#x4E86;&#x8868;III&#x4E2D;&#x7684;&#x7ED3;&#x679C;&#x3002;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x89C2;&#x5BDF;&#x5230;&#xFF0C;&#x53D6;&#x5F97;&#x7684;&#x6210;&#x679C;&#x5DEE;&#x5F02;&#x5F88;&#x5927;&#x3002;&#x7CBE;&#x5EA6;&#x503C;&#x8303;&#x56F4;&#x4E3A;0.32&#xFF05;&#x81F3;30.50&#xFF05;&#xFF0C;&#x53EC;&#x56DE;&#x503C;&#x8303;&#x56F4;&#x4E3A;0.36&#xFF05;&#x81F3;100.00&#xFF05;&#x3002;</p>
+<p>&#x901A;&#x8FC7;&#x4F7F;&#x7528;&#x51B3;&#x7B56;&#x6811;&#x7B97;&#x6CD5;&#x7684;&#x65B9;&#x6CD5;&#x83B7;&#x5F97;&#x4E86;&#x7CBE;&#x786E;&#x5EA6;&#x65B9;&#x9762;&#x7684;&#x6700;&#x4F73;&#x7ED3;&#x679C;&#x3002; Logistic&#x56DE;&#x5F52;&#x5728;recall&#x65B9;&#x9762;&#x5448;&#x73B0;&#x51FA;&#x6700;&#x4F73;&#x7ED3;&#x679C;&#xFF0C;&#x4F46;&#x5728;&#x7CBE;&#x786E;&#x5EA6;&#x65B9;&#x9762;&#x8868;&#x73B0;&#x975E;&#x5E38;&#x7CDF;&#x7CD5;&#xFF0C;&#x8FD9;&#x964D;&#x4F4E;&#x4E86;&#x62A5;&#x544A;&#x5B9E;&#x4F8B;&#x7684;&#x53EF;&#x4FE1;&#x5EA6;&#x3002;&#x91CD;&#x8981;&#x7684;&#x662F;&#x8981;&#x6CE8;&#x610F;&#x8BE5;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x914D;&#x7F6E;&#x548C;&#x8C03;&#x6574;&#xFF0C;&#x5373;&#x914D;&#x7F6E;&#x8981;&#x4F7F;&#x7528;&#x7684;&#x9608;&#x503C;&#xFF0C;&#x4F46;&#x7531;&#x4E8E;&#x7F3A;&#x4E4F;&#x4FE1;&#x606F;&#xFF0C;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x4E86;Weka&#x7684;&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;&#x3002;</p>
+<p>&#x7CBE;&#x786E;&#x5EA6;&#x5EA6;&#x91CF;&#x7684;&#x7ED3;&#x679C;&#x5BF9;&#x4E8E;&#x63CF;&#x8FF0;&#x8FD9;&#x4E9B;&#x6280;&#x672F;&#x7684;&#x6709;&#x6548;&#x6027;&#x4F3C;&#x4E4E;&#x5E76;&#x4E0D;&#x5341;&#x5206;&#x6709;&#x7528;&#x3002;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x89C2;&#x5BDF;&#x5230;&#xFF0C;&#x8BB8;&#x591A;&#x6280;&#x672F;&#x7684;&#x51C6;&#x786E;&#x5EA6;&#x9AD8;&#x4E8E;50&#xFF05;&#xFF0C;&#x9664;&#x4E86;7&#x4E2A;&#x6848;&#x4F8B;&#x4ECE;7.59&#xFF05;&#x5230;45.33&#xFF05;&#x4E0D;&#x7B49;&#xFF0C;3&#x4E2A;&#x6848;&#x4F8B;&#x7B49;&#x4E8E;0.52&#xFF05;&#x3002;&#x7136;&#x800C;&#xFF0C;&#x5176;&#x4E2D;&#x8BB8;&#x591A;&#x6848;&#x4F8B;&#x7684;&#x7CBE;&#x786E;&#x5EA6;&#x4E0D;&#x5230;1&#xFF05;&#x3002;&#x7CBE;&#x786E;&#x5EA6;&#x91CF;&#x63D0;&#x4F9B;&#x7684;&#x7ED3;&#x679C;&#x4E5F;&#x6CA1;&#x90A3;&#x4E48;&#x6709;&#x7528;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x4E13;&#x6CE8;&#x4E8E;&#x8BEF;&#x62A5;&#x5E76;&#x5B8C;&#x5168;&#x5FFD;&#x7565;&#x6F0F;&#x62A5;&#x3002;&#x5982;&#x679C;&#x6A21;&#x578B;&#x8FC7;&#x4E8E;&#x4E13;&#x6CE8;&#x4E8E;&#x907F;&#x514D;&#x8BEF;&#x62A5;&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x6700;&#x7EC8;&#x4F1A;&#x62A5;&#x544A;&#x5C11;&#x91CF;&#x7684;&#x771F;&#x9633;&#x6027;&#x3002;
+&#x6807;&#x8BB0;&#x662F;&#x4E00;&#x4E2A;&#x66F4;&#x5B8C;&#x6574;&#x7684;&#x6307;&#x6807;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4E5F;&#x8BA4;&#x4E3A;&#x662F;&#x5047;&#x9634;&#x6027;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x6E05;&#x695A;&#x5730;&#x770B;&#x5230;&#xFF0C;&#x5927;&#x591A;&#x6570;&#x65B9;&#x6CD5;&#x7684;&#x7CBE;&#x5EA6;&#x503C;&#x975E;&#x5E38;&#x4F4E;&#x3002;&#x8FD9;&#x662F;&#x56E0;&#x4E3A;&#x5B66;&#x4E60;&#x6A21;&#x578B;&#x62A5;&#x544A;&#x7684;&#x8BEF;&#x62A5;&#x592A;&#x591A;&#xFF0C;&#x56E0;&#x4E3A;&#x4ED6;&#x4EEC;&#x4F7F;&#x7528;&#x5E73;&#x8861;&#x6570;&#x636E;&#x96C6;&#x8FDB;&#x884C;&#x8BAD;&#x7EC3;&#xFF0C;&#x4F46;&#x968F;&#x540E;&#x4F7F;&#x7528;&#x4E0D;&#x5E73;&#x8861;&#x6570;&#x636E;&#x96C6;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;&#x3002;&#x8FD9;&#x79CD;&#x4E0D;&#x5E73;&#x8861;&#x7684;&#x6570;&#x636E;&#x96C6;&#x5177;&#x6709;&#x66F4;&#x591A;&#x4E2D;&#x6027;&#x5B9E;&#x4F8B;&#xFF0C;&#x5176;&#x4E2D;&#x4E00;&#x4E9B;&#x6700;&#x7EC8;&#x62A5;&#x544A;&#x4E3A;&#x6613;&#x53D7;&#x653B;&#x51FB;&#x3002;</p>
+<p>&#x4E09;&#x79CD;&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#x4E86;100&#xFF05;&#x7684;&#x53EC;&#x56DE;&#xFF0C;&#x53E6;&#x5916;&#x516D;&#x79CD;&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#x4E86;&#x8D85;&#x8FC7;80&#xFF05;&#x7684;&#x53EC;&#x56DE;&#x3002;&#x867D;&#x7136;&#x8FD9;&#x770B;&#x8D77;&#x6765;&#x975E;&#x5E38;&#x4EE4;&#x4EBA;&#x5370;&#x8C61;&#x6DF1;&#x523B;&#xFF0C;&#x4F46;&#x5F53;&#x6211;&#x4EEC;&#x8003;&#x8651;&#x5230;&#x673A;&#x4F1A;&#x4EE5;&#x53CA;&#x5047;&#x9633;&#x6027;&#x548C;&#x771F;&#x9634;&#x6027;&#x7684;&#x5206;&#x5E03;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x7406;&#x89E3;&#x7ED3;&#x679C;&#x5E76;&#x4E0D;&#x50CF;&#x7B2C;&#x4E00;&#x773C;&#x770B;&#x4E0A;&#x53BB;&#x90A3;&#x4E48;&#x597D;&#x3002;&#x4E8B;&#x5B9E;&#x4E0A;&#xFF0C;&#x6CA1;&#x6709;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#x8FBE;&#x5230;Informedness&#x503C;&#x9AD8;&#x4E8E;45&#xFF05;&#x3002;&#x8FD9;&#x8868;&#x660E;&#xFF0C;&#x5728;&#x67D0;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x53EC;&#x56DE;&#x53EF;&#x80FD;&#x662F;&#x8BEF;&#x5BFC;&#x6027;&#x7684;&#x6307;&#x6807;&#x3002;</p>
+<p>&#x7531;&#x4E8E;&#x7CBE;&#x786E;&#x5EA6;&#x548C;&#x53EC;&#x56DE;&#x7387;&#x7684;&#x8FD9;&#x79CD;&#x9650;&#x5236;&#xFF0C;&#x6211;&#x4EEC;&#x51B3;&#x5B9A;&#x4F7F;&#x7528;&#x5EA6;&#x91CF;informedness &#x548C;markedness &#x5BF9;&#x6280;&#x672F;&#x8FDB;&#x884C;&#x66F4;&#x8BE6;&#x7EC6;&#x7684;&#x5206;&#x6790;&#xFF0C;&#x8FD9;&#x4E9B;&#x5206;&#x6790;&#x4E0D;&#x4F1A;&#x53D7;&#x5230;&#x504F;&#x5DEE;&#x7684;&#x5F71;&#x54CD;&#x3002;&#x56FE;3&#x663E;&#x793A;&#x4E86;&#x8FD9;&#x4E24;&#x4E2A;&#x6307;&#x6807;&#x7684;&#x6240;&#x6709;&#x65B9;&#x6CD5;&#x7684;&#x7ED3;&#x679C;&#x6458;&#x8981;&#x3002;</p>
+<p>&#x7B2C;&#x4E00;&#x4E2A;&#x89C2;&#x5BDF;&#x7ED3;&#x679C;&#x662F;&#x6811;&#x7684;&#x65B9;&#x6CD5;&#x5728;informedness &#x65B9;&#x9762;&#x660E;&#x663E;&#x4F18;&#x4E8E;&#x5176;&#x4ED6;&#x65B9;&#x6CD5;&#xFF1A;23,24,27&#x3002;&#x6B63;&#x5982;&#x6211;&#x4EEC;&#x6240;&#x770B;&#x5230;&#x7684;&#xFF0C;&#x65B9;&#x6CD5;6,7,8&#x663E;&#x7136;&#x8FDC;&#x79BB;&#x8FD9;&#x4E9B;&#x6811;&#x65B9;&#x6CD5;&#xFF0C;&#x5C3D;&#x7BA1;&#x5B83;&#x4EEC;&#x5448;&#x73B0;&#x51FA;&#x66F4;&#x9AD8;&#x7684;recall&#x6BD4;&#x90A3;&#x4E9B;&#x65B9;&#x6CD5;&#x3002;&#x4E8B;&#x5B9E;&#x4E0A;&#xFF0C;&#x53EA;&#x6BD4;&#x8F83;informedness &#x503C;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x5728;&#xFF08;4,6,7,8,26&#xFF09;&#x4E2D;&#x8003;&#x8651;&#x4E86;&#x4E00;&#x7CFB;&#x5217;&#x673A;&#x4F1A;&#x975E;&#x5E38;&#x5DEE;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x5982;&#x4E0A;&#x6240;&#x8FF0;&#xFF0C;&#x867D;&#x7136;&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#x4F3C;&#x4E4E;&#x5177;&#x6709;&#x975E;&#x5E38;&#x9AD8;&#x7684;&#x53EC;&#x56DE;&#x7387;&#xFF0C;&#x4F46;&#x5B9E;&#x9645;&#x4E0A;&#x8FD9;&#x79CD;&#x9AD8;&#x53EC;&#x56DE;&#x7387;&#x662F;&#x7531;&#x4E8E;&#x6240;&#x4EA7;&#x751F;&#x7684;&#x6A21;&#x578B;&#x62A5;&#x544A;&#x7684;&#x4E8B;&#x4EF6;&#x6BD4;&#x5176;&#x4F59;&#x65B9;&#x6CD5;&#x66F4;&#x4E3A;&#x79EF;&#x6781;&#xFF0C;&#x5BFC;&#x81F4;&#x8BEF;&#x62A5;&#x8FC7;&#x591A;&#x3002;</p>
+<p><img src="Experimenting-machine-learning-techniques-to-predict-vulnerabilities/5.jpg" alt=""></p>
+<h1 id="iv-&#x76F8;&#x5173;&#x5DE5;&#x4F5C;">IV &#x76F8;&#x5173;&#x5DE5;&#x4F5C;</h1>
+<p>I&#x8F6F;&#x4EF6;&#x5EA6;&#x91CF;&#x5DF2;&#x88AB;&#x591A;&#x6B21;&#x4F7F;&#x7528;&#xFF0C;&#x4EE5;&#x8BAD;&#x7EC3;&#x6709;&#x6548;&#x9884;&#x6D4B;&#x6545;&#x969C;&#x7684;&#x9884;&#x6D4B;&#x6A21;&#x578B;[16]&#xFF0C;[17]&#xFF0C;[18]&#x3002;&#x867D;&#x7136;&#x5708;&#x590D;&#x6742;&#x5EA6;&#x53D7;&#x5230;&#x4E86;&#x5F88;&#x591A;&#x5173;&#x6CE8;&#xFF0C;&#x4F46;&#x5176;&#x4ED6;&#x6307;&#x6807;&#x4E5F;&#x4E0E;&#x7406;&#x89E3;&#x4EE3;&#x7801;&#x6709;&#x5173;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x6709;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x8BA8;&#x8BBA;&#x4E86;&#x54EA;&#x4E2A;&#x662F;&#x201C;&#x6700;&#x5177;&#x9884;&#x6D4B;&#x6027;&#x201D;&#x7684;&#x6307;&#x6807;&#xFF1A;Cyclomatic Complexity&#x6216;LoC&#x6570;&#x91CF;[18]&#x3002;&#x6211;&#x4EEC;&#x8BA4;&#x4E3A;&#xFF0C;&#x5728;&#x5B89;&#x5168;&#x6F0F;&#x6D1E;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8FD9;&#x4E9B;&#x6307;&#x6807;&#x4E0E;&#x5177;&#x6709;&#x62A5;&#x544A;&#x6F0F;&#x6D1E;&#x7684;&#x4EE3;&#x7801;&#x4E4B;&#x95F4;&#x5B58;&#x5728;&#x67D0;&#x79CD;&#x5173;&#x7CFB;&#x3002;&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x56DE;&#x987E;&#x4E00;&#x4E0B;&#x8FD9;&#x4E9B;&#x5DE5;&#x4F5C;&#x5E76;&#x8BA8;&#x8BBA;&#x5B83;&#x4EEC;&#x7684;&#x4F18;&#x70B9;&#x548C;&#x7F3A;&#x70B9;&#x3002;</p>
+<p>&#x4E00;&#x4E9B;&#x5DE5;&#x4F5C;&#x96C6;&#x4E2D;&#x8BC4;&#x4F30;&#x548C;&#x6BD4;&#x8F83;&#x4E0D;&#x540C;&#x7684;&#x6280;&#x672F;&#x3002;&#x5BF9;&#x4E8E;&#x5B9E;&#x9645;&#x60C5;&#x51B5;&#xFF0C;&#x5C06;&#x4F7F;&#x7528;&#x6587;&#x672C;&#x6316;&#x6398;&#x6280;&#x672F;&#x83B7;&#x5F97;&#x7684;&#x7ED3;&#x679C;&#x4E0E;&#x57FA;&#x4E8E;&#x8F6F;&#x4EF6;&#x5EA6;&#x91CF;&#x7684;&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;&#xFF0C;&#x5982;[13]&#x4E2D;&#x6240;&#x8FF0;&#x3002;&#x8FD9;&#x4E9B;&#x5B9E;&#x9A8C;&#x57FA;&#x4E8E;&#x4E09;&#x4E2A;&#x5F00;&#x6E90;php&#x9879;&#x76EE;&#x7684;223&#x4E2A;&#x6F0F;&#x6D1E;&#xFF1A;Drupal&#xFF0C;Moodle&#x548C;PHPMyAdmin&#x3002;&#x5728;&#x6240;&#x6709;&#x4E09;&#x79CD;&#x5E94;&#x7528;&#x4E2D;&#xFF0C;&#x6587;&#x672C;&#x6316;&#x6398;&#x6A21;&#x578B;&#x5177;&#x6709;&#x6BD4;&#x8F6F;&#x4EF6;&#x5EA6;&#x91CF;&#x66F4;&#x9AD8;&#x7684;&#x53EC;&#x56DE;&#x7387;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x4F7F;&#x7528;&#x7684;&#x6570;&#x636E;&#x96C6;&#x5177;&#x6709;&#x660E;&#x663E;&#x7684;&#x4EE3;&#x8868;&#x6027;&#x95EE;&#x9898;</p>
+<p>&#x9274;&#x4E8E;CCC&#x6307;&#x6807;&#x5728;&#x8BC6;&#x522B;&#x6F0F;&#x6D1E;&#x65B9;&#x9762;&#x663E;&#x793A;&#x7684;&#x6709;&#x8DA3;&#x7ED3;&#x679C;&#xFF0C;[9]&#x63D0;&#x51FA;&#x4E86;&#x4E00;&#x4E2A;&#x6846;&#x67B6;&#xFF0C;&#x901A;&#x8FC7;&#x4F7F;&#x7528;CCC&#x6307;&#x6807;&#x548C;&#x73B0;&#x6709;&#x7684;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x6280;&#x672F;&#x81EA;&#x52A8;&#x9884;&#x6D4B;&#x6F0F;&#x6D1E;&#x3002;&#x901A;&#x8FC7;&#x5BF9;Mozilla Firefox&#x8FDB;&#x884C;&#x5B9E;&#x8BC1;&#x7814;&#x7A76;&#x5E76;&#x4F7F;&#x7528;&#x56DB;&#x4E2A;&#x9884;&#x6D4B;&#x5668;C4.5&#x51B3;&#x7B56;&#x6811;&#xFF0C;&#x968F;&#x673A;&#x68EE;&#x6797;&#xFF0C;Logistic&#x56DE;&#x5F52;&#x548C;Naive Bayes&#x6765;&#x9A8C;&#x8BC1;&#x6240;&#x63D0;&#x51FA;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x7ED3;&#x679C;&#x8868;&#x660E;&#xFF0C;&#x8FD9;&#x4E9B;&#x9884;&#x6D4B;&#x5668;&#x80FD;&#x591F;&#x9884;&#x6D4B;&#x4E0E;Mozilla Firefox&#x4E2D;&#x7684;&#x6587;&#x4EF6;&#x76F8;&#x5173;&#x7684;&#x5927;&#x90E8;&#x5206;&#x6F0F;&#x6D1E;&#x3002;
+[19]&#x4E2D;&#x7684;&#x5DE5;&#x4F5C;&#x63D0;&#x4F9B;&#x4E86;&#x51E0;&#x79CD;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x65B9;&#x6CD5;&#x7684;&#x6BD4;&#x8F83;&#x5206;&#x6790;&#xFF0C;&#x5176;&#x4E2D;&#x54EA;&#x4E9B;&#x65B9;&#x6CD5;&#x5728;&#x68C0;&#x6D4B;&#x4EE3;&#x7801;&#x6C14;&#x5473;&#x65B9;&#x9762;&#x66F4;&#x6709;&#x6548;&#x3002;&#x57FA;&#x4E8E;&#x624B;&#x52A8;&#x9A8C;&#x8BC1;&#x7684;&#x6570;&#x636E;&#x96C6;&#xFF0C;&#x5728;&#x603B;&#x5171;16&#x79CD;&#x7B97;&#x6CD5;&#x4E2D;&#x5305;&#x62EC;&#x82E5;&#x5E72;&#x6280;&#x672F;&#x548C;&#x914D;&#x7F6E;&#x3002;&#x5728;&#x68C0;&#x6D4B;&#x4EE3;&#x7801;&#x6C14;&#x5473;&#x65F6;&#xFF0C;&#x4E00;&#x4E9B;&#x6280;&#x672F;&#x7684;&#x51C6;&#x786E;&#x5EA6;&#x9AD8;&#x4E8E;96&#xFF05;&#xFF0C;&#x4F7F;&#x7528;&#x51B3;&#x7B56;&#x6811;&#x548C;&#x968F;&#x673A;&#x68EE;&#x6797;&#x7B97;&#x6CD5;&#x53EF;&#x4EE5;&#x83B7;&#x5F97;&#x6700;&#x4F73;&#x7ED3;&#x679C;&#x3002;</p>
+<h1 id="v&#x5BF9;&#x6709;&#x6548;&#x6027;&#x7684;&#x5A01;&#x80C1;">V.&#x5BF9;&#x6709;&#x6548;&#x6027;&#x7684;&#x5A01;&#x80C1;</h1>
+<p>&#x5B9E;&#x9A8C;&#x7684;&#x6709;&#x6548;&#x6027;&#x53D7;&#x5230;&#x4EE5;&#x4E0B;&#x5A01;&#x80C1;&#xFF1A;T1&#xFF09;&#x5E76;&#x975E;&#x6240;&#x6709;&#x65B9;&#x6CD5;&#x7684;&#x914D;&#x7F6E;&#x90FD;&#x53EF;&#x7528;&#xFF0C;&#x4E0D;&#x80FD;&#x4FDD;&#x8BC1;&#x5B9E;&#x9A8C;&#x5728;&#x7406;&#x60F3;&#x6761;&#x4EF6;&#x4E0B;&#x518D;&#x73B0;&#x3002; T2&#xFF09;&#x6570;&#x636E;&#x96C6;&#x5305;&#x542B;&#x62A5;&#x544A;&#x7684;&#x6F0F;&#x6D1E;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x80FD;&#x5B58;&#x5728;&#x4ECE;&#x672A;&#x8BC6;&#x522B;&#x7684;&#x6613;&#x53D7;&#x653B;&#x51FB;&#x7684;&#x4EE3;&#x7801;&#x3002; T3&#xFF09;&#x6700;&#x540E;&#x7684;&#x5A01;&#x80C1;&#x662F;&#xFF0C;&#x8FD9;&#x4E9B;&#x65B9;&#x6CD5;&#x4E2D;&#x7684;&#x67D0;&#x4E9B;&#x65B9;&#x6CD5;&#x662F;&#x9488;&#x5BF9;&#x4E0D;&#x540C;&#x8BED;&#x8A00;&#x63D0;&#x51FA;&#x7684;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x6570;&#x636E;&#x96C6;&#x4EE3;&#x7801;&#xFF1A;C / C ++&#x3002;</p>
+<h1 id="vi-&#x7ED3;&#x8BBA;">VI. &#x7ED3;&#x8BBA;</h1>
+<p>&#x672C;&#x5B9E;&#x8DF5;&#x7ECF;&#x9A8C;&#x62A5;&#x544A;&#x5BF9;&#x57FA;&#x4E8E;&#x8F6F;&#x4EF6;&#x6307;&#x6807;&#x7684;18&#x79CD;&#x6700;&#x5148;&#x8FDB;&#x7684;&#x6F0F;&#x6D1E;&#x9884;&#x6D4B;&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x4E86;&#x8BC4;&#x4F30;&#x3002;&#x6B64;&#x8BC4;&#x4F30;&#x57FA;&#x4E8E;&#x4E00;&#x4E2A;&#x5927;&#x578B;&#x4E14;&#x5177;&#x6709;&#x4EE3;&#x8868;&#x6027;&#x7684;&#x6570;&#x636E;&#x96C6;&#xFF0C;&#x8BE5;&#x6570;&#x636E;&#x96C6;&#x6784;&#x5EFA;&#x4E86;&#x4E94;&#x4E2A;&#x5E7F;&#x6CDB;&#x4F7F;&#x7528;&#x7684;&#x5F00;&#x6E90;&#x9879;&#x76EE;&#x4E2D;2875&#x4E2A;&#x6F0F;&#x6D1E;&#x7684;&#x4FE1;&#x606F;&#x3002;</p>
+<p>&#x6709;&#x53EF;&#x80FD;&#x89C2;&#x5BDF;&#x5230;&#x8FD9;&#x6837;&#x7684;&#x4F20;&#x7EDF;&#x6307;&#x6807;&#xFF0C;&#x5982;&#x51C6;&#x786E;&#x6027;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#x53EF;&#x80FD;&#x4E0D;&#x662F;&#x5F88;&#x6709;&#x7528;&#xFF0C;&#x800C;&#x4E14;&#x5373;&#x4F7F;&#x4F7F;&#x7528;&#x5E73;&#x8861;&#x6570;&#x636E;&#x96C6;&#xFF0C;&#x7CBE;&#x5EA6;&#x548C;&#x53EC;&#x56DE;&#x4E5F;&#x53EF;&#x80FD;&#x7565;&#x6709;&#x8BEF;&#x5BFC;&#x3002;&#x53E6;&#x4E00;&#x65B9;&#x9762;&#xFF0C;&#x8BF8;&#x5982;informedness &#x548C;markedness &#x7B49;&#x6307;&#x6807;&#x66F4;&#x6709;&#x6548;&#x3002;</p>
+<p>&#x7ED3;&#x679C;&#x8868;&#x660E;&#xFF0C;&#x4E00;&#x4E9B;&#x65B9;&#x6CD5;&#x660E;&#x663E;&#x4F18;&#x4E8E;&#x5176;&#x4ED6;&#x65B9;&#x6CD5;&#xFF0C;&#x968F;&#x673A;&#x68EE;&#x6797;&#x5B9E;&#x65BD;&#x5728;&#x6240;&#x8003;&#x8651;&#x7684;&#x6240;&#x6709;&#x6307;&#x6807;&#x4E2D;&#x90FD;&#x53D6;&#x5F97;&#x4E86;&#x975E;&#x5E38;&#x9AD8;&#x7684;&#x7ED3;&#x679C;&#x3002;
+&#x672A;&#x6765;&#x7684;&#x5DE5;&#x4F5C;&#x5305;&#x62EC;&#x6839;&#x636E;&#x6240;&#x8003;&#x8651;&#x7684;&#x8BED;&#x8A00;&#x6269;&#x5927;&#x8BE5;&#x5206;&#x6790;&#x7684;&#x8303;&#x56F4;&#xFF0C;&#x4EE5;&#x53CA;&#x8106;&#x5F31;&#x6027;&#x9884;&#x6D4B;&#x7B97;&#x6CD5;&#x7684;&#x57FA;&#x51C6;&#x7A0B;&#x5E8F;&#x63D0;&#x6848;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="ExploitMeter-Combining-Fuzzing-with-Machine-Learning-for-Automated-Evaluation-of-Software-Exploitability.html" class="navigation navigation-prev " aria-label="Previous page: ExploitMeter: Combining Fuzzing with Machine Learning for Automated Evaluation of Software Exploitability">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="A-Review-of-Machine-Learning-in-Software-Vulnerability-Research.html" class="navigation navigation-next " aria-label="Next page: A Review of Machine Learning in Software Vulnerability Research">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Experimenting machine learning techniques to predict vulnerabilities","level":"1.9.2.20","depth":3,"next":{"title":"A Review of Machine Learning in Software Vulnerability Research","level":"1.9.2.21","depth":3,"path":"Paper/Fuzzing/papers/A-Review-of-Machine-Learning-in-Software-Vulnerability-Research.md","ref":"Paper/Fuzzing/papers/A-Review-of-Machine-Learning-in-Software-Vulnerability-Research.md","articles":[]},"previous":{"title":"ExploitMeter: Combining Fuzzing with Machine Learning for Automated Evaluation of Software Exploitability","level":"1.9.2.19","depth":3,"path":"Paper/Fuzzing/papers/ExploitMeter-Combining-Fuzzing-with-Machine-Learning-for-Automated-Evaluation-of-Software-Exploitability.md","ref":"Paper/Fuzzing/papers/ExploitMeter-Combining-Fuzzing-with-Machine-Learning-for-Automated-Evaluation-of-Software-Exploitability.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["toggle-chapters","splitter","intopic-toc"],"pluginsConfig":{"intopic-toc":{"label":{"de":"In diesem Artikel","en":"In this article"},"selector":".markdown-section h1","visible":true},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"toggle-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Paper/Fuzzing/papers/Experimenting-machine-learning-techniques-to-predict-vulnerabilities.md","mtime":"2019-04-15T01:32:14.259Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-04-15T01:33:52.852Z"},"basePath":"../../..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../../../gitbook/gitbook.js"></script>
+    <script src="../../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-toggle-chapters/toggle.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-intopic-toc/anchor.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-intopic-toc/gumshoe.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-intopic-toc/plugin.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../../../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
